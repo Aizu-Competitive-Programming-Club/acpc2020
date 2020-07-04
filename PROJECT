@@ -1,0 +1,19 @@
+# -*- coding: utf-8; mode: python -*-
+
+## You can load plugins here.
+#use_plugin('pack_mjudge')
+
+use_plugin('rime_plus')
+#use_plugin('judge_system.atcoder')
+
+project(library_dir='common', required_rime_plus_version='1.0.0')
+
+
+'''
+atcoder_config(
+  upload_script='***',
+  contest_url='https://***.contest.atcoder.jp/',
+  username='***', password='***',
+  lang_ids={'c': 13, 'cxx': 10, 'java': 3}
+)
+'''
