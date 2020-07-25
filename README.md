@@ -1,10 +1,29 @@
 # acpc2020
 
+### Pros
+- 制約を一元管理
+- サンプルの自動挿入
+- CI
+
+### Cons
+- 誤差ジャッジ　ない
+- C++ だけ
+
 
 ### 準備
 ```
 pip install -r requirements.txt
 ```
+
+### 原案
+issue に原案を書く（driveではなく） "Labels" から "Problem" のラベルをつけておく
+
+[問題の様子](https://docs.google.com/spreadsheets/d/1wsrpUeR21S00EFWw1Z-HYIfQm0EckRZMM6kEBML0zBg/) に動線を貼る。
+
+採用後、task.mdを書いたらissueの本文を削除する（毎年混乱の元なので）
+
+例：https://github.com/Aizu-Competitive-Programming-Club/acpc2020/issues/1
+
 
 ### 問題作成
 ```
@@ -29,12 +48,3 @@ cd $Problem
 | generator | gen |
 | validator | verifier.cpp |
 | checker | checker.cpp |
-
-### Pros
-- 制約を一元管理
-- サンプルの自動挿入
-- CI
-
-### Cons
-- 誤差ジャッジ　ない
-- C++ だけ
