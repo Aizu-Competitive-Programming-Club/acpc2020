@@ -229,7 +229,7 @@ html_header = '''
             lang = getLang();
             document.getElementById("nav-lang").text = `Lang(${lang})`;
 
-            
+
             document.querySelectorAll(".lang-en, .lang-ja").forEach(function(e) {
                 if (e.classList.contains(`lang-${lang}`)) {
                     e.style.display = 'block';
@@ -305,4 +305,3 @@ class ToHTMLConverter:
 
     def check_all_samples_used(self) -> bool:
         return self.examples.check_all_used()
-

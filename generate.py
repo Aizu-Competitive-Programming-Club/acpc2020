@@ -65,7 +65,7 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        if platform.system() == 'Windows': cmd = ['cmd', '/C', 'type', str(inpath)] # Windows' built-in command 
+        if platform.system() == 'Windows': cmd = ['cmd', '/C', 'type', str(inpath)] # Windows' built-in command
         else: cmd = ['cat', str(inpath)]
         return cmd
     else:
@@ -104,7 +104,7 @@ class Problem:
         logger.warning(message)
         if not self.ignore_warning:
             raise RuntimeError(message)
-    
+
     def health_check(self):
         if 'title' not in self.config:
             self.warning('no title: {}'.format(self.basedir))
@@ -379,7 +379,7 @@ class Problem:
         html = self.gen_html()
         if not html.check_all_samples_used():
             self.warning('all samples are not used')
-        path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.name + '.html')
+        path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.resolve().name + '.html')
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
@@ -558,7 +558,7 @@ def main(args: List[str]):
                 'ERROR':    'red',
                 'CRITICAL': 'red,bg_white',
             })
-        handler.setFormatter(formatter)    
+        handler.setFormatter(formatter)
         basicConfig(
             level=getenv('LOG_LEVEL', 'INFO'),
             handlers=[handler]
@@ -568,7 +568,7 @@ def main(args: List[str]):
     parser.add_argument('toml', nargs='*', help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',
                         help='Generate problem', default=[])
-    
+
     parser.add_argument('--dev', action='store_true', help='Developer Mode')
     parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
@@ -603,10 +603,10 @@ def main(args: List[str]):
     if opts.htmldir:
         logger.info('Make htmldir')
         Path(opts.htmldir).mkdir(exist_ok=True, parents=True)
-    
+
     # suppress the annoying dialog appears when an application crashes on Windows
     if platform.uname().system == 'Windows':
-        import ctypes 
+        import ctypes
         SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
         ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
