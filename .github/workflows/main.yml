@@ -9,6 +9,7 @@ on:
 jobs:
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[run ci]') == true
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.5.9
