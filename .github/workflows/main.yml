@@ -7,6 +7,10 @@ on:
   pull_request:
 
 jobs:
+  echo-commit-message:
+    env: GITHUB_CONTEXT: ${{ toJson(github) }}
+    run: echo "$GITHUB_CONTEXT"
+
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, '[run ci]') == true
