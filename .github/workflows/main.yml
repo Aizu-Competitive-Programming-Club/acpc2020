@@ -8,9 +8,13 @@ on:
 
 jobs:
   echo-commit-message:
-    env:
-      GITHUB_CONTEXT: ${{ toJson(github) }}
-    run: echo "$GITHUB_CONTEXT"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name : GITHUB CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
