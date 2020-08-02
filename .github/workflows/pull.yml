@@ -13,16 +13,6 @@ jobs:
         name: get commit message
         run: echo "::set-output name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})"
 
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: get commit message
-        run: |
-           echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
-      - name: show commit message
-        run : echo $commitmsg
-
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
     needs: check
