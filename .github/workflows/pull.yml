@@ -17,7 +17,9 @@ jobs:
     needs: check
     steps:
       - name: debug
-      	run: echo ${{ needs.check.outputs.commitmsg }}
+        env:
+	  commitmsg: ${{ needs.check.outputs.commitmsg }}
+      	run: echo $commitmsg
 
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
