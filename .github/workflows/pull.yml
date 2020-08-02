@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: debug
         env:
-          commitmsg: ${{ toJson(needs.check.outputs.commitmsg) }}
+          commitmsg: ${{ toJson(needs.check.outputs) }}
       	run: echo $commitmsg
 
   gcc-ubuntu-diffrun:
