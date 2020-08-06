@@ -6,7 +6,6 @@
 - CI
 
 ### Cons
-- 誤差ジャッジ　ない
 - C++ だけ
 
 
@@ -39,6 +38,12 @@ cd $Problem
 ./test.sh
 ```
 をして、エラーが出ないことを確認してからPushすること
+
+CIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
+例：
+```
+git commit -m '[run ci] add SpecialChat'
+```
 
 ### いじるとこ
 | 対象 | 場所 |
