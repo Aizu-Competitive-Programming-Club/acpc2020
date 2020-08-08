@@ -1,0 +1,34 @@
+title = 'Islands'
+timelimit = 8.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "small.cpp"
+    number = 100
+
+[[tests]]
+    name = "random.cpp"
+    number = 3
+
+[[solutions]]
+    name = "bf.cpp"
+    wrong = true
+
+[params]
+    HW_MIN = 1
+    HW_MAX = 2_000
+    Q_MIN = 1
+    Q_MAX = 1_000_000
+    SMALL_HW_MIN = 1
+    SMALL_HW_MAX = 100
+    SMALL_Q_MIN = 1
+    SMALL_Q_MAX = 1_000
+    P_ALL = 10
+    mod = 2048
+    roll = 427
+    cst = 1821
+    
