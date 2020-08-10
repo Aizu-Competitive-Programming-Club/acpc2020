@@ -14,6 +14,10 @@ forum = ""
     name = "wa.cpp"
     wrong = true
 
+
+[[solutions]]
+    name = "ok.cpp"
+    
 [params]
     P_MIN = 1
     P_MAX = 100_000
