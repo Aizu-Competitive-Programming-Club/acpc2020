@@ -20,6 +20,9 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
+[[solutions]]
+    name = "Endered.cpp"
+
 [params]
     A_AND_B_MIN = 0
     A_AND_B_MAX = 100_000_000
