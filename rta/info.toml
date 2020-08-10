@@ -26,6 +26,9 @@ forum = ""
 [[solutions]]
     name = "Endered.cpp"
 
+[[solutions]]
+    name = "ok.cpp"  
+
 [params]
     A_AND_B_MIN = 0
     A_AND_B_MAX = 100_000_000
