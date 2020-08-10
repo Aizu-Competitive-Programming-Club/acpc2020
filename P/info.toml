@@ -1,0 +1,19 @@
+title = 'P'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+
+[params]
+    P_MIN = 1
+    P_MAX = 100_000
