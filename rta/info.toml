@@ -18,11 +18,13 @@ forum = ""
     name = "beet.cpp"
 
 [[solutions]]
-<<<<<<< HEAD
     name = "shot.cpp"
-=======
+
+[[solutions]]
+    name = "keymoon.cpp"
+
+[[solutions]]
     name = "Endered.cpp"
->>>>>>> e7290fd44d909a62b81f351f5d6f4470a1e68c78
 
 [params]
     A_AND_B_MIN = 0
