@@ -1,0 +1,21 @@
+title = 'SpecialChat'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 2
+    N_MAX = 100_000
+    XY_MIN = -1_000_000_000
+    XY_MAX = 1_000_000_000

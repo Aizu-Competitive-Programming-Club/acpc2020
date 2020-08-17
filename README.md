@@ -55,3 +55,58 @@ git commit -m '[run ci] add SpecialChat'
 | generator | gen |
 | validator | verifier.cpp |
 | checker | checker.cpp |
+<!-- start * -->
+<!-- start Islands-->
+## Islands
+### Time Limit: 8.0
+| solution name | type |
+|----|----|
+|bf.cpp|WA|
+<!-- end Islands -->
+
+<!-- start RTA-->
+## RTA
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+|beet.cpp|AC|
+|shot.cpp|AC|
+|keymoon.cpp|AC|
+|Endered.cpp|AC|
+|ok.cpp|AC|
+<!-- end RTA -->
+
+<!-- start Monochrome Stone-->
+## Monochrome Stone
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end Monochrome Stone -->
+
+<!-- start SpecialChat-->
+## SpecialChat
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end SpecialChat -->
+
+<!-- start A + B-->
+## A + B
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end A + B -->
+
+<!-- start DEG MUL SUM-->
+## DEG MUL SUM
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end DEG MUL SUM -->
+
+<!-- end * -->
