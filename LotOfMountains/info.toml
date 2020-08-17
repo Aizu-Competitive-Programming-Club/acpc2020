@@ -10,6 +10,13 @@ forum = ""
     name = "random.cpp"
     number = 10
 
+[[solutions]]
+    name = "wa-1e-5.cpp"
+    wrong = true
+
+[[solutions]]
+    name = "rel-1e-7.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 100_000
