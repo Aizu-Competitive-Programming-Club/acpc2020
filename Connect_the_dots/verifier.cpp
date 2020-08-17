@@ -4,8 +4,14 @@
 int main() {
     registerValidation();
 
-    inf.readInt(P_MIN, P_MAX); // P
+    int n = inf.readInt(N_MIN, N_MAX);
     inf.readChar('\n');
+    for(int i=0;i<n;i++){
+      inf.readInt(XY_MIN, XY_MAX);
+      inf.readChar(' ');
+      inf.readInt(XY_MIN, XY_MAX);
+      inf.readChar('\n');
+    }
     inf.readEof();
     return 0;
 }

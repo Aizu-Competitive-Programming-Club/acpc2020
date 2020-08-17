@@ -15,5 +15,7 @@ forum = ""
     wrong = true
 
 [params]
-    P_MIN = 1
-    P_MAX = 100_000
+    N_MIN = 2
+    N_MAX = 100_000
+    XY_MIN = -1_000_000_000
+    XY_MAX = 1_000_000_000
