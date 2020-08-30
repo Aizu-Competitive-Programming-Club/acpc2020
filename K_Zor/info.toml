@@ -20,7 +20,11 @@ forum = ""
 
 [[tests]]
     name = "large_loop.cpp"
-    number = 20
+    number = 10
+
+[[tests]]
+    name = "maximum_loop.cpp"
+    number = 10
 
 [[tests]]
     name = "critical1.cpp"
