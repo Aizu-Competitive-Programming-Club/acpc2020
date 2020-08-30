@@ -8,10 +8,30 @@ forum = ""
 
 [[tests]]
     name = "random.cpp"
+    number = 10
+
+[[tests]]
+    name = "random2.cpp"
+    number = 10
+
+[[tests]]
+    name = "small_loop.cpp"
+    number = 10
+
+[[tests]]
+    name = "large_loop.cpp"
     number = 20
 
-#[[solutions]]
-#    name = "wa.cpp"
+[[tests]]
+    name = "critical1.cpp"
+    number = 2
+
+[[tests]]
+    name = "critical2.cpp"
+    number = 2
+
+[[solutions]]
+    name = "wa.cpp"
 #    wrong = true
 
 [[solutions]]

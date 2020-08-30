@@ -71,12 +71,26 @@ int main(){
     msk.push_back(tmp);
     base+=L;
   }
-  auto shift=
+
+  vector<int> dif(NUM,1);
+  /*
+  auto shift1=
     [&](const BT &X,int k){
       BT tmp;
       for(int i=0;i<NUM;i++){
         int L=lg[i];
         int b=k%L;
+        tmp|=msk[i]&((msk[i]&X)<<b|(msk[i]&X)>>(L-b)); 
+      }
+      return tmp;
+    };
+  */
+  auto shift2=
+    [&](const BT &X){
+      BT tmp;
+      for(int i=0;i<NUM;i++){
+        int L=lg[i];
+        int b=dif[i];
         tmp|=msk[i]&((msk[i]&X)<<b|(msk[i]&X)>>(L-b)); 
       }
       return tmp;
@@ -105,10 +119,11 @@ int main(){
     vector<BT> TMP;
     for(auto &I:B){
       TMP.push_back(I);
-      TMP.push_back(shift(I,1));
+      TMP.push_back(shift2(I));
     }
     gauss(TMP);
     B=TMP;
+    for(int j=0;j<NUM;j++){dif[j]*=2; dif[j]%=lg[j];}
   }
   cout<<mod_pow(2,B.size())<<endl;
 

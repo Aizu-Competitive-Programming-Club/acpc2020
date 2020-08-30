@@ -67,8 +67,10 @@ int main(){
         ull msk=MSK(lf,rg);
         ull x=k&msk;
         int A=a%(rg-lf);
-        assert(((x<<A)&(x>>(rg-lf-A)))==0);
-        x=(x<<A)|(x>>(rg-lf-A));
+        ull tmp1=x<<A;
+        ull tmp2=A==0?0:x>>(rg-lf-A);
+        assert((tmp1&tmp2)==0);
+        x=tmp1|tmp2;
         x&=msk;
         ret^=x;
       }
