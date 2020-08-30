@@ -1,0 +1,23 @@
+title = 'zor'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 20
+
+#[[solutions]]
+#    name = "wa.cpp"
+#    wrong = true
+
+[[solutions]]
+    name = "tubuann.cpp"
+
+[params]
+    K=64
+    MIN_N = 1
+    MAX_N = 10
