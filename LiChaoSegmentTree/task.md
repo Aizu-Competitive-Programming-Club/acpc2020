@@ -14,10 +14,9 @@ $N$本の直線$y = A_ix + B_i$が存在します。
 - 入力は全て整数
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $@{param.A_MIN} \leq A_i \leq @{param.A_MAX}$
-- $@{param.B_MIN} \leq B_i \leq @{param.B_MAX}$
-- $@{param.X_MIN} \leq P_i \leq @{param.X_MAX}$
-
+- $A_i \leq |@{param.A_MAX}|$
+- $B_i \leq |@{param.B_MAX}|$
+- $P_i \leq |@{param.X_MAX}|$
 
 ## @{keyword.input}
 
@@ -28,13 +27,13 @@ $2$行目から$N+1$行目にかけて、直線を表す整数$A_i, B_i$が与�
 $N+2$行目から$N+Q+2$行目にかけて、整数$L_i, R_i, P_i$が与えられます。
 
 ```
-$N Q$
-$A_1 B_1$
+$N$ $Q$
+$A_1$ $B_1$
 $\vdots$
-$A_N B_N$
-$L_1 R_1 P_1$
+$A_N$ $B_N$
+$L_1$ $R_1$ $P_1$
 $\vdots$
-$L_Q R_Q P_Q$
+$L_Q$ $R_Q$ $P_Q$
 ```
 
 ## @{keyword.output}
