@@ -10,7 +10,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     long long P = gen.uniform<long long>(P_MIN, P_MAX);
-    long long N = gen.uniform<long long>(N_MIN, max(N_MIN, min(P_MAX/10, N_MAX));
+    long long N = gen.uniform<long long>(N_MIN, max(N_MIN, min(P_MAX/10, N_MAX)));
     
     long long sum = 0;
     vector<long long> A(N), B(N);
