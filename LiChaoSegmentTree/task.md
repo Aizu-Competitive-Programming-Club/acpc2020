@@ -14,9 +14,10 @@ $N$本の直線$y = A_ix + B_i$が存在します。
 - 入力は全て整数
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $A_i \leq |@{param.A_MAX}|$
-- $B_i \leq |@{param.B_MAX}|$
-- $P_i \leq |@{param.X_MAX}|$
+- $@{param.N_MIN} \leq L_i \leq R_i \leq N$
+- $|P_i| \leq @{param.X_MAX}$
+- $|A_i| \leq @{param.A_MAX}$
+- $|B_i| \leq @{param.B_MAX}$
 
 ## @{keyword.input}
 
