@@ -2,7 +2,7 @@
 
 @{lang.ja}
 
-$N$本の直線$y = A_i*x + B_i$が存在します。
+$N$本の直線$y = A_ix + B_i$が存在します。
 次のクエリを$Q$回処理してください。
 
 - $L_i$本目の直線から$R_i$本目までの直線が$x = P_i$で取る$y$座標のうち、最小値を出力
@@ -13,7 +13,7 @@ $N$本の直線$y = A_i*x + B_i$が存在します。
 
 - 入力は全て整数
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
-- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAx}$
+- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $@{param.A_MIN} \leq A_i \leq @{param.A_MAX}$
 - $@{param.B_MIN} \leq B_i \leq @{param.B_MAX}$
 - $@{param.X_MIN} \leq P_i \leq @{param.X_MAX}$
@@ -22,7 +22,9 @@ $N$本の直線$y = A_i*x + B_i$が存在します。
 ## @{keyword.input}
 
 $1$行目に直線の本数$N$と、クエリの数$Q$が与えられます。
+
 $2$行目から$N+1$行目にかけて、直線を表す整数$A_i, B_i$が与えられます。
+
 $N+2$行目から$N+Q+2$行目にかけて、整数$L_i, R_i, P_i$が与えられます。
 
 ```
@@ -42,5 +44,4 @@ $L_Q R_Q P_Q$
 ## @{keyword.sample}
 
 @{example.example_00}
-
 @{example.example_01}
