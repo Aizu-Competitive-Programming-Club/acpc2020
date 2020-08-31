@@ -13,7 +13,7 @@ $$x\ \mathrm{zor}\ y=\sum_{n=0}^{\infty} ((x_n+y_{P(n)})\bmod 2)2^n$$
 この演算zorの性質を調べるためにデグくんはいくつかのテストをすることにしました。非負整数の集合$A=\\{A_1,\ldots,A_N\\}$が与えられます。集合$S_n\ (n=0,1,2,\ldots)$を以下のように定めます。
 
 - $S_0=A$
-- $n>0$なら$S_n=S_{n-1}\cup \\{x \mathrm{zor} y\mid x,y\in S_{n-1}\\}$
+- $n>0$なら$S_n=S_{n-1}\cup \\{x\ \mathrm{zor}\ y\mid x,y\in S_{n-1}\\}$
 
 $\displaystyle S=\bigcup_{n=0}^{\infty}S_n$としたとき、$S$の要素数$|S|$を$998244353$で割ったあまりを求めてください。ただしこの問題の制約のもと$|S|$は有限であることが証明できます。
 
