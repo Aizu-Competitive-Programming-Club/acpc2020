@@ -25,10 +25,10 @@
 ## @{keyword.input}
 
 ```
-  $N$ $W$ $B$
-  $w_1$ $b_1$
-  $\hspace{11pt} \vdots$
-  $w_N$ $b_N$
+$N$ $W$ $B$
+$w_1$ $b_1$
+$\hspace{11pt} \vdots$
+$w_N$ $b_N$
 ```
 
 ## @{keyword.output}
