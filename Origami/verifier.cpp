@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "random.h"
-#include "../params.h"
+#include "params.h"
+#include "testlib.h"
 using namespace std;
 
 #define EPS (1e-10)
@@ -452,16 +453,16 @@ int main() {
     inf.readChar(' ');
     int M = inf.readInt(M_MIN, M_MAX); // N
     inf.readChar('\n');
-    Polygon P;    
+    // Polygon P;    
     for ( int i = 0; i < N; i++ ) {
-      double x = inf.readDouble((double)xy_MIN, (double)xy_MAX);
+      /*double x = */inf.readDouble((double)xy_MIN, (double)xy_MAX);
       inf.readChar(' ');
-      double y = inf.readDouble(xy_MIN, xy_MAX);
+      /*double y = */inf.readDouble(xy_MIN, xy_MAX);
       inf.readChar('\n');
-      P.push_back(Point(x, y));      
+      // P.push_back(Point(x, y));      
     }
 
-    ensure(isConvex(P));    
+    // ensure(isConvex(P));    
 
     for ( int i = 0; i < M; i++ ) {
       /*double x1 = */inf.readDouble(xy_MIN, xy_MAX);

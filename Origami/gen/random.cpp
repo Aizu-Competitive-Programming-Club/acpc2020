@@ -456,6 +456,8 @@ int main(int, char* argv[]) {
       int y = gen.uniform<int>(xy_MIN, xy_MAX);
       P.push_back(Point(x, y));      
     }
+    sort(P.begin(), P.end());    
+    P.erase(unique(P.begin(), P.end()), P.end());
     P = convex_hull(P);
     N = P.size();
     

@@ -355,6 +355,8 @@ Polygon andrewScan(Polygon s){
 }
 
 Polygon convex_hull(Polygon ps){
+  sort(ps.begin(), ps.end());  
+  ps.erase(unique(ps.begin(), ps.end()), ps.end());  
   int n=ps.size();
   sort(ps.begin(),ps.end(),sort_y);
   int k=0;
@@ -457,7 +459,7 @@ signed main() {
   {
     Polygon P(N);
     REP(i, N) cin >> P[i].x >> P[i].y;    
-    Ps.push_back(convex_hull(P));    
+    Ps.push_back(convex_hull(P));
   }
   
   REP(i, M) {
@@ -472,8 +474,6 @@ signed main() {
     }
     Ps = n_Ps;    
   }
-
-  for ( Polygon &P: Ps ) cout << P.size() << endl;  
 
   vector<double> ans((1<<M), 0);
   vector<Segment> ss;
@@ -503,7 +503,6 @@ signed main() {
     events = tmp;    
   }
 
-  // for ( auto i: events ) cout << i << endl;  
   // 平面捜査
   using Pdd = pair<double, double>; 
   for ( int i = 1; i < (int)events.size(); i++ ) {
@@ -511,24 +510,33 @@ signed main() {
     Segment s1(Point(events[i-1], -2e9), Point(events[i-1], 2e9));    
     vector<Pdd> cross_y;    
     for ( Segment &s: ss ) {      
-      if ( getDistanceSS(s, s1) > EPS && getDistanceSS(s, s2) > EPS ) continue;
+      if ( getDistanceSS(s, s1) > EPS || getDistanceSS(s, s2) > EPS ) continue;
       cross_y.push_back(Pdd(getCrossPointSS(s1, s).y, getCrossPointSS(s2, s).y));      
     }
 
-    sort(cross_y.begin(), cross_y.end());
+    sort(cross_y.begin(), cross_y.end()); 
     double height = events[i] - events[i-1]; // 台形の高さ
+    if ( height < EPS ) continue;    
     for ( int j = 1; j < (int)cross_y.size(); j++ ) {
       double a = cross_y[j].first  - cross_y[j-1].first; // 上底
       double b = cross_y[j].second - cross_y[j-1].second; // 下底
-      Point middle; // 台形の中に含まれているような点を一つ見つける
-      middle.x = events[i] - 1e-8;
-      middle.y = (cross_y[j].first + cross_y[j].second)/2;
+      if ( a < EPS && b < EPS ) continue;      
+
+      Polygon trapezoid{Point(events[i-1], cross_y[j].first),
+	  Point(events[i-1], cross_y[j-1].first),
+	  Point(events[i], cross_y[j].second),
+	  Point(events[i], cross_y[j-1].second)};      
+      
+      Point middle(0, 0); // 台形の中に含まれているような点を一つ見つける
+      for ( Point &p: trapezoid ) middle = middle + p;      
+      middle = middle/4;      
+      
       int cnt = 0; // いくつの多角形に内包されているかカウント
       for ( Polygon &P: Ps ) {	
 	if ( contains(P, middle) > 0 ) cnt++;	
       }
-      if ( cnt == 0 ) continue;      
-      cout << cnt << endl;      
+      
+      if ( cnt == 0 ) continue;          
       ans[cnt-1] += height * (a+b) / 2;      
     }
   }
