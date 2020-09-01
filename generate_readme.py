@@ -16,14 +16,11 @@ def parse():
     tomls = list(filter(lambda p: not p.match('test/**/info.toml'),
                         Path('.').glob('**/info.toml')))
     tomls = sorted(tomls, key=lambda x: x.parent.name)
-    print(tomls)
-    print(os.getcwd())
-    exit(0)
     f_lis = tomls
     res = {}
 
     for file in f_lis:
-        dict_toml = toml.load(open(file))
+        dict_toml = toml.load(open(str(file), "r"))
         if "title" not in dict_toml:
             continue
         p_name = dict_toml['title']
