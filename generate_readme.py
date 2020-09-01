@@ -48,7 +48,7 @@ def git_push():
     subprocess.check_call(['git', 'config', '--global', 'user.email', 'noreply@github.com'])
 
     subprocess.check_call(['git', 'add', base + 'README.md'])
-    message = '[auto-verifier] update readme.md by generate_readme.py'
+    message = '[generate_readme] update README.md'
     subprocess.check_call(['git', 'commit', '-m', message])
     subprocess.check_call(['git', 'push', url, 'HEAD'])
 
