@@ -28,7 +28,7 @@ $$x\oplus y=\sum_{n=0}^{\infty} ((x_n+y_n)\bmod 2)2^n$$
 
 - $@{param.HW_MIN} \leq H,W \leq @{param.HW_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $B_{i,j}=$‘#’または$B_{i,j}=$‘.’
+- $B_{i,j}=$`#`または$B_{i,j}=$`.`
 - $0\le u_k,v_k< 2^{11}=2048$
 - $1\le r_k \le H$
 - $1\le c_k \le W$
