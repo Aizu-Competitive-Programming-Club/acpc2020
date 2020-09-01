@@ -38,5 +38,7 @@ jobs:
           name: statements
           path: /tmp/html
       - name: Update README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ./generate_readme.py
