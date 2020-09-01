@@ -37,3 +37,6 @@ jobs:
         with:
           name: statements
           path: /tmp/html
+      - name: Update README.md
+        run: |
+          ./generate_readme.py
