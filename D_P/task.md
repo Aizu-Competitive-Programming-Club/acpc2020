@@ -21,7 +21,7 @@
 
 - $@{param.N_MIN} \le N \le @{param.N_MAX}$
 - $@{param.P_MIN} \leq P \leq @{param.P_MAX}$
-- $@{param.B_MIN} \le $ $B_i$ $\le P$
+- $@{param.B_MIN} \le B_i \le P$
 - 条件を満たす数列 $C$ を構築できる
 - 入力はすべて整数である
 
