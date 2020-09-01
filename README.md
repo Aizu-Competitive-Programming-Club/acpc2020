@@ -56,6 +56,30 @@ git commit -m '[run ci] add SpecialChat'
 | validator | verifier.cpp |
 | checker | checker.cpp |
 <!-- start * -->
+<!-- start A + B-->
+## A + B
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end A + B -->
+
+<!-- start DEG MUL SUM-->
+## DEG MUL SUM
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end DEG MUL SUM -->
+
+<!-- start Islands-->
+## Islands
+### Time Limit: 8.0
+| solution name | type |
+|----|----|
+|bf.cpp|WA|
+<!-- end Islands -->
+
 <!-- start LiChaoSegmentTree-->
 ## LiChaoSegmentTree
 ### Time Limit: 2.0
@@ -63,6 +87,15 @@ git commit -m '[run ci] add SpecialChat'
 |----|----|
 |wa.cpp|WA|
 <!-- end LiChaoSegmentTree -->
+
+<!-- start LotOfMountains-->
+## LotOfMountains
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa-1e-5.cpp|WA|
+|rel-1e-7.cpp|AC|
+<!-- end LotOfMountains -->
 
 <!-- start Monochrome Stone-->
 ## Monochrome Stone
@@ -85,15 +118,6 @@ git commit -m '[run ci] add SpecialChat'
 |ok.cpp|AC|
 <!-- end RTA -->
 
-<!-- start LotOfMountains-->
-## LotOfMountains
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa-1e-5.cpp|WA|
-|rel-1e-7.cpp|AC|
-<!-- end LotOfMountains -->
-
 <!-- start SpecialChat-->
 ## SpecialChat
 ### Time Limit: 2.0
@@ -101,14 +125,6 @@ git commit -m '[run ci] add SpecialChat'
 |----|----|
 |wa.cpp|WA|
 <!-- end SpecialChat -->
-
-<!-- start DEG MUL SUM-->
-## DEG MUL SUM
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end DEG MUL SUM -->
 
 <!-- start zor-->
 ## zor
@@ -118,21 +134,5 @@ git commit -m '[run ci] add SpecialChat'
 |wa.cpp|AC|
 |tubuann.cpp|AC|
 <!-- end zor -->
-
-<!-- start Islands-->
-## Islands
-### Time Limit: 8.0
-| solution name | type |
-|----|----|
-|bf.cpp|WA|
-<!-- end Islands -->
-
-<!-- start A + B-->
-## A + B
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end A + B -->
 
 <!-- end * -->
