@@ -85,7 +85,7 @@ if __name__ == '__main__':
         readme_str_af += "<!-- end * -->\n"
 
     str_insert = ""
-    for p_name, p_item in res.items():
+    for p_name, p_item in sorted(res.items(), key=lambda x: x[0]):
         str_base = ""
         str_base += "<!-- start " + p_name + "-->\n"
 
