@@ -48,9 +48,11 @@ def git_push():
     subprocess.check_call(['git', 'config', '--global', 'user.email', 'noreply@github.com'])
 
     subprocess.check_call(['git', 'add', base + 'README.md'])
-    message = '[generate_readme] update README.md'
-    subprocess.check_call(['git', 'commit', '-m', message])
-    subprocess.check_call(['git', 'push', url, 'HEAD'])
+
+    if subprocess.run(['git', 'diff', '--quiet', '--staged']).returncode:
+        message = '[generate_readme] update README.md'
+        subprocess.check_call(['git', 'commit', '-m', message])
+        subprocess.check_call(['git', 'push', url, 'HEAD'])
 
 if __name__ == '__main__':
     branch = os.environ['GITHUB_REF'][len('refs/heads/'):]
