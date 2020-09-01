@@ -72,7 +72,7 @@ vector<pair<int,int>> enc(int H,int W,int Q,const vector<vector<int>> &C,const v
     ensuref(0<x && x+1<H && 0<y && y+1<W,"x,y nohani\n");
     add_point(x,y);
     int ans=-p+edge+con-face;
-    s=roll*s+cst*ans;
+    s=roll*s+cst*(ans%mod)%mod;
     s%=mod;
   }
   return ret;
@@ -147,7 +147,7 @@ void inv(int H,int W,int Q,const vector<vector<int>> &C,const vector<pair<int,in
     ensuref(A[x][y]=='#',"it must be sharp\n");
     add_point(x,y);
     int ans=-p+edge+con-face;
-    s=roll*s+cst*ans;
+    s=roll*s%mod+cst*(ans%mod)%mod;
     s%=mod;
   }
 }
