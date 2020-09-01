@@ -1,0 +1,47 @@
+title = 'zor'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[tests]]
+    name = "random2.cpp"
+    number = 10
+
+[[tests]]
+    name = "small_loop.cpp"
+    number = 10
+
+[[tests]]
+    name = "large_loop.cpp"
+    number = 10
+
+[[tests]]
+    name = "maximum_loop.cpp"
+    number = 10
+
+[[tests]]
+    name = "critical1.cpp"
+    number = 2
+
+[[tests]]
+    name = "critical2.cpp"
+    number = 2
+
+[[solutions]]
+    name = "wa.cpp"
+#    wrong = true
+
+[[solutions]]
+    name = "tubuann.cpp"
+
+[params]
+    K=64
+    MIN_N = 1
+    MAX_N = 10
