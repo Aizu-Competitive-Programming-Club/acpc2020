@@ -1,4 +1,4 @@
-title = 'RTA'
+title = 'SpecialChat'
 timelimit = 2.0
 forum = ""
 
@@ -15,5 +15,7 @@ forum = ""
     wrong = true
 
 [params]
-    A_AND_B_MIN = 0
-    A_AND_B_MAX = 100_000_000
+    N_MIN = 2
+    N_MAX = 100_000
+    XY_MIN = -1_000_000_000
+    XY_MAX = 1_000_000_000

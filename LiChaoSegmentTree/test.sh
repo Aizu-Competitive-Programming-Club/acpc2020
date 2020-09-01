@@ -1,2 +1,2 @@
 #!/bin/bash
-../generate.py info.toml --dev --htmldir ../html
+python ../generate.py info.toml --dev --htmldir ../html

@@ -15,44 +15,58 @@ template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
 
+#include "random.h"
 #include "../params.h"
 #include "enc.hpp"
 
-int main(){
+
+int main(int, char* argv[]) {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  string s,t;
-  cin>>s>>t;
-  ifstream in(s);
-  ofstream out(t);
-  assert(in);
-  assert(out);
-  int H,W,Q;
-  in>>H>>W>>Q;
-  vector<vector<int>> A(H,vector<int>(W));
+  long long seed = atoll(argv[1]);
+  auto gen = Random(seed);
+
+  int H = HW_MAX;
+  int W = HW_MAX;
+  int Q = Q_MAX;
+  
+  int P = gen.uniform<int>(0,1);
+  int b=0;
+  vector<vector<int>> A(H,vector<int>(W,0));
+  vector<pair<int,int>> query;
+
   for(int i=0;i<H;i++){
     for(int j=0;j<W;j++){
-      char c;
-      in>>c;
-      A[i][j]=c=='#'?1:0;
+      int c=((i+j)%2==P?1:0);
+      A[i][j]=c;
+      b+=c;
+      if(c){query.push_back({i,j});}
     }
   }
-  vector<pair<int,int>> query(Q,{111,111});
-  in>>query;
-  in.close();
-  for(auto &I:query){I.F--; I.S--;}
+  if(b==0){
+    int i=gen.uniform<int>(0,H-1);
+    int j=gen.uniform<int>(0,W-1);
+    A[i][j]=1;
+    b++;
+    query.push_back({i,j});
+  }
+  Q=min(Q,b);
+  for(int i=1;i<(int)query.size();i++){
+    int j=gen.uniform<int>(0,i);
+    if(j<i){swap(query[j],query[i]);}
+  }
+  
+  cout<<H<<" "<<W<<" "<<Q<<endl;
+  for(int i=0;i<H;i++){
+    for(int j=0;j<W;j++){
+      cout<<(A[i][j]?"#":".");
+    }
+    cout<<endl;
+  }
   auto qr=enc(H,W,Q,A,query);
-  out<<H<<" "<<W<<" "<<Q<<endl;
-  for(int i=0;i<H;i++){
-    for(int j=0;j<W;j++){
-      out<<(A[i][j]?"#":".");
-    }
-    out<<endl;
+  for(int i=0;i<Q;i++){
+    cout<<qr[i]<<endl;
   }
-  for(auto &I:qr){
-    out<<I.F<<" "<<I.S<<endl;
-  }
-  out.close();
 
   return 0;
 }
