@@ -19,7 +19,7 @@ def parse():
     res = {}
 
     for file in f_lis:
-        dict_toml = toml.load(open(file))
+        dict_toml = toml.load(open(file.absolute()))
         if "title" not in dict_toml:
             continue
         p_name = dict_toml['title']
