@@ -8,29 +8,40 @@ int main() {
   int n,q;
   cin>>n>>q;
 
-  using P = pair<int, int>;
-  set<P> es;
-  vector<long long> cnt(n);
+  using ll = long long;
+  ll one=0,two=0,three=0;
+  auto print=[&](){cout<<one+2*two+three<<'\n';};
 
+  vector<set<int>> G(n);
   for(int i=0;i<q;i++){
     int x,y;
     cin>>x>>y;
     x--;y--;
 
-    if(es.count(P(x,y))){
-      es.erase(P(x,y));
-      cnt[x]--;
-      cnt[y]--;
+    if(!G[x].count(y)){
+      one++;
+      two+=G[x].size()+G[y].size();
+      three+=1ULL*G[x].size()*G[y].size();
+
+      for(int z:G[x]) three+=G[z].size()-1;
+      for(int z:G[y]) three+=G[z].size()-1;
+
+      G[x].emplace(y);
+      G[y].emplace(x);
     }else{
-      es.emplace(x,y);
-      cnt[x]++;
-      cnt[y]++;
+      G[x].erase(y);
+      G[y].erase(x);
+
+      for(int z:G[x]) three-=G[z].size()-1;
+      for(int z:G[y]) three-=G[z].size()-1;
+
+      one--;
+      two-=G[x].size()+G[y].size();
+      three-=1ULL*G[x].size()*G[y].size();
     }
 
-    long long ans=0;
-    for(auto [a, b]:es)
-      ans+=cnt[a]*cnt[b];
-    cout<<ans<<'\n';
+    // cout<<one<<' '<<two<<' '<<three<<endl;
+    print();
   }
   return 0;
 }

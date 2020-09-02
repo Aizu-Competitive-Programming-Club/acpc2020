@@ -12,7 +12,19 @@ forum = ""
 
 [[tests]]
     name = "max.cpp"
-    number = 5
+    number = 3
+
+[[tests]]
+    name = "dense.cpp"
+    number = 1
+
+[[tests]]
+    name = "bias.cpp"
+    number = 3
+
+[[solutions]]
+    name = "beet_naive.cpp"
+    allow_tle = true
 
 [[solutions]]
     name = "beet_tle.cpp"

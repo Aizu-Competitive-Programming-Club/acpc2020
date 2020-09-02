@@ -1,5 +1,5 @@
-#include "random.h"
 #include "../params.h"
+#include "random.h"
 #include <iostream>
 #include <vector>
 using namespace std;
