@@ -86,6 +86,7 @@ git commit -m '[run ci] add SpecialChat'
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+|Endered.cpp|AC|
 <!-- end LiChaoSegmentTree -->
 
 <!-- start LotOfMountains-->
