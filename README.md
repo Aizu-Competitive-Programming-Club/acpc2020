@@ -69,7 +69,7 @@ git commit -m '[run ci] add SpecialChat'
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
-|wa.cpp|WA|
+|beet_tle.cpp|AC|
 <!-- end DEG MUL SUM -->
 
 <!-- start Islands-->
