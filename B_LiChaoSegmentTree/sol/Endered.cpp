@@ -13,7 +13,7 @@ using pll = pair<ll,ll>;
 //const ll MOD = (ll)1e9+7;
 const ll MOD = 998244353;
 const int INF = (ll)1e9+7;
-const ll INFLL = (ll)1e18;
+const ll INFLL = (ll)2e18;
 template<class t>
 using vvector = vector<vector<t>>;
 template<class t>
