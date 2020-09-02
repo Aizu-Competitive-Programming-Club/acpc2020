@@ -1,0 +1,27 @@
+title = 'LiChaoSegmentTree'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 5000
+    Q_MIN = 1
+    Q_MAX = 5000
+    A_MIN = -1_000_000_000
+    A_MAX = 1_000_000_000
+    B_MIN = -1_000_000_000
+    B_MAX = 1_000_000_000
+    X_MIN = -1_000_000_000
+    X_MAX = 1_000_000_000

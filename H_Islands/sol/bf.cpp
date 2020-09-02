@@ -62,7 +62,7 @@ int main(){
     A=B;
     int ans=cnt();
     cout<<ans<<endl;
-    s=roll*s+cst*ans;
+    s=roll*s+cst*(ans%mod)%mod;
     s%=mod;
   }
 
