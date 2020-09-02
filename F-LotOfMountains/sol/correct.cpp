@@ -31,6 +31,6 @@ int main() {
         ans = max(ans,ch);
     }
 
-    printf("%.20Lf\n",ans);
+    printf("%.10Lf\n",ans);
     return 0;
 }
