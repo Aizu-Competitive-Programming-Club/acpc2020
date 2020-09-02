@@ -14,6 +14,9 @@ forum = ""
     name = "wa.cpp"
     wrong = true
 
+[[solutions]]
+    name = "Endered.cpp"
+
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
