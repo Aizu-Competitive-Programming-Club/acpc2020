@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 #include "random.h"
-#include "../params.h"
+#include "params.h"
+#include "testlib.h"
 using namespace std;
 
 #define EPS (1e-10)
@@ -445,50 +445,80 @@ Polygon linearly_symmetric_movement(Polygon p, Line l) {
   return ret;  
 }
 
-int main(int, char* argv[]) {
-    long long seed = atoll(argv[1]);
-    auto gen = Random(seed);    
-    // 凸多角形作成
-    int N = N_MAX;
-    Polygon P;    
+bool is_less_than_6_decimal_points(string s) {
+  int minus_cnt = 0;  
+  int dot_cnt = 0;
+  int num_cnt = 0;  
+  for ( int i = 0; i < (int)s.size(); i++ ) {
+    if ( s[i] == '-' ) {
+      if ( i != 0 ) return false;
+      minus_cnt++;      
+    }
+    if ( s[i] == '.' ) dot_cnt++;
+    if ( '0' <= s[i] && s[i] <= '9' ) num_cnt++;    
+  }
+  if ( dot_cnt >= 2 || dot_cnt+num_cnt+minus_cnt != (int)s.size() ) return false;  
+  for ( int i = 0; i < (int)s.size(); i++ ) {
+    if ( s[i] == '.' ) {      
+      return ((int)s.size()-i <= significant_digit+1);
+    }
+  }
+
+  return true;  
+}
+
+int main() {
+    registerValidation();
+
+    int N = inf.readInt(N_MIN, N_MAX); // N
+    inf.readChar(' ');
+    int M = inf.readInt(M_MIN, M_MAX); // N
+    inf.readChar('\n');
+    Polygon P;
+    string s;
     for ( int i = 0; i < N; i++ ) {
-      int x = gen.uniform<int>(xy_MIN, xy_MAX);
-      int y = gen.uniform<int>(xy_MIN, xy_MAX);
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));	     
+      double x = stod(s);
+      ensure(xy_MIN <= x && x <= xy_MAX);
+      
+      inf.readChar(' ');
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));      
+      double y = stod(s);
+      ensure(xy_MIN <= y && y <= xy_MAX);      
+      inf.readChar('\n');
+      
       P.push_back(Point(x, y));      
     }
-    P = convex_hull(P);
-    N = P.size();
-    
-    int M = gen.uniform<int>(M_MIN, M_MAX);
-    
-    printf("%d %d\n", N, M);
 
-    for ( int i = 0; i < N; i++ ) {
-      printf("%.5lf %.5lf\n", P[i].x, P[i].y);      
-    }
+    ensure(isConvex(P));    
 
-    vector<Polygon> polygons{P};    
-    for ( int m = 0; m < M; m++ ) {
-      Polygon now = polygons[0];
-      Point p1 = now[0];      
-      Point p2;      
-      if ( now.size() > 3 ) {
-	// 頂点数が3の場合, (点1, 点2点3の中点)
-	p2 = now[gen.uniform<int>(2, (int)now.size()-2)];
-      } else { 	
-	p2 = Point((now[1].x+now[2].x)/2, (now[1].y+now[2].y)/2);	
-      }
-      printf("%.5lf %.5lf %.5lf %.5lf\n", p1.x, p1.y, p2.x, p2.y);
-      Line l(p1, p2), rl(p2, p1);
-      vector<Polygon> next_polygons;
-      for ( Polygon &p: polygons ) {
-	if ( !intersectPS(p, l) ) continue;	
-	Polygon poly1 = convexCut(p, l), poly2 = linearly_symmetric_movement(convexCut(p, rl), l);  
-	if ( poly1.size() > 2 ) next_polygons.push_back(poly1);
-	if ( poly2.size() > 2 ) next_polygons.push_back(poly2);	
-      }
-      polygons = next_polygons;     
+    for ( int i = 0; i < M; i++ ) {      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double px = stod(s);
+      ensure(xy_MIN <= px && px <= xy_MAX);
+      inf.readChar(' ');
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double py = stod(s);
+      ensure(xy_MIN <= py && py <= xy_MAX);
+      inf.readChar(' ');
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double qx = stod(s);
+      ensure(xy_MIN <= qx && qx <= xy_MAX);
+      inf.readChar(' ');
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double qy = stod(s);
+      ensure(xy_MIN <= qy && qy <= xy_MAX);
+      inf.readChar('\n');
     }
-    
+    inf.readEof();
     return 0;
 }
