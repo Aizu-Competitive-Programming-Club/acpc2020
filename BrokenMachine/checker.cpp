@@ -8,6 +8,7 @@
 
 #include <iostream>
 
+using ll = long long;
 using namespace std;
 using P = pair<int, int>;
 
@@ -32,18 +33,18 @@ int main(int argc, char *argv[]) {
     vector<int> order(n);
     iota(order.begin(), order.end(), 0);
 
-    vector<int> init_values(n);
+    vector<ll> init_values(n);
     for (int i = 0; i < n; i++){
         init_values[i] = has_in[i] ? 0 : 1;
     }
 
     set<int> cands{};
     for (int broken = 0; broken < n; broken++){
-        vector<int> values = init_values;
+        vector<ll> values = init_values;
         for (auto&& node : order){
-            int nextValue = broken == node ? values[node] * 2 : values[node];
+            ll nextValue = broken == node ? values[node] * 2 : values[node];
             for (auto adj : edges[node]){
-                values[adj] += nextValue;
+                values[adj] = (values[adj] + nextValue) % (1L << 32);
             }
         }
         cands.insert(values[n - 1]);
