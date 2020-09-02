@@ -104,7 +104,10 @@ if __name__ == '__main__':
             type = "AC"
             if "wrong" in sol:
                 if sol["wrong"] == True:
-                    type = "WA"
+                    type = "WA"                   
+            if "allow_tle" in sol:
+                if sol["allow_tle"] == True:
+                    type = "TLE"
 
             str_base += "|" + sol["name"] + "|" + type + "|\n"
 
