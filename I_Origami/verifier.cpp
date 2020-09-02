@@ -446,8 +446,20 @@ Polygon linearly_symmetric_movement(Polygon p, Line l) {
 }
 
 bool is_less_than_6_decimal_points(string s) {
+  int minus_cnt = 0;  
+  int dot_cnt = 0;
+  int num_cnt = 0;  
   for ( int i = 0; i < (int)s.size(); i++ ) {
-    if ( s[i] == '.' ) {
+    if ( s[i] == '-' ) {
+      if ( i != 0 ) return false;
+      minus_cnt++;      
+    }
+    if ( s[i] == '.' ) dot_cnt++;
+    if ( '0' <= s[i] && s[i] <= '9' ) num_cnt++;    
+  }
+  if ( dot_cnt >= 2 || dot_cnt+num_cnt+minus_cnt != (int)s.size() ) return false;  
+  for ( int i = 0; i < (int)s.size(); i++ ) {
+    if ( s[i] == '.' ) {      
       return ((int)s.size()-i <= significant_digit+1);
     }
   }
