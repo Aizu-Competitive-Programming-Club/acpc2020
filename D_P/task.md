@@ -14,7 +14,7 @@
 
 ただし、長さ $N$ の数列 $D$, $F$ に対して辞書順で $D$ が $F$ より小さいとは$D_j = F_j\ (j \lt i)$ , $D_i \lt F_i$が成立する整数 $i$ が存在するすることを言います。
 
-整数 $x$ に対して $\lfloor x \rfloor$ とは　$x$ 以下の最大の整数を表します。
+実数 $x$ に対して $\lfloor x \rfloor$ とは　$x$ 以下の最大の整数を表します。
 
 @{lang.end}
 ## @{keyword.constraints}
