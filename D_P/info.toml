@@ -4,7 +4,7 @@ forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 
 [[tests]]
     name = "random.cpp"
@@ -16,4 +16,7 @@ forum = ""
 
 [params]
     P_MIN = 1
-    P_MAX = 100_000
+    P_MAX = 200
+    N_MIN = 1
+    N_MAX = 10_000
+    B_MIN = 0
