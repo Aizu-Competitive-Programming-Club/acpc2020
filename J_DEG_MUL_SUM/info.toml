@@ -10,9 +10,13 @@ forum = ""
     name = "random.cpp"
     number = 10
 
+[[tests]]
+    name = "max.cpp"
+    number = 5
+
 [[solutions]]
-    name = "wa.cpp"
-    wrong = true
+    name = "beet_tle.cpp"
+    allow_tle = true
 
 [params]
     N_MIN = 2
