@@ -11,11 +11,11 @@ forum = ""
     number = 10
 
 [params]
-    P_MIN = 1
-    P_MAX = 100_000
     N_MIN = 1
     N_MAX = 1000
     M_MIN = 1
     M_MAX = 10
     xy_MIN = -1e6
     xy_MAX = 1e6
+    significant_digit = 6
+    param_EPS = 1e-6

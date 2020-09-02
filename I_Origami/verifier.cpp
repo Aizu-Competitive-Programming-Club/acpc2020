@@ -445,6 +445,15 @@ Polygon linearly_symmetric_movement(Polygon p, Line l) {
   return ret;  
 }
 
+bool is_less_than_6_decimal_points(string s) {
+  for ( int i = 0; i < (int)s.size(); i++ ) {
+    if ( s[i] == '.' ) {
+      return ((int)s.size()-i <= significant_digit+1);
+    }
+  }
+
+  return true;  
+}
 
 int main() {
     registerValidation();
@@ -453,25 +462,49 @@ int main() {
     inf.readChar(' ');
     int M = inf.readInt(M_MIN, M_MAX); // N
     inf.readChar('\n');
-    // Polygon P;    
+    Polygon P;
+    string s;
     for ( int i = 0; i < N; i++ ) {
-      /*double x = */inf.readDouble((double)xy_MIN, (double)xy_MAX);
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));	     
+      double x = stod(s);
+      ensure(xy_MIN <= x && x <= xy_MAX);
+      
       inf.readChar(' ');
-      /*double y = */inf.readDouble(xy_MIN, xy_MAX);
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));      
+      double y = stod(s);
+      ensure(xy_MIN <= y && y <= xy_MAX);      
       inf.readChar('\n');
-      // P.push_back(Point(x, y));      
+      
+      P.push_back(Point(x, y));      
     }
 
-    // ensure(isConvex(P));    
+    ensure(isConvex(P));    
 
-    for ( int i = 0; i < M; i++ ) {
-      /*double x1 = */inf.readDouble(xy_MIN, xy_MAX);
+    for ( int i = 0; i < M; i++ ) {      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double px = stod(s);
+      ensure(xy_MIN <= px && px <= xy_MAX);
       inf.readChar(' ');
-      /*double y1 = */inf.readDouble(xy_MIN, xy_MAX);
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double py = stod(s);
+      ensure(xy_MIN <= py && py <= xy_MAX);
       inf.readChar(' ');
-      /*double x2 = */inf.readDouble(xy_MIN, xy_MAX);
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double qx = stod(s);
+      ensure(xy_MIN <= qx && qx <= xy_MAX);
       inf.readChar(' ');
-      /*double y2 = */inf.readDouble(xy_MIN, xy_MAX);
+      
+      s = inf.readToken();
+      ensure(is_less_than_6_decimal_points(s));
+      double qy = stod(s);
+      ensure(xy_MIN <= qy && qy <= xy_MAX);
       inf.readChar('\n');
     }
     inf.readEof();

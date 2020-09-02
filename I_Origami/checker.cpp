@@ -23,9 +23,10 @@
 // SOFTWARE.
 
 #include "testlib.h"
+#include "params.h"
 
 using namespace std;
-const double EPS = 1e-6;
+// const double EPS = 1e-6;
 
 
 int main(int argc, char * argv[])
@@ -44,7 +45,7 @@ int main(int argc, char * argv[])
       double ouf_value = ouf.readDouble();
       ouf.readChar('\n');
         
-      if(abs(ans_value-ouf_value) / ans_value >= EPS){
+      if(abs(ans_value-ouf_value) / ans_value >= param_EPS){
 	quitf(_wa,"diif is greater than 1e-6");
       }
     }
