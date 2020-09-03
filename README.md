@@ -76,6 +76,9 @@ git commit -m '[run ci] add SpecialChat'
 |----|----|
 |wa.cpp|WA|
 |Endered.cpp|AC|
+|Luzhiled.cpp|AC|
+|shot.cpp|AC|
+|keymoon.cpp|AC|
 <!-- end B - LiChaoSegmentTree -->
 
 <!-- start C - Broken Machine-->
