@@ -123,6 +123,7 @@ git commit -m '[run ci] add SpecialChat'
 |tle.cpp|TLE|
 |heuristic.cpp|WA|
 |rel-1e-7.cpp|AC|
+|Luzhiled.cpp|AC|
 <!-- end F - LotOfMountains -->
 
 <!-- start G - Connect the dots-->
