@@ -23,6 +23,9 @@ forum = ""
 [[solutions]]
     name = "shot.cpp"
 
+[[solutions]]
+    name = "keymoon.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 5000
