@@ -20,6 +20,9 @@ forum = ""
 [[solutions]]
     name = "toyama.cpp"
 
+[[solutions]]
+    name = "Luzhiled.cpp"
+
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
