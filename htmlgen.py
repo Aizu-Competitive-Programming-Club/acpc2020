@@ -286,12 +286,18 @@ class ToHTMLConverter:
         environment.globals['endlang'] = lang_manager.reset_lang
         template = environment.get_template('task')
         self.examples = ExampleReader(problem_dir=probdir)
+
+        print(self.examples['example_00'])
+        print('-' * 100)
+
         mid_statement = template.render(
             keyword=keywords,
             param=gen_params(config.get('params', dict())),
             lang=lang_manager,
             example=self.examples,
         )
+        print(mid_statement)
+        print('-' * 100)
 
         # evaluate markdown
         self.statement = markdown(
@@ -301,6 +307,8 @@ class ToHTMLConverter:
                 ForumExtension(url=config.get('forum', ''))
             ],
         )
+        print(self.statement)
+        print('-' * 100)
         self.html = html_header + html_body.format(self.statement)
 
     def check_all_samples_used(self) -> bool:
