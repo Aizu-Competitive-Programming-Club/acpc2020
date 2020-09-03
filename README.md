@@ -64,34 +64,56 @@ git commit -m '[run ci] add SpecialChat'
 |wa.cpp|WA|
 <!-- end A + B -->
 
-<!-- start DEG MUL SUM-->
-## DEG MUL SUM
+<!-- start A - RTA-->
+## A - RTA
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
-|beet_naive.cpp|TLE|
-|beet_tle.cpp|TLE|
-<!-- end DEG MUL SUM -->
+|wa.cpp|WA|
+|beet.cpp|AC|
+|shot.cpp|AC|
+|keymoon.cpp|AC|
+|Endered.cpp|AC|
+|ok.cpp|AC|
+<!-- end A - RTA -->
 
-<!-- start Islands-->
-## Islands
-### Time Limit: 8.0
-| solution name | type |
-|----|----|
-|bf.cpp|WA|
-<!-- end Islands -->
-
-<!-- start LiChaoSegmentTree-->
-## LiChaoSegmentTree
+<!-- start B - LiChaoSegmentTree-->
+## B - LiChaoSegmentTree
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
 |Endered.cpp|AC|
-<!-- end LiChaoSegmentTree -->
+<!-- end B - LiChaoSegmentTree -->
 
-<!-- start LotOfMountains-->
-## LotOfMountains
+<!-- start C - Broken Machine-->
+## C - Broken Machine
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|self_loop.cpp|WA|
+|extra_out.cpp|WA|
+|Endered.cpp|AC|
+<!-- end C - Broken Machine -->
+
+<!-- start D - P-->
+## D - P
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end D - P -->
+
+<!-- start E - Monochrome Stone-->
+## E - Monochrome Stone
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end E - Monochrome Stone -->
+
+<!-- start F - LotOfMountains-->
+## F - LotOfMountains
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
@@ -99,25 +121,41 @@ git commit -m '[run ci] add SpecialChat'
 |tle.cpp|TLE|
 |heuristic.cpp|WA|
 |rel-1e-7.cpp|AC|
-<!-- end LotOfMountains -->
+<!-- end F - LotOfMountains -->
 
-<!-- start Monochrome Stone-->
-## Monochrome Stone
+<!-- start G - Connect the dots-->
+## G - Connect the dots
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
-<!-- end Monochrome Stone -->
+<!-- end G - Connect the dots -->
 
-<!-- start RTA-->
-## RTA
+<!-- start H - Islands-->
+## H - Islands
+### Time Limit: 8.0
+| solution name | type |
+|----|----|
+|bf.cpp|WA|
+<!-- end H - Islands -->
+
+<!-- start J - DEG MUL SUM-->
+## J - DEG MUL SUM
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
-|self_loop.cpp|WA|
-|extra_out.cpp|WA|
-|Endered.cpp|AC|
-<!-- end RTA -->
+|beet_naive.cpp|TLE|
+|beet_tle.cpp|TLE|
+<!-- end J - DEG MUL SUM -->
+
+<!-- start K - Zor-->
+## K - Zor
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|AC|
+|tubuann.cpp|AC|
+<!-- end K - Zor -->
 
 <!-- start SpecialChat-->
 ## SpecialChat
@@ -126,14 +164,5 @@ git commit -m '[run ci] add SpecialChat'
 |----|----|
 |wa.cpp|WA|
 <!-- end SpecialChat -->
-
-<!-- start zor-->
-## zor
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|AC|
-|tubuann.cpp|AC|
-<!-- end zor -->
 
 <!-- end * -->
