@@ -8,15 +8,22 @@ forum = ""
 
 [[tests]]
     name = "handmade.in"
-    number = 4
+    number = 6
 
 [[tests]]
     name = "random.cpp"
     number = 10
 
-# [[solutions]]
-#    name = "wa.cpp"
-#    wrong = true
+[[solutions]]
+   name = "self_loop.cpp"
+   wrong = true
+
+[[solutions]]
+   name = "extra_out.cpp"
+   wrong = true
+
+[[solutions]]
+    name = "Endered.cpp"
 
 [params]
     N_MIN = 1

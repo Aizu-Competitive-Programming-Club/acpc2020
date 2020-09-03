@@ -8,13 +8,12 @@ const int example = 4;
 int main() {
     int n;
     cin >> n;
-    if (false && n == example){
-        cout << "5" << endl;
-        cout << "1 2" << endl;
-        cout << "3 2" << endl;
+    if (n == example){
+        cout << "4" << endl;
+        cout << "1 3" << endl;
+        cout << "2 3" << endl;
+        cout << "2 3" << endl;
         cout << "3 4" << endl;
-        cout << "2 4" << endl;
-        cout << "2 4" << endl;
         return 0;
     }
 
