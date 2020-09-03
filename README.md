@@ -56,14 +56,6 @@ git commit -m '[run ci] add SpecialChat'
 | validator | verifier.cpp |
 | checker | checker.cpp |
 <!-- start * -->
-<!-- start A + B-->
-## A + B
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end A + B -->
-
 <!-- start A - RTA-->
 ## A - RTA
 ### Time Limit: 2.0
