@@ -13,10 +13,16 @@ forum = ""
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+	
+[[solutions]]
+    name = "correct2.cpp"
+
+[[solutions]]
+    name = "Endered.cpp"
 
 [params]
     P_MIN = 1
-    P_MAX = 200
+    P_MAX = 100
     N_MIN = 1
     N_MAX = 10_000
     B_MIN = 0
