@@ -1,0 +1,28 @@
+title = 'E - Monochrome Stone'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+
+[[solutions]]
+    name = "Endered.cpp"
+
+[[solutions]]
+    name = "toyama.cpp"
+
+[[solutions]]
+    name = "Luzhiled.cpp"
+
+[params]
+    N_W_B_MIN = 1
+    N_W_B_MAX = 1000
