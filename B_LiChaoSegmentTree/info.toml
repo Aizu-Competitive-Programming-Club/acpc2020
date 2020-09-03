@@ -20,6 +20,9 @@ forum = ""
 [[solutions]]
     name = "Luzhiled.cpp"
 
+[[solutions]]
+    name = "shot.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 5000
