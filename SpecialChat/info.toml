@@ -8,7 +8,7 @@ forum = ""
 
 [[tests]]
     name = "random.cpp"
-    number = 7
+    number = 6
 
 [[solutions]]
     name = "wa.cpp"
