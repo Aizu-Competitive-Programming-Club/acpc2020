@@ -143,6 +143,14 @@ git commit -m '[run ci] add SpecialChat'
 |bf.cpp|WA|
 <!-- end H - Islands -->
 
+<!-- start I - Origami-->
+## I - Origami
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+<!-- end I - Origami -->
+
 <!-- start J - DEG MUL SUM-->
 ## J - DEG MUL SUM
 ### Time Limit: 2.0
