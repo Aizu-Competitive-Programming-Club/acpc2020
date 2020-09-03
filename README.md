@@ -97,6 +97,8 @@ git commit -m '[run ci] add SpecialChat'
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+|correct2.cpp|AC|
+|Endered.cpp|AC|
 <!-- end D - P -->
 
 <!-- start E - Monochrome Stone-->
