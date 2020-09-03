@@ -17,6 +17,9 @@ forum = ""
 [[solutions]]
     name = "correct2.cpp"
 
+[[solutions]]
+    name = "Endered.cpp"
+
 [params]
     P_MIN = 1
     P_MAX = 100
