@@ -8,11 +8,19 @@ forum = ""
 
 [[tests]]
     name = "small.cpp"
-    number = 100
+    number = 20
 
 [[tests]]
     name = "random.cpp"
     number = 3
+
+[[tests]]
+    name = "maximum.cpp"
+    number = 3
+
+[[tests]]
+    name = "itimatu.cpp"
+    number = 2
 
 [[solutions]]
     name = "bf.cpp"
@@ -20,14 +28,14 @@ forum = ""
 
 [params]
     HW_MIN = 1
-    HW_MAX = 2_000
+    HW_MAX = 1000
     Q_MIN = 1
-    Q_MAX = 1_000_000
+    Q_MAX = 100_000
     SMALL_HW_MIN = 1
     SMALL_HW_MAX = 100
     SMALL_Q_MIN = 1
-    SMALL_Q_MAX = 1_000
-    P_ALL = 10
+    SMALL_Q_MAX = 100_000
+    P_ALL = 5
     mod = 2048
     roll = 427
     cst = 1821
