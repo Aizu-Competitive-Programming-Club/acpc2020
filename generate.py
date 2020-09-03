@@ -377,6 +377,7 @@ class Problem:
     def write_html(self, htmldir: Optional[Path]):
         # convert task
         html = self.gen_html()
+        print(html.html)
         if not html.check_all_samples_used():
             self.warning('all samples are not used')
         path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.resolve().name + '.html')
