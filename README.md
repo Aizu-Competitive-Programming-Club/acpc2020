@@ -141,6 +141,8 @@ git commit -m '[run ci] add SpecialChat'
 | solution name | type |
 |----|----|
 |bf.cpp|WA|
+|tubuann.cpp|AC|
+|Luzhiled.cpp|AC|
 <!-- end H - Islands -->
 
 <!-- start I - Origami-->
