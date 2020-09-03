@@ -114,12 +114,9 @@ git commit -m '[run ci] add SpecialChat'
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
-|wa.cpp|WA|
-|beet.cpp|AC|
-|shot.cpp|AC|
-|keymoon.cpp|AC|
+|self_loop.cpp|WA|
+|extra_out.cpp|WA|
 |Endered.cpp|AC|
-|ok.cpp|AC|
 <!-- end RTA -->
 
 <!-- start SpecialChat-->
