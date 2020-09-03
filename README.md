@@ -37,9 +37,10 @@ cd $Problem
 ```
 ./test.sh
 ```
-をして、エラーが出ないことを確認してからPushすること
+をして、エラーが出ないことを確認してからpushすること
+info.toml の titleを適切に編集すること
 
-CIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
+masterでCIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
 例：
 ```
 git commit -m '[run ci] add SpecialChat'
