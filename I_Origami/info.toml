@@ -1,0 +1,21 @@
+title = 'I - Origami'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 3
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[params]
+    N_MIN = 1
+    N_MAX = 1000
+    M_MIN = 1
+    M_MAX = 10
+    xy_MIN = -1e6
+    xy_MAX = 1e6
+    significant_digit = 6
+    param_EPS = 1e-6

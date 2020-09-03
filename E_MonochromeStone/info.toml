@@ -1,4 +1,4 @@
-title = 'Monochrome Stone'
+title = 'E - Monochrome Stone'
 timelimit = 2.0
 forum = ""
 
@@ -26,4 +26,3 @@ forum = ""
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
-    
