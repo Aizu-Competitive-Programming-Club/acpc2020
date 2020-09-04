@@ -31,5 +31,6 @@ int main() {
 		cur_angle += d;
 		cur_pos = pos;
 	}
+	cout << fixed << setprecision(10);
 	cout << res << endl;
 }
