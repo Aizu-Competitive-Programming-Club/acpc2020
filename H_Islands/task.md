@@ -43,7 +43,7 @@ $\vdots$
 $B_{H,1}\ldots B_{H,W}$
 $u_1$ $v_1$
 $\vdots$
-$v_Q$ $v_Q$
+$u_Q$ $v_Q$
 ```
 
 ## @{keyword.output}
