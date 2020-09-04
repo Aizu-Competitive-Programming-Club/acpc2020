@@ -5,7 +5,7 @@
 
 using P=pair<int,int>;
 
-int uft[HW_MAX*HW_MAX];
+int uft[(HW_MAX+2)*(HW_MAX+2)];
 
 int parent(int a){return uft[a]==a?a:uft[a]=parent(uft[a]);}
 
@@ -64,6 +64,81 @@ vector<P> enc(int H,int W,int Q,const vector<vector<int>> &C,const vector<P> &qu
   return ret;
 }
 
+void inv(int H,int W,int Q,const vector<vector<int>> &C,const vector<pair<int,int>> &query){
+
+  const int dx[8]={0,1,0,-1,1,-1,1,-1};
+  const int dy[8]={1,0,-1,0,1,1,-1,-1};
+
+  const int sqx[4]={0,1,0,1};
+  const int sqy[4]={0,0,1,1};
+  
+  H+=2; W+=2;
+  init(H*W);
+  auto idx=[&](int x,int y){return x*W+y;};
+  vector<vector<char>> A(H,vector<char>(W,'.'));
+  int pts=0,edge=0,none=0,con=0,ans=0;
+  for(int i=0;i<H;i++){
+    for(int j=0;j<W;j++){
+      if(i==0 || j==0 || i+1==H || j+1==W){merge(idx(0,0),idx(i,j));}
+      else{A[i][j]='#';}
+    }
+  }
+  pts=(H-2)*(W-2);
+  edge=(H-3)*(W-2)+(H-2)*(W-3);
+  none=(H-3)*(W-3);
+  con=1;
+  ans=1;
+  
+  auto erase=
+    [&](int a,int b){
+      ensuref(1<=a && a<=H && 1<=b && b<=W,"hani\n");
+      ensuref(A[a][b]=='#',"A[a][b] must be island\n");
+      pts--;
+      for(int k=0;k<4;k++){
+        int x=a+dx[k];
+        int y=b+dy[k];
+        if(A[x][y]=='#'){edge--;}
+      }
+      for(int k=0;k<4;k++){
+        bool jd=true;
+        int x=a-sqx[k];
+        int y=b-sqy[k];
+        for(int l=0;l<4 && jd;l++){
+          int r=x+sqx[l];
+          int c=y+sqy[l];
+          jd&=A[r][c]=='#';
+        }
+        if(jd){none--;}
+      }
+      A[a][b]='.';
+      con++;
+      for(int k=0;k<8;k++){
+        int x=a+dx[k];
+        int y=b+dy[k];
+        if(A[x][y]=='.'){
+          con-=merge(idx(x,y),idx(a,b));
+        }
+      }
+      ans=pts-edge+con+none-1;
+    };
+
+  for(int i=1;i+1<H;i++){
+    for(int j=1;j+1<W;j++){
+      if(C[i-1][j-1]==0){erase(i,j);}
+    }
+  }
+  ll s=0;
+  for(int q=0;q<Q;q++){
+    ll x=query[q].F,y=query[q].S;
+    x=s^x; x++;
+    y=s^y; y++;
+    erase(x,y);
+    s=roll*s+cst*ans;
+    s%=mod;
+  }
+}
+
+/*
 void inv(int H,int W,int Q,const vector<vector<int>> &C,const vector<pair<int,int>> &query){
   H+=2; W+=2;
   vector<vector<char>> A(H,vector<char>(W,'#'));
@@ -137,7 +212,7 @@ void inv(int H,int W,int Q,const vector<vector<int>> &C,const vector<pair<int,in
     s%=mod;
   }
 }
-
+*/
 /*
 vector<pair<int,int>> enc(int H,int W,int Q,const vector<vector<int>> &C,const vector<pair<int,int>> &query){
   H+=2; W+=2;
