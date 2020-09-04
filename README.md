@@ -125,6 +125,7 @@ git commit -m '[run ci] add SpecialChat'
 |heuristic.cpp|WA|
 |rel-1e-7.cpp|AC|
 |Luzhiled.cpp|AC|
+|keymoon.cpp|AC|
 <!-- end F - LotOfMountains -->
 
 <!-- start G - Connect the dots-->
@@ -158,6 +159,7 @@ git commit -m '[run ci] add SpecialChat'
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
+|keymoon.cpp|AC|
 |beet_naive.cpp|TLE|
 |beet_tle.cpp|TLE|
 <!-- end J - DEG MUL SUM -->
