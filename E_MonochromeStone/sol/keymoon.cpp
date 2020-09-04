@@ -20,7 +20,7 @@ int main() {
 		}
 	}
 	var res = 0;
-	for (int i = 0; i < initW; i++) {
+	for (int i = 0; i <= initW; i++) {
 		if (maxBlack[i] == -1) continue;
 		res = max(res, min(maxBlack[i], initB) + i);
 	}
