@@ -23,6 +23,9 @@ forum = ""
 [[solutions]]
     name = "Luzhiled.cpp"
 
+[[solutions]]
+    name = "keymoon.cpp"
+
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
