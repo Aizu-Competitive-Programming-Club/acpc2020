@@ -54,6 +54,7 @@ def git_push():
         subprocess.check_call(['git', 'commit', '-m', message])
         subprocess.check_call(['git', 'push', url, 'HEAD'])
 
+
 if __name__ == '__main__':
     branch = os.environ['GITHUB_REF'][len('refs/heads/'):]
     subprocess.check_call(['git', 'checkout', branch])
@@ -89,7 +90,7 @@ if __name__ == '__main__':
     str_insert = ""
     for p_name, p_item in sorted(res.items(), key=lambda x: x[0]):
         str_base = ""
-        str_base += "<!-- start " + p_name + "-->\n"
+        str_base += "<!-- start " + p_name + " -->\n"
 
         str_base += "## " + p_name + "\n"
         str_base += "### Time Limit: " + str(p_item["TL"]) + "\n"
@@ -104,7 +105,7 @@ if __name__ == '__main__':
             type = "AC"
             if "wrong" in sol:
                 if sol["wrong"] == True:
-                    type = "WA"                   
+                    type = "WA"
             if "allow_tle" in sol:
                 if sol["allow_tle"] == True:
                     type = "TLE"
