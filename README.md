@@ -58,7 +58,7 @@ git commit -m '[run ci] add SpecialChat'
 | validator | verifier.cpp |
 | checker | checker.cpp |
 <!-- start * -->
-<!-- start A - RTA-->
+<!-- start A - RTA -->
 ## A - RTA
 ### Time Limit: 2.0
 | solution name | type |
@@ -69,9 +69,10 @@ git commit -m '[run ci] add SpecialChat'
 |keymoon.cpp|AC|
 |Endered.cpp|AC|
 |ok.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end A - RTA -->
 
-<!-- start B - LiChaoSegmentTree-->
+<!-- start B - LiChaoSegmentTree -->
 ## B - LiChaoSegmentTree
 ### Time Limit: 2.0
 | solution name | type |
@@ -81,9 +82,10 @@ git commit -m '[run ci] add SpecialChat'
 |Luzhiled.cpp|AC|
 |shot.cpp|AC|
 |keymoon.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end B - LiChaoSegmentTree -->
 
-<!-- start C - Broken Machine-->
+<!-- start C - Broken Machine -->
 ## C - Broken Machine
 ### Time Limit: 2.0
 | solution name | type |
@@ -91,9 +93,10 @@ git commit -m '[run ci] add SpecialChat'
 |self_loop.cpp|WA|
 |extra_out.cpp|WA|
 |Endered.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end C - Broken Machine -->
 
-<!-- start D - P-->
+<!-- start D - P -->
 ## D - P
 ### Time Limit: 2.0
 | solution name | type |
@@ -102,9 +105,10 @@ git commit -m '[run ci] add SpecialChat'
 |correct2.cpp|AC|
 |Endered.cpp|AC|
 |keymoon.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end D - P -->
 
-<!-- start E - Monochrome Stone-->
+<!-- start E - Monochrome Stone -->
 ## E - Monochrome Stone
 ### Time Limit: 2.0
 | solution name | type |
@@ -113,9 +117,10 @@ git commit -m '[run ci] add SpecialChat'
 |Endered.cpp|AC|
 |toyama.cpp|AC|
 |Luzhiled.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end E - Monochrome Stone -->
 
-<!-- start F - LotOfMountains-->
+<!-- start F - LotOfMountains -->
 ## F - LotOfMountains
 ### Time Limit: 2.0
 | solution name | type |
@@ -126,17 +131,19 @@ git commit -m '[run ci] add SpecialChat'
 |rel-1e-7.cpp|AC|
 |Luzhiled.cpp|AC|
 |keymoon.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end F - LotOfMountains -->
 
-<!-- start G - Connect the dots-->
+<!-- start G - Connect the dots -->
 ## G - Connect the dots
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+###### updated 2020/09/05 20:56:43
 <!-- end G - Connect the dots -->
 
-<!-- start H - Islands-->
+<!-- start H - Islands -->
 ## H - Islands
 ### Time Limit: 8.0
 | solution name | type |
@@ -144,17 +151,19 @@ git commit -m '[run ci] add SpecialChat'
 |bf.cpp|WA|
 |tubuann.cpp|AC|
 |Luzhiled.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end H - Islands -->
 
-<!-- start I - Origami-->
+<!-- start I - Origami -->
 ## I - Origami
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+###### updated 2020/09/05 20:56:43
 <!-- end I - Origami -->
 
-<!-- start J - DEG MUL SUM-->
+<!-- start J - DEG MUL SUM -->
 ## J - DEG MUL SUM
 ### Time Limit: 2.0
 | solution name | type |
@@ -162,23 +171,26 @@ git commit -m '[run ci] add SpecialChat'
 |keymoon.cpp|AC|
 |beet_naive.cpp|TLE|
 |beet_tle.cpp|TLE|
+###### updated 2020/09/05 20:56:43
 <!-- end J - DEG MUL SUM -->
 
-<!-- start K - Zor-->
+<!-- start K - Zor -->
 ## K - Zor
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|AC|
 |tubuann.cpp|AC|
+###### updated 2020/09/05 20:56:43
 <!-- end K - Zor -->
 
-<!-- start SpecialChat-->
+<!-- start SpecialChat -->
 ## SpecialChat
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+###### updated 2020/09/05 20:56:43
 <!-- end SpecialChat -->
 
 <!-- end * -->
