@@ -23,6 +23,9 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
+[[solutions]]
+    name = "mo3tthi.cpp"
+
 [params]
     P_MIN = 1
     P_MAX = 100
