@@ -34,7 +34,6 @@ forum = ""
 
 [[solutions]]
     name = "Luzhiled.cpp"
-    wrong = true
 
 [[solutions]]
     name = "keymoon.cpp"
