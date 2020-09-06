@@ -30,6 +30,10 @@ forum = ""
     name = "keymoon_wa.cpp"
     wrong = true
 
+[[solutions]]
+    name = "tubuann_TLE.cpp"
+    wrong = true
+
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
