@@ -7,8 +7,20 @@ forum = ""
     number = 2
 
 [[tests]]
+    name = "handmade.in"
+    number = 4
+
+[[tests]]
     name = "random.cpp"
-    number = 10
+    number = 5
+
+[[tests]]
+    name = "random_large.cpp"
+    number = 8
+
+[[tests]]
+    name = "random_max.cpp"
+    number = 8
 
 [[solutions]]
     name = "wa.cpp"
