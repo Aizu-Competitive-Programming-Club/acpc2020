@@ -32,7 +32,7 @@ forum = ""
 
 [[solutions]]
     name = "tubuann_TLE.cpp"
-    wrong = true
+    allow_tle = true
 
 [params]
     N_W_B_MIN = 1
