@@ -36,6 +36,9 @@ forum = ""
     name = "keymoon.cpp"
 
 [[solutions]]
+    name = "shot.cpp"
+
+[[solutions]]
     name = "tubuann.cpp"
 
 [params]
