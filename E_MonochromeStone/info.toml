@@ -31,6 +31,9 @@ forum = ""
     wrong = true
 
 [[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
     name = "tubuann_TLE.cpp"
     allow_tle = true
 
