@@ -26,6 +26,12 @@ forum = ""
     name = "bf.cpp"
     wrong = true
 
+[[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
+    name = "Luzhiled.cpp"
+
 [params]
     HW_MIN = 1
     HW_MAX = 1000

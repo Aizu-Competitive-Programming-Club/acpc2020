@@ -37,9 +37,11 @@ cd $Problem
 ```
 ./test.sh
 ```
-をして、エラーが出ないことを確認してからPushすること
+をして、エラーが出ないことを確認してからpushすること
 
-CIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
+info.toml の titleを適切に編集すること
+
+masterでCIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
 例：
 ```
 git commit -m '[run ci] add SpecialChat'
@@ -56,7 +58,7 @@ git commit -m '[run ci] add SpecialChat'
 | validator | verifier.cpp |
 | checker | checker.cpp |
 <!-- start * -->
-<!-- start A - RTA-->
+<!-- start A - RTA -->
 ## A - RTA
 ### Time Limit: 2.0
 | solution name | type |
@@ -67,18 +69,23 @@ git commit -m '[run ci] add SpecialChat'
 |keymoon.cpp|AC|
 |Endered.cpp|AC|
 |ok.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end A - RTA -->
 
-<!-- start B - LiChaoSegmentTree-->
+<!-- start B - LiChaoSegmentTree -->
 ## B - LiChaoSegmentTree
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
 |Endered.cpp|AC|
+|Luzhiled.cpp|AC|
+|shot.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end B - LiChaoSegmentTree -->
 
-<!-- start C - Broken Machine-->
+<!-- start C - Broken Machine -->
 ## C - Broken Machine
 ### Time Limit: 2.0
 | solution name | type |
@@ -86,25 +93,34 @@ git commit -m '[run ci] add SpecialChat'
 |self_loop.cpp|WA|
 |extra_out.cpp|WA|
 |Endered.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end C - Broken Machine -->
 
-<!-- start D - P-->
+<!-- start D - P -->
 ## D - P
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+|correct2.cpp|AC|
+|Endered.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end D - P -->
 
-<!-- start E - Monochrome Stone-->
+<!-- start E - Monochrome Stone -->
 ## E - Monochrome Stone
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+|Endered.cpp|AC|
+|toyama.cpp|AC|
+|Luzhiled.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end E - Monochrome Stone -->
 
-<!-- start F - LotOfMountains-->
+<!-- start F - LotOfMountains -->
 ## F - LotOfMountains
 ### Time Limit: 2.0
 | solution name | type |
@@ -113,48 +129,68 @@ git commit -m '[run ci] add SpecialChat'
 |tle.cpp|TLE|
 |heuristic.cpp|WA|
 |rel-1e-7.cpp|AC|
+|Luzhiled.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end F - LotOfMountains -->
 
-<!-- start G - Connect the dots-->
+<!-- start G - Connect the dots -->
 ## G - Connect the dots
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+###### updated 2020/09/05 21:30:46
 <!-- end G - Connect the dots -->
 
-<!-- start H - Islands-->
+<!-- start H - Islands -->
 ## H - Islands
 ### Time Limit: 8.0
 | solution name | type |
 |----|----|
 |bf.cpp|WA|
+|tubuann.cpp|AC|
+|Luzhiled.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end H - Islands -->
 
-<!-- start J - DEG MUL SUM-->
+<!-- start I - Origami -->
+## I - Origami
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+###### updated 2020/09/05 21:30:46
+<!-- end I - Origami -->
+
+<!-- start J - DEG MUL SUM -->
 ## J - DEG MUL SUM
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
+|keymoon.cpp|AC|
 |beet_naive.cpp|TLE|
 |beet_tle.cpp|TLE|
+###### updated 2020/09/05 21:30:46
 <!-- end J - DEG MUL SUM -->
 
-<!-- start K - Zor-->
+<!-- start K - Zor -->
 ## K - Zor
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|AC|
 |tubuann.cpp|AC|
+###### updated 2020/09/05 21:30:46
 <!-- end K - Zor -->
 
-<!-- start SpecialChat-->
+<!-- start SpecialChat -->
 ## SpecialChat
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
+###### updated 2020/09/05 21:30:46
 <!-- end SpecialChat -->
 
 <!-- end * -->
