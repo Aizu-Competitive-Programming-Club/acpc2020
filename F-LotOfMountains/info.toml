@@ -35,6 +35,9 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
+[[solutions]]
+    name = "tubuann.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 100_000
