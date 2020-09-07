@@ -29,6 +29,10 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
+[[solutions]]
+    name = "tubuann_TLE.cpp"
+    allow_tle = true
+
 [params]
     P_MIN = 1
     P_MAX = 100
