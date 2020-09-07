@@ -41,6 +41,14 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
+[[solutions]]
+    name = "tubuann_bf.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "tubuann_float.cpp"
+    wrong = true
+
 [params]
     N_MIN = 1
     N_MAX = 100_000
