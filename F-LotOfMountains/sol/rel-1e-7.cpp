@@ -3,6 +3,9 @@
 using namespace std;
 
 int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
+
     int n;
     cin >> n;
     using P = pair<long double,long double>;
@@ -12,6 +15,7 @@ int main() {
         long double h;
         long double r;
         cin >> x >> h >> r;
+        r /= 2;
         long double dh = h / r;
         differences.emplace_back(x-r,dh);
         differences.emplace_back(x,-2*dh);
@@ -31,6 +35,6 @@ int main() {
         ans = max(ans,ch);
     }
 
-    printf("%.20Lf\n",(1+1e-7)*ans);
+    printf("%.10Lf\n",(1+1e-7)*ans);
     return 0;
 }
