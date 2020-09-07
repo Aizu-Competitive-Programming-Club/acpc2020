@@ -88,10 +88,11 @@ int main(){
     cin>>x>>y;
     x^=s; y^=s;
     x++; y++;
+    assert(0<x && x<H && 0<y && y<W);
     add_point(x,y);
     int ans=-p+edge+con-face;
     cout<<ans<<endl;
-    s=roll*s+cst*ans;
+    s=roll*s+cst*(ans%mod)%mod;
     s%=mod;
   }
 
