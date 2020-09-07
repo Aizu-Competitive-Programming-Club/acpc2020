@@ -41,9 +41,9 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
-[[solutions]]
-    name = "tubuann_bf.cpp"
-    allow_tle = true
+#[[solutions]]
+#    name = "tubuann_bf.cpp"
+#    allow_tle = true
 
 [[solutions]]
     name = "tubuann_float.cpp"
