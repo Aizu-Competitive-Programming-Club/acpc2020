@@ -35,6 +35,7 @@ forum = ""
 
 [[solutions]]
     name = "tubuann.cpp"
+    allow_tle = true
 
 [params]
     N_MIN = 2
