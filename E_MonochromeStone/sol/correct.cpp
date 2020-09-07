@@ -26,7 +26,7 @@ int main() {
   rep(i,n+5) rep(j,w+10) dp[i][j]=(-1)*INF;
   dp[0][0]=sumb;
   rep(i,n){
-    rep(j,w){
+    rep(j,w+1){
       dp[i+1][j]=max(dp[i+1][j],dp[i][j]);
       if(dp[i][j]!=(-1)*INF){
 	if(j+W[i] <= w){

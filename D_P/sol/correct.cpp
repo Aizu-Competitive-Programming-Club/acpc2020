@@ -1,11 +1,101 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
+#include<cassert>
 
 using namespace std;
 
-int main() {
-    int P;
-    scanf("%d", &P);
-    printf("%d\n", P / 500 * 500);
-    return 0;
+bool check(vector<long long> &b, vector<long long> &c, long long N, long long P, long long num) {
+	long long tsum = 0, tsum2 = 0;
+	vector<long long> d(N);
+
+	c.resize(N);
+	
+	for(int i = 0; i < N; i++){ 
+		c[i] = (b[i] * num + P - 1) / P;
+		
+		if(c[i] * P / num != b[i]) return false;
+		tsum += c[i];
+		d[i] = ((b[i] + 1)* num + P - 1) / P;
+		d[i]--;
+		
+		assert(c[i] * P / num == d[i] * P / num);
+	}
+	
+	if(tsum > num) return false;
+	
+	
+	for(int i = N-1; i >= 0; i--){
+		if(tsum == num) break;
+		
+		if(d[i] - c[i] >= num - tsum) {
+			c[i] += num - tsum;
+			tsum = num;
+			break;
+		} else {
+			tsum += d[i] - c[i];
+			c[i] = d[i];
+		}
+	}
+	
+	if(tsum != num) return false;
+	
+	for(int i = 0; i < N; i++){
+		tsum2 += c[i];
+		assert(c[i] * P / num == b[i]);
+	}
+	
+	assert(tsum2 == num);
+	
+	return true;
+}
+
+long long solve(vector<long long> &b, vector<long long> &c, long long N, long long P) {
+	long long res = 1;
+	
+	for(;; res++){
+		if(check(b, c, N, P, res)) break;
+	}
+	
+	long long sum = 0;
+	
+	assert((long long)b.size() == N);
+	assert((long long)c.size() == N);
+	
+	for(int i = 0; i < N; i++){
+		sum += c[i];
+	}
+	
+	assert(sum > 0);
+	
+	for(int i = 0; i < N; i++){
+		assert(b[i] == c[i] * P / sum);
+	}
+	
+	return res;
+}
+
+signed main(){
+	
+	vector<long long> B, C;
+	long long N, P;
+	
+	cin>>N>>P;
+	
+	B.resize(N);
+	
+	for(int i = 0; i < N; i++){
+		cin>>B[i];
+	}
+	
+	solve(B, C, N, P);
+	
+	for(int i = 0; i < N; i++){
+		if(i) cout<<" ";
+		cout<<C[i];
+	}
+	
+	cout<<endl;
+	
+	
+	return 0;
 }

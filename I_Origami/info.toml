@@ -1,4 +1,4 @@
-title = 'Origami'
+title = 'I - Origami'
 timelimit = 2.0
 forum = ""
 
@@ -9,6 +9,10 @@ forum = ""
 [[tests]]
     name = "random.cpp"
     number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
 
 [params]
     N_MIN = 1
