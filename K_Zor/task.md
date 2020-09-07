@@ -22,16 +22,17 @@ $\displaystyle S=\bigcup_{n=0}^{\infty}S_n$ としたとき、$S$ の要素数 $
 ## @{keyword.constraints}
 
 - $@{param.MIN_N} \leq N \leq @{param.MAX_N}$
-- $0\leq A_i\lt 2^{@{param.K}}$
-- 非負整数 $n$ が $@{param.K}$ より小さいなら $P(n)<@{param.K}$
-- 非負整数 $n$ が $@{param.K}$ 以上なら $P(n)=n$
+- $@{param.MIN_K} \leq K \leq @{param.MAX_K}$
+- $0\leq A_i\lt 2^{K}$
+- 非負整数 $n$ が $K$ より小さいなら $P(n)<K$
+- 非負整数 $n$ が $K$ 以上なら $P(n)=n$
 
 ## @{keyword.input}
-各 $A_i$ はそれぞれ2進数表示で $@{param.K}$ 桁、$2^{@{param.K} -1}$ の位から $2^0$ の位までがこの順番で与えられる。
+各 $A_i$ はそれぞれ2進数表示で $K$ 桁、$2^{K -1}$ の位から $2^0$ の位までがこの順番で与えられる。
 
 ```
 $N$
-$P(0)$ $P(1)$ $\ldots$ $P({@{param.K} -1})$
+$P(0)$ $P(1)$ $\ldots$ $P(K-1)$
 $A_1$
 $\vdots$
 $A_N$
@@ -43,5 +44,7 @@ $|S|$ を $@{param.mod}$ 一行に出力する。
 ## @{keyword.sample}
 
 @{example.example_00}
+
+例えば $A_1\ \mathrm{zor}\ A_1=1111$ です。
 
 @{example.example_01}

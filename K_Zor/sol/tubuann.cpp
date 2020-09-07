@@ -15,6 +15,8 @@ template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
 
+#include "../params.h"
+
 ll mod_pow(ll a,ll x){
   ll ret=1;
   while(x>0){
@@ -28,18 +30,18 @@ ll mod_pow(ll a,ll x){
 int main(){
   cin.tie(0);
   ios::sync_with_stdio(false);
-  const int SIZE=64;
+  const int SIZE=MAX_K;
   using BT=bitset<SIZE>;
-  ll N;
-  cin>>N;
-  vector<int> P(SIZE);
+  ll N,K;
+  cin>>N>>K;
+  vector<int> P(K);
   cin>>P;
   vector<string> A(N);
   cin>>A;
   int NUM=0;
   vector<vector<int>> cic;
   vector<int> lg;
-  for(int i=0;i<SIZE;i++){
+  for(int i=0;i<K;i++){
     if(P[i]==-1){continue;}
     NUM++;
     cic.push_back({});
@@ -115,12 +117,9 @@ int main(){
     };
 
   
-  for(int i=0;i<SIZE;i++){
-    vector<BT> TMP;
-    for(auto &I:B){
-      TMP.push_back(I);
-      TMP.push_back(shift2(I));
-    }
+  for(int i=0;i<K;i++){
+    vector<BT> TMP=B;
+    for(auto &I:B){TMP.push_back(shift2(I));}
     gauss(TMP);
     B=TMP;
     for(int j=0;j<NUM;j++){dif[j]*=2; dif[j]%=lg[j];}
