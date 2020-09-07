@@ -26,8 +26,8 @@ forum = ""
     name = "heuristic.cpp"
     wrong = true
 
-#[[solutions]]
-#    name = "rel-1e-7.cpp"
+[[solutions]]
+    name = "rel-1e-7.cpp"
 
 #[[solutions]]
 #    name = "Luzhiled.cpp"
