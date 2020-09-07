@@ -48,3 +48,4 @@ forum = ""
     K=64
     MIN_N = 1
     MAX_N = 10
+    mod = 998244353

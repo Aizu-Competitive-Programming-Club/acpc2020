@@ -15,7 +15,7 @@ $$x\ \mathrm{zor}\ y=\sum_{n=0}^{\infty} ((x_n+y_{P(n)})\bmod 2)2^n$$
 - $S_0=A$
 - $n>0$ なら $S_n=S_{n-1}\cup \\{x\ \mathrm{zor}\ y\mid x,y\in S_{n-1}\\}$
 
-$\displaystyle S=\bigcup_{n=0}^{\infty}S_n$ としたとき、$S$ の要素数 $|S|$ を $998244353$ で割ったあまりを求めてください。ただしこの問題の制約のもと $|S|$ は有限であることが証明できます。
+$\displaystyle S=\bigcup_{n=0}^{\infty}S_n$ としたとき、$S$ の要素数 $|S|$ を $@{param.mod}$ で割ったあまりを求めてください。ただしこの問題の制約のもと $|S|$ は有限であることが証明できます。
 
 @{lang.end}
 
@@ -38,7 +38,7 @@ $A_N$
 ```
 
 ## @{keyword.output}
-$|S|$ を一行に出力する。
+$|S|$ を $@{param.mod}$ 一行に出力する。
 
 ## @{keyword.sample}
 
