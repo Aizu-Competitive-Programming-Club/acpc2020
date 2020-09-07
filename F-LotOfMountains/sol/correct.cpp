@@ -12,6 +12,7 @@ int main() {
         long double h;
         long double r;
         cin >> x >> h >> r;
+        r /= 2;
         long double dh = h / r;
         differences.emplace_back(x-r,dh);
         differences.emplace_back(x,-2*dh);
