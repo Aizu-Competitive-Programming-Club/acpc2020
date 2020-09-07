@@ -1,0 +1,40 @@
+title = 'J - DEG MUL SUM'
+timelimit = 2.0
+forum = ""
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[tests]]
+    name = "max.cpp"
+    number = 3
+
+[[tests]]
+    name = "dense.cpp"
+    number = 1
+
+[[tests]]
+    name = "bias.cpp"
+    number = 3
+
+[[solutions]]
+    name = "keymoon.cpp"
+
+[[solutions]]
+    name = "beet_naive.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "beet_tle.cpp"
+    allow_tle = true
+
+[params]
+    N_MIN = 2
+    N_MAX = 100_000
+    Q_MIN = 1
+    Q_MAX = 100_000
