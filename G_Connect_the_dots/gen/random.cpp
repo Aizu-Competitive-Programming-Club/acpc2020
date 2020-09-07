@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
     printf("%d\n", N);
 
     vector<int> x_sel,y_sel;
-    int k = 10 + N/100;
+    int k = 10 + N;
     lp(i,k){
       x_sel.push_back(gen.uniform<int>(XY_MIN,XY_MAX));
       y_sel.push_back(gen.uniform<int>(XY_MIN,XY_MAX));
