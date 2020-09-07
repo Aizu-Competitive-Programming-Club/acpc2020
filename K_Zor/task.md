@@ -6,7 +6,7 @@
 
 zorとは非負整数に対して定義される二項演算で、非負整数から非負整数への全単射写像 $P$ によって以下のように定まります。
 
-- $x,y$ を非負整数、$\displaystyle x=\sum_{n=0}^{\infty}x_n2^n,\ y=\sum_{n=0}^{\infty}y_n2^n\ (x_n,y_n\in \\{0,1\\})$ をその二進数表示とします。このとき $x$ と $y$ のzorは
+- $x,y$ を非負整数、$\displaystyle x=\sum_{n=0}^{\infty}x_n2^n,\ y=\sum_{n=0}^{\infty}y_n2^n\ (x_n,y_n\in \\{0,1\\})$ をその2進数表示とします。このとき $x$ と $y$ のzorは
 $$x\ \mathrm{zor}\ y=\sum_{n=0}^{\infty} ((x_n+y_{P(n)})\bmod 2)2^n$$
 と表される非負整数です。
 
