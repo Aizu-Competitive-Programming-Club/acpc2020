@@ -20,7 +20,7 @@ int main() {
         }
 
         for (int j = 0; j + w < (int)dp.size(); ++j) {
-            ndp[j + w] = max(dp[j], dp[j + w]);
+            ndp[j + w] = max({ndp[j + w], dp[j], dp[j + w]});
         }
 
         dp = ndp;

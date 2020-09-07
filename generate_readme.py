@@ -3,6 +3,9 @@
 import os
 import json
 import datetime
+from datetime import timezone, timedelta, datetime
+jst = timezone(timedelta(hours=+9), 'JST')
+
 import sys
 import subprocess
 from pathlib import Path
@@ -54,9 +57,19 @@ def git_push():
         subprocess.check_call(['git', 'commit', '-m', message])
         subprocess.check_call(['git', 'push', url, 'HEAD'])
 
+def target_select(branch):
+    try:
+        dict_toml = toml.load(open(base+'info.toml'))
+        if branch in dict_toml:
+            global target
+            target = dict_toml[branch]
+    except:
+        pass
+
 if __name__ == '__main__':
     branch = os.environ['GITHUB_REF'][len('refs/heads/'):]
     subprocess.check_call(['git', 'checkout', branch])
+    target_select(branch)
 
     res = parse()
     readme_str_bef = ""
@@ -89,7 +102,8 @@ if __name__ == '__main__':
     str_insert = ""
     for p_name, p_item in sorted(res.items(), key=lambda x: x[0]):
         str_base = ""
-        str_base += "<!-- start " + p_name + "-->\n"
+        if target == "*":
+            str_base += "<!-- start " + p_name + " -->\n"
 
         str_base += "## " + p_name + "\n"
         str_base += "### Time Limit: " + str(p_item["TL"]) + "\n"
@@ -104,14 +118,16 @@ if __name__ == '__main__':
             type = "AC"
             if "wrong" in sol:
                 if sol["wrong"] == True:
-                    type = "WA"                   
+                    type = "WA"
             if "allow_tle" in sol:
                 if sol["allow_tle"] == True:
                     type = "TLE"
 
             str_base += "|" + sol["name"] + "|" + type + "|\n"
-
-        str_base += "<!-- end " + p_name + " -->\n"
+        now = datetime.now(jst).strftime("%Y/%m/%d %H:%M:%S")
+        str_base += "###### updated "+now+"\n"
+        if target == "*":
+            str_base += "<!-- end " + p_name + " -->\n"
         str_insert += str_base + "\n"
     res_readme = readme_str_bef + str_insert + readme_str_af
 
