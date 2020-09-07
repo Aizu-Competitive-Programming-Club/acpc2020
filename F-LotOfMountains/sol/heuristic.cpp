@@ -3,22 +3,24 @@
 using namespace std;
 
 int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
     int n;
     cin >> n;
 
     using ll = long long;
     using ldouble = long double;
 
-    using T = tuple<ll,ldouble,ll>;
+    using T = tuple<ll,ldouble,ldouble>;
 
     vector<T> line;
 
     for(int i=0;i<n;++i){
         int a;
-        int b;
-        int c;
+        ldouble b;
+        ldouble c;
         cin >> a >> b >> c;
-        line.emplace_back(a,b,c);
+        line.emplace_back(a,b,c/2);
     }
 
     function<ldouble(ll)> func = 
@@ -39,7 +41,7 @@ int main() {
             });
     
     clock_t start = clock();
-    for(int i=0;i<n and ((clock()-start)/(double)CLOCKS_PER_SEC < 1.8);++i){
+    for(int i=0;i<n and ((clock()-start)/(double)CLOCKS_PER_SEC < 4.8);++i){
         ans = max(ans,func(get<0>(line[i])));
     }
 
