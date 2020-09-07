@@ -26,6 +26,9 @@ forum = ""
 [[solutions]]
     name = "mo3tthi.cpp"
 
+[[solutions]]
+    name = "tubuann.cpp"
+
 [params]
     P_MIN = 1
     P_MAX = 100
