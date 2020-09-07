@@ -423,6 +423,7 @@ class Problem:
         DEFAULT = 1
         DEV = 2
         TEST = 3
+        HTML = 4
         def force_generate(self):
             return self == self.DEV or self == self.TEST
         def verify(self):
@@ -443,6 +444,8 @@ class Problem:
 
         self.generate_params_h()
 
+
+
         is_testcases_already_generated = self.is_testcases_already_generated()
         is_checker_already_generated = self.is_checker_already_generated()
 
@@ -460,6 +463,11 @@ class Problem:
 
         if not is_testcases_already_generated or mode.force_generate():
             self.make_outputs(mode.verify())
+
+
+        if mode == self.Mode.HTML:
+            self.write_html(html_dir)
+            return
 
         if mode.verify():
             self.compile_solutions()
@@ -570,6 +578,7 @@ def main(args: List[str]):
                         help='Generate problem', default=[])
 
     parser.add_argument('--dev', action='store_true', help='Developer Mode')
+    parser.add_argument('--only-html', action='store_true', help='HTML generator mode')
     parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     parser.add_argument('--compile-checker',
@@ -615,7 +624,8 @@ def main(args: List[str]):
         mode = Problem.Mode.DEV
     if opts.test:
         mode = Problem.Mode.TEST
-
+    if opts.only_html:
+    	mode = Problem.Mode.HTML
     for problem in problems:
         problem.generate(mode, Path(opts.htmldir) if opts.htmldir else None)
 
