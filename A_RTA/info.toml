@@ -1,4 +1,4 @@
-title = 'RTA'
+title = 'A - RTA'
 timelimit = 2.0
 forum = ""
 
@@ -27,7 +27,7 @@ forum = ""
     name = "Endered.cpp"
 
 [[solutions]]
-    name = "ok.cpp"  
+    name = "ok.cpp"
 
 [params]
     A_AND_B_MIN = 0

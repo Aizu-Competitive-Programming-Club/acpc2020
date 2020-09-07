@@ -1,10 +1,10 @@
-title = 'SpecialChat'
+title = 'G - Connect the dots'
 timelimit = 2.0
 forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 
 [[tests]]
     name = "random.cpp"

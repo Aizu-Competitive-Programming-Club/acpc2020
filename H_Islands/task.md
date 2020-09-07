@@ -32,6 +32,7 @@ $$x\oplus y=\sum_{n=0}^{\infty} ((x_n+y_n)\bmod 2)2^n$$
 - $0\le u_k,v_k< 2^{11}=2048$
 - $1\le r_k \le H$
 - $1\le c_k \le W$
+- $k$番目のクエリを処理する直前の時点で$r_k$行$c_k$列のマスは陸である
 
 ## @{keyword.input}
 
@@ -40,9 +41,9 @@ $H$ $W$ $Q$
 $B_{1,1}\ldots B_{1,W}$
 $\vdots$
 $B_{H,1}\ldots B_{H,W}$
-$u_1$ $u_1$
+$u_1$ $v_1$
 $\vdots$
-$v_Q$ $v_Q$
+$u_Q$ $v_Q$
 ```
 
 ## @{keyword.output}
@@ -51,5 +52,16 @@ $v_Q$ $v_Q$
 ## @{keyword.sample}
 
 @{example.example_00}
+
+$r_i,c_i$は以下のようになっている。
+
+```
+3 2
+2 3
+2 1
+1 2
+2 2
+```
+一回目のクエリでは$3$行$2$列の陸のマスが海のマスに変わり、陸は二つの連結成分にわかれる。
 
 @{example.example_01}

@@ -1,4 +1,4 @@
-title = 'Monochrome Stone'
+title = 'E - Monochrome Stone'
 timelimit = 2.0
 forum = ""
 
@@ -7,14 +7,52 @@ forum = ""
     number = 2
 
 [[tests]]
+    name = "handmade.in"
+    number = 4
+
+[[tests]]
     name = "random.cpp"
-    number = 10
+    number = 5
+
+[[tests]]
+    name = "random_large.cpp"
+    number = 8
+
+[[tests]]
+    name = "random_max.cpp"
+    number = 8
 
 [[solutions]]
     name = "wa.cpp"
     wrong = true
 
+[[solutions]]
+    name = "Endered.cpp"
+
+[[solutions]]
+    name = "toyama.cpp"
+
+[[solutions]]
+    name = "Luzhiled.cpp"
+
+[[solutions]]
+    name = "keymoon.cpp"
+
+[[solutions]]
+    name = "keymoon_wa.cpp"
+    wrong = true
+
+[[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
+    name = "tubuann_TLE.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "tubuann_TLE_fast.cpp"
+    allow_tle = true
+
 [params]
     N_W_B_MIN = 1
     N_W_B_MAX = 1000
-    

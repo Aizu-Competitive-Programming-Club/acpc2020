@@ -37,9 +37,11 @@ cd $Problem
 ```
 ./test.sh
 ```
-をして、エラーが出ないことを確認してからPushすること
+をして、エラーが出ないことを確認してからpushすること
 
-CIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
+info.toml の titleを適切に編集すること
+
+masterでCIを実行したい場合は、コミットメッセージに\[run ci\]を含める。
 例：
 ```
 git commit -m '[run ci] add SpecialChat'
@@ -56,57 +58,8 @@ git commit -m '[run ci] add SpecialChat'
 | validator | verifier.cpp |
 | checker | checker.cpp |
 <!-- start * -->
-<!-- start A + B-->
-## A + B
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end A + B -->
-
-<!-- start DEG MUL SUM-->
-## DEG MUL SUM
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end DEG MUL SUM -->
-
-<!-- start Islands-->
-## Islands
-### Time Limit: 8.0
-| solution name | type |
-|----|----|
-|bf.cpp|WA|
-<!-- end Islands -->
-
-<!-- start LiChaoSegmentTree-->
-## LiChaoSegmentTree
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end LiChaoSegmentTree -->
-
-<!-- start LotOfMountains-->
-## LotOfMountains
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa-1e-5.cpp|WA|
-|rel-1e-7.cpp|AC|
-<!-- end LotOfMountains -->
-
-<!-- start Monochrome Stone-->
-## Monochrome Stone
-### Time Limit: 2.0
-| solution name | type |
-|----|----|
-|wa.cpp|WA|
-<!-- end Monochrome Stone -->
-
-<!-- start RTA-->
-## RTA
+<!-- start A - RTA -->
+## A - RTA
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
@@ -116,23 +69,133 @@ git commit -m '[run ci] add SpecialChat'
 |keymoon.cpp|AC|
 |Endered.cpp|AC|
 |ok.cpp|AC|
-<!-- end RTA -->
+###### updated 2020/09/06 19:56:56
+<!-- end A - RTA -->
 
-<!-- start SpecialChat-->
-## SpecialChat
+<!-- start B - LiChaoSegmentTree -->
+## B - LiChaoSegmentTree
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|WA|
-<!-- end SpecialChat -->
+|Endered.cpp|AC|
+|Luzhiled.cpp|AC|
+|shot.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/06 19:56:56
+<!-- end B - LiChaoSegmentTree -->
 
-<!-- start zor-->
-## zor
+<!-- start C - Broken Machine -->
+## C - Broken Machine
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|self_loop.cpp|WA|
+|extra_out.cpp|WA|
+|Endered.cpp|AC|
+###### updated 2020/09/06 19:56:56
+<!-- end C - Broken Machine -->
+
+<!-- start D - P -->
+## D - P
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+|correct2.cpp|AC|
+|Endered.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/06 19:56:56
+<!-- end D - P -->
+
+<!-- start E - Monochrome Stone -->
+## E - Monochrome Stone
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+|Endered.cpp|AC|
+|toyama.cpp|AC|
+|Luzhiled.cpp|AC|
+|keymoon.cpp|AC|
+|keymoon_wa.cpp|WA|
+|tubuann.cpp|AC|
+|tubuann_TLE.cpp|TLE|
+|tubuann_TLE_fast.cpp|TLE|
+###### updated 2020/09/06 19:56:56
+<!-- end E - Monochrome Stone -->
+
+<!-- start F - LotOfMountains -->
+## F - LotOfMountains
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa-1e-5.cpp|WA|
+|tle.cpp|TLE|
+|heuristic.cpp|WA|
+|rel-1e-7.cpp|AC|
+|Luzhiled.cpp|AC|
+|keymoon.cpp|AC|
+###### updated 2020/09/06 19:56:56
+<!-- end F - LotOfMountains -->
+
+<!-- start G - Connect the dots -->
+## G - Connect the dots
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+###### updated 2020/09/06 19:56:56
+<!-- end G - Connect the dots -->
+
+<!-- start H - Islands -->
+## H - Islands
+### Time Limit: 8.0
+| solution name | type |
+|----|----|
+|bf.cpp|WA|
+|tubuann.cpp|AC|
+|Luzhiled.cpp|AC|
+###### updated 2020/09/06 19:56:56
+<!-- end H - Islands -->
+
+<!-- start I - Origami -->
+## I - Origami
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+###### updated 2020/09/06 19:56:56
+<!-- end I - Origami -->
+
+<!-- start J - DEG MUL SUM -->
+## J - DEG MUL SUM
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|keymoon.cpp|AC|
+|beet_naive.cpp|TLE|
+|beet_tle.cpp|TLE|
+###### updated 2020/09/06 19:56:56
+<!-- end J - DEG MUL SUM -->
+
+<!-- start K - Zor -->
+## K - Zor
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
 |wa.cpp|AC|
 |tubuann.cpp|AC|
-<!-- end zor -->
+###### updated 2020/09/06 19:56:56
+<!-- end K - Zor -->
+
+<!-- start SpecialChat -->
+## SpecialChat
+### Time Limit: 2.0
+| solution name | type |
+|----|----|
+|wa.cpp|WA|
+###### updated 2020/09/06 19:56:56
+<!-- end SpecialChat -->
 
 <!-- end * -->

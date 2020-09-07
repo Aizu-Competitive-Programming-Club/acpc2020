@@ -1,4 +1,4 @@
-title = 'SpecialChat'
+title = 'D - P'
 timelimit = 2.0
 forum = ""
 
@@ -13,10 +13,19 @@ forum = ""
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+	
+[[solutions]]
+    name = "correct2.cpp"
+
+[[solutions]]
+    name = "Endered.cpp"
+
+[[solutions]]
+    name = "keymoon.cpp"
 
 [params]
     P_MIN = 1
-    P_MAX = 200
+    P_MAX = 100
     N_MIN = 1
     N_MAX = 10_000
     B_MIN = 0
