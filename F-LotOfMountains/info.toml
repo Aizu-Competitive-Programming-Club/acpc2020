@@ -58,3 +58,4 @@ forum = ""
     H_MAX = 100_000_000
     X_MIN = 1
     X_MAX = 100_000_000
+    EPS_DIGIT = 6

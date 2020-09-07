@@ -36,7 +36,7 @@ $X_N$ $H_N$ $R_N$
 
 ## @{keyword.output}
 一番標高が高い地点の高さを一行目に出力する。
-尚、想定解から$10^{-6}$までの相対誤差は正答扱いとする。
+尚、想定解から$10^{-@{param.EPS_DIGIT}}$までの相対誤差は正答扱いとする。
 
 ## @{keyword.sample}
 @{example.example_00}
