@@ -13,7 +13,7 @@ using namespace std;
 #define lp(i,n) repi(i,0,n)
 #define repn(i,n) for(int i=n;i>=0;i--)
 
-int dp[5005][5010];
+
 
 int main() {
   int n,w,b;
@@ -24,15 +24,18 @@ int main() {
     cin>>W[i]>>B[i];
     sumb+=B[i];
   }
-  
-  rep(i,n+5) rep(j,w+10) dp[i][j]=(-1)*INF;
-  dp[0][0]=sumb;
+  int dp[2][w+10];
+  rep(i,2) rep(j,w+10) dp[i][j]=(-1)*INF;
+  dp[1][0]=sumb;
   rep(i,n){
     rep(j,w+1){
-      dp[i+1][j]=max(dp[i+1][j],dp[i][j]);
-      if(dp[i][j]!=(-1)*INF){
+      dp[i%2][j]=(-1)*INF;
+    }
+    rep(j,w+1){
+      dp[i%2][j]=max(dp[i%2][j],dp[(i+1)%2][j]);
+      if(dp[(i+1)%2][j]!=(-1)*INF){
 	if(j+W[i] <= w){
-	  dp[i+1][j+W[i]]=max(dp[i][j]-B[i],dp[i+1][j+W[i]]);
+	  dp[i%2][j+W[i]]=max(dp[(i+1)%2][j]-B[i],dp[i%2][j+W[i]]);
 	}
       }
     }
@@ -45,7 +48,7 @@ int main() {
     }*/
   int ans=0;
   rep(i,w+1){
-    ans=max(ans,min(dp[n][i],b)+i);
+    ans=max(ans,min(dp[(n+1)%2][i],b)+i);
   }
   cout<<ans<<endl;
   return 0;
