@@ -24,6 +24,8 @@ int main(int, char* argv[]) {
 	if(xl.find(x)!=xl.end()||yl.find(y)!=yl.end()){
 	  continue;
 	}
+	xl.insert(x);
+	yl.insert(y);
 	break;
       }
       x_sel.push_back(x);

@@ -277,9 +277,7 @@ int main(){
     }
     else{
       if(range_x[tn].first>x)range_x[tn].first=x;
-      if(range_x[tn].second<x)range_x[tn].second=x;
-      if(range_y[tn].first>y)range_y[tn].first=y;
-      if(range_y[tn].second<y)range_y[tn].second=y;
+      if(range_x[tn].second<y)range_y[tn].second=y;
     }
   }
   int range_g = x.size()+y.size();
