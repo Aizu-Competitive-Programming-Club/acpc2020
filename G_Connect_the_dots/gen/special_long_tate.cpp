@@ -25,6 +25,8 @@ int main(int, char* argv[]) {
 	  continue;
 	}
 	break;
+	xl.insert(x);
+	yl.insert(y);
       }
       x_sel.push_back(x);
       y_sel.push_back(y);
