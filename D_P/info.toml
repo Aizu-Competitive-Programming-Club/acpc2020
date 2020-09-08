@@ -43,7 +43,7 @@ forum = ""
 
 [params]
     P_MIN = 1
-    P_MAX = 100
+    P_MAX = 500
     N_MIN = 1
-    N_MAX = 10_000
+    N_MAX = 500
     A_MIN = 0
