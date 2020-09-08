@@ -39,7 +39,7 @@ $A_N$
 ```
 
 ## @{keyword.output}
-$|S|$ を $@{param.mod}$ 一行に出力する。
+$|S|$ を $@{param.mod}$ で割ったあまりを一行に出力する。
 
 ## @{keyword.sample}
 
