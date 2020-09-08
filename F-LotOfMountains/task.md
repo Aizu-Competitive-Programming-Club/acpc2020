@@ -40,5 +40,11 @@ $X_N$ $H_N$ $R_N$
 
 ## @{keyword.sample}
 @{example.example_00}
+x座標の小さい順から山の標高は次のようになります。  
+座標 $x=8$ で標高 $0$  
+座標 $x=9$ で標高 $2$  
+座標 $x=10$ で標高 $6$  
+座標 $x=11$ で標高 $2$  
+座標 $x=12$ で標高 $0$  
 @{example.example_01}
 @{example.example_02}
