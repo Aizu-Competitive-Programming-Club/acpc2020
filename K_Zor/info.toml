@@ -45,8 +45,8 @@ forum = ""
     name = "tubuann4dbl.cpp"
     allow_tle = true
 
-#[[solutions]]
-#    name = "Endered.cpp"
+[[solutions]]
+    name = "Endered.cpp"
 
 [params]
     MIN_K = 1
