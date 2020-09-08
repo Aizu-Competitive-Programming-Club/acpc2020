@@ -40,8 +40,8 @@ forum = ""
 [[solutions]]
     name = "tubuann2.cpp"
 
-#[[solutions]]
-#    name = "Endered.cpp"
+[[solutions]]
+    name = "Endered.cpp"
 
 [params]
     MIN_K = 1

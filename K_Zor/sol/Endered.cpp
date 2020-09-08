@@ -153,20 +153,22 @@ vector<t> concat(vector<t> a,vector<t> b){
 }
 
 vector<int> mul(vector<int> a,vector<int> b){
-    rep(i,64){
+    int K = a.size();
+    rep(i,K){
         a[i] = b[a[i]];
     }
     return a;
 }
 
 vvector<int> sweep(vvector<int> table){
+    int K = table.front().size();
     int n = table.size();
     rep(i,n){
         int itr = i;
-        int most_left = 100;
+        int most_left = K;
         rep(j,i,n){
-            int p=100;
-            rep(k,64){
+            int p=K;
+            rep(k,K){
                 if(table[j][k]){
                     p = k;
                     break;
@@ -176,14 +178,14 @@ vvector<int> sweep(vvector<int> table){
                 itr = j;
             }
         }
-        if(most_left==100){
+        if(most_left==K){
             while(i<(int)table.size())table.pop_back();
             break;
         }
         swap(table[i],table[itr]);
         rep(j,i+1,n){
             if(!table[j][most_left])continue;
-            rep(k,most_left,64)table[j][k] = table[j][k] ^ table[i][k];
+            rep(k,most_left,K)table[j][k] = table[j][k] ^ table[i][k];
         }
 
     }
@@ -193,23 +195,27 @@ vvector<int> sweep(vvector<int> table){
 
 mint func(){
     int n = in();
-    vector<int> p(64);
+    int k = in();
+    vector<int> p(k);
     foreach(i,p)i=in();
     vvector<int> values;
     rep(i,n){
-        vector<int> value(64);
+        vector<int> value(k);
         foreach(j,value)j=in<char>()=='1';
         reverse(all(value));
         values.emplace_back(value);
     }
 
-    rep(i,100){
+    int sum = 1;
+    while(true){
+        if(k<sum)break;
         int n = values.size();
         rep(j,n){
             values.emplace_back(mul(p,values[j]));
         }
         p = mul(p,p);
         values = sweep(values);
+        sum *= 2;
     }
 
     return mint(2).pow(values.size());
