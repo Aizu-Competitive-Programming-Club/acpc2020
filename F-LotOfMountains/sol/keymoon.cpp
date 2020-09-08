@@ -12,7 +12,7 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		int x, h, r;
 		cin >> x >> h >> r;
-		//x *= 2;
+		x *= 2;
 		var angle = (double)h / r;
 		delta.emplace_back(x - r, angle);
 		delta.emplace_back(x, -2 * angle);
