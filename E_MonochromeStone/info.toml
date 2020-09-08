@@ -32,8 +32,8 @@ forum = ""
 [[solutions]]
     name = "Endered.cpp"
 
-#[[solutions]]
- #   name = "toyama.cpp"
+[[solutions]]
+    name = "toyama.cpp"
 
 [[solutions]]
     name = "Luzhiled.cpp"

@@ -10,15 +10,15 @@ using namespace std;
 using llong = long long;
 
 int N, W, B;
-int w[1024];
-int b[1024];
+int w[5005];
+int b[5005];
 int dp[5005][5005];
 
 int main() {
 	cin >> N >> W >> B;
 	repeat(i, 1, N + 1) cin >> w[i] >> b[i];
 
-	repeat(i, 1024) repeat(j, 1024) dp[i][j] = -100000;
+	repeat(i, 5005) repeat(j, 5005) dp[i][j] = -100000;
 	dp[0][0] = 0;
 
 	// dp[i][j] := i:card, j:sum_ws, maximum bs
