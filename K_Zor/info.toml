@@ -1,5 +1,5 @@
 title = 'K - Zor'
-timelimit = 2.0
+timelimit = 8.0
 forum = ""
 
 [[tests]]
@@ -35,20 +35,25 @@ forum = ""
     number = 10
 
 [[solutions]]
-    name = "tubuann.cpp"
+    name = "tubuann3log.cpp"
 
 [[solutions]]
-    name = "tubuann2.cpp"
+    name = "tubuann4lin.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "tubuann4dbl.cpp"
+    allow_tle = true
 
 #[[solutions]]
 #    name = "Endered.cpp"
 
 [params]
     MIN_K = 1
-    MAX_K = 300
+    MAX_K = 1000
     MIN_N = 1
     MAX_N = 10
     small_loop = 13
-    large_loop = 149
-    maximum_loop = 290
+    large_loop = 497
+    maximum_loop = 990
     mod = 998244353
