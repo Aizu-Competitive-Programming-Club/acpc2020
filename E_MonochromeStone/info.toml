@@ -27,10 +27,13 @@ forum = ""
     wrong = true
 
 [[solutions]]
-    name = "Endered.cpp"
+    name = "correct2.cpp"
 
 [[solutions]]
-    name = "toyama.cpp"
+    name = "Endered.cpp"
+
+#[[solutions]]
+ #   name = "toyama.cpp"
 
 [[solutions]]
     name = "Luzhiled.cpp"
@@ -55,4 +58,4 @@ forum = ""
 
 [params]
     N_W_B_MIN = 1
-    N_W_B_MAX = 1000
+    N_W_B_MAX = 5000
