@@ -27,6 +27,9 @@ forum = ""
     wrong = true
 
 [[solutions]]
+    name = "correct2.cpp"
+
+[[solutions]]
     name = "Endered.cpp"
 
 [[solutions]]
@@ -55,4 +58,4 @@ forum = ""
 
 [params]
     N_W_B_MIN = 1
-    N_W_B_MAX = 1000
+    N_W_B_MAX = 5000
