@@ -40,6 +40,7 @@ def parse():
         for sol in dict_toml["solutions"]:
             p_list.append(sol)
         res[p_name]['SOL'] = p_list
+        res[p_name]['directory'] = str(file)[:-9]
 
     return res
 
@@ -101,11 +102,12 @@ if __name__ == '__main__':
 
     str_insert = ""
     for p_name, p_item in sorted(res.items(), key=lambda x: x[0]):
+        d = p_item["directory"]
         str_base = ""
         if target == "*":
             str_base += "<!-- start " + p_name + " -->\n"
 
-        str_base += "## " + p_name + "\n"
+        str_base += "## [" + p_name + "]("+d+"/info.toml)\n"
         str_base += "### Time Limit: " + str(p_item["TL"]) + "\n"
 
         str_base += "| solution name | type |\n"
@@ -123,7 +125,7 @@ if __name__ == '__main__':
                 if sol["allow_tle"] == True:
                     type = "TLE"
 
-            str_base += "|" + sol["name"] + "|" + type + "|\n"
+            str_base += "|[" + sol["name"] + "]("+d+"/sol/"+sol["name"]+")|" + type + "|\n"
         now = datetime.now(jst).strftime("%Y/%m/%d %H:%M:%S")
         str_base += "###### updated "+now+"\n"
         if target == "*":
