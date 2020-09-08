@@ -23,6 +23,9 @@ forum = ""
     name = "wa.cpp"
     wrong = true
 
+[[solutions]]
+    name = "Luzhiled.cpp"
+
 [params]
     N_MIN = 2
     N_MAX = 100_000
