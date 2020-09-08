@@ -29,9 +29,9 @@ forum = ""
 [[solutions]]
     name = "rel-1e-7.cpp"
 
-#[[solutions]]
-#    name = "Luzhiled.cpp"
-#
+[[solutions]]
+    name = "Luzhiled.cpp"
+
 #[[solutions]]
 #    name = "keymoon.cpp"
 #
