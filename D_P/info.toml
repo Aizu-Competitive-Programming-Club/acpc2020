@@ -9,6 +9,14 @@ forum = ""
 [[tests]]
     name = "random.cpp"
     number = 10
+	
+[[tests]]
+    name = "random2.cpp"
+    number = 10
+[[tests]]
+
+    name = "random3.cpp"
+    number = 10
 
 [[solutions]]
     name = "wa.cpp"
