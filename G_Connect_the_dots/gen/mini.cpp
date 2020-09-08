@@ -10,7 +10,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int N = gen.uniform<int>(N_MIN, N_MAX);
+    int N = gen.uniform<int>(100, 1000);
     printf("%d\n", N);
 
     vector<int> x_sel,y_sel;
@@ -20,7 +20,9 @@ int main(int, char* argv[]) {
       y_sel.push_back(gen.uniform<int>(XY_MIN,XY_MAX));
     }
     lp(i,N){
-      cout<<x_sel[i]<<" "<<y_sel[i]<<endl;
+      int rndx=gen.uniform<int>(0,k-1);
+      int rndy=gen.uniform<int>(0,k-1);
+      cout<<x_sel[rndx]<<" "<<y_sel[rndy]<<endl;
     }
     return 0;
 }

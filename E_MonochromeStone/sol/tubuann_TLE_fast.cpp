@@ -21,7 +21,7 @@ int main(){
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  const int SIZE=1001;
+  const int SIZE=5001;
 
   int N,W,B;
   cin>>N>>W>>B;
