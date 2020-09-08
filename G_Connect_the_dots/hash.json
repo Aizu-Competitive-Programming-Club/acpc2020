@@ -44,5 +44,15 @@
   "random_03.in": "d9ceb47fdec3f77473f9ed0673342a0bfdbe7f2acd82a51e25d7ec3f4f7e8071",
   "random_03.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
   "random_04.in": "cbcf3f630fce59f876a73581a7eaaa8febcbaf2fe8f25ebe67d69bd93d892ff1",
-  "random_04.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+  "random_04.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
+  "special_long_tate_00.in": "7692fae78910b73cc462f887e78f6d20c992724c9461bcb542681479c4ed2f15",
+  "special_long_tate_00.out": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+  "special_long_yoko_00.in": "9af5b7a1bc058b4501cd8d55d5e4bb68675c09dbe2231ae5bfb140112feab95b",
+  "special_long_yoko_00.out": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+  "special_mountain_tate_00.in": "e403485c4f1bda820ac79c81e4925e95cc7a56a807f0776940df2b70dcb5a401",
+  "special_mountain_tate_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "special_mountain_tate_rev_00.in": "dac32cc0b4bf7becb2dd7e689b600ee3c0110e71cbe3be01e5ffcfaebe064a51",
+  "special_mountain_tate_rev_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "special_mountain_yoko_00.in": "3ac2b95fb172d0efafb7272bf1fd3351d527fceab78e4f63b7c3f18047044b50",
+  "special_mountain_yoko_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
 }
