@@ -21,41 +21,6 @@ inline void add_edge(int v, int u, int c, Graph &G) {
     G[v].emplace_back(u, c);
 }
 
-
-// // v to [l, r)
-// // base: S or 3S
-// inline void add_to_range(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int b = S, int idx = 0) {
-//     if (l <= a && b <= r) {
-//         add_edge(v, idx + base, cost, G);
-//         return;
-//     }
-// 
-//     if (r <= a || b <= l) {
-//         return;
-//     }
-// 
-//     int mid = (a + b) / 2;
-//     add_to_range(v, l, r, base, cost, G, a, mid, 2 * idx + 1);
-//     add_to_range(v, l, r, base, cost, G, mid, b, 2 * idx + 2);
-// }
-// 
-// // [l, r) to v
-// // base: 5S or 7S
-// inline void add_from_range(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int b = S, int idx = 0) {
-//     if (l <= a && b <= r) {
-//         add_edge(idx + base, v, cost, G);
-//         return;
-//     }
-// 
-//     if (r <= a || b <= l) {
-//         return;
-//     }
-// 
-//     int mid = (a + b) / 2;
-//     add_from_range(v, l, r, base, cost, G, a, mid, 2 * idx + 1);
-//     add_from_range(v, l, r, base, cost, G, mid, b, 2 * idx + 2);
-// }
-
 // [l, r) <-> v
 // y: base = S
 // x: base = 3S
@@ -182,8 +147,6 @@ int main() {
         add_edge(v, u, 0, G);
 
         add_range(v, l, r, 3 * S, G);
-        //add_to_range(v, l, r, 3 * S, 1, G);
-        //add_from_range(v, l, r, 7 * S, 1, G);
     }
 
     for (int i = 1; i < n; ++i) {
@@ -196,8 +159,6 @@ int main() {
         add_edge(u, v, 0, G);
         add_edge(v, u, 0, G);
         add_range(v, l, r, S, G);
-        //add_to_range(v, l, r, S, 1, G);
-        //add_from_range(v, l, r, 5 * S, 1, G);
     }
 
     using pii = pair< int, int >;
