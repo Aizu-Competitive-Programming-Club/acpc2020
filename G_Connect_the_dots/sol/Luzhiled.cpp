@@ -5,7 +5,7 @@
 
 using namespace std;
 
-constexpr int S = 1 << 19; // ( > 3 * 100000 )
+constexpr int S = 1 << 17; // ( > 100000 )
 constexpr int inf = 1001001001;
 
 struct edge {
@@ -14,17 +14,55 @@ struct edge {
     edge() {}
     edge(int to, int cost) : to(to), cost(cost) {}
 };
-
 using Graph = vector< vector< edge > >;
 
-// v to [l, r)
-// base: S or 3S
-void add_edge(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int b = S, int idx = 0) {
+inline void add_edge(int v, int u, int c, Graph &G) {
+//    cerr << "add_edge: " << v << " -(" << c << ")> " << u << endl;
+    G[v].emplace_back(u, c);
+}
+
+
+// // v to [l, r)
+// // base: S or 3S
+// inline void add_to_range(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int b = S, int idx = 0) {
+//     if (l <= a && b <= r) {
+//         add_edge(v, idx + base, cost, G);
+//         return;
+//     }
+// 
+//     if (r <= a || b <= l) {
+//         return;
+//     }
+// 
+//     int mid = (a + b) / 2;
+//     add_to_range(v, l, r, base, cost, G, a, mid, 2 * idx + 1);
+//     add_to_range(v, l, r, base, cost, G, mid, b, 2 * idx + 2);
+// }
+// 
+// // [l, r) to v
+// // base: 5S or 7S
+// inline void add_from_range(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int b = S, int idx = 0) {
+//     if (l <= a && b <= r) {
+//         add_edge(idx + base, v, cost, G);
+//         return;
+//     }
+// 
+//     if (r <= a || b <= l) {
+//         return;
+//     }
+// 
+//     int mid = (a + b) / 2;
+//     add_from_range(v, l, r, base, cost, G, a, mid, 2 * idx + 1);
+//     add_from_range(v, l, r, base, cost, G, mid, b, 2 * idx + 2);
+// }
+
+// [l, r) <-> v
+// y: base = S
+// x: base = 3S
+inline void add_range(int v, int l, int r, int base, Graph &G, int a = 0, int b = S, int idx = 0) {
     if (l <= a && b <= r) {
-//        cerr << v << " -1> " << "[" << l << ", " << r << ")";
-//        if (base == S) cerr << "(y)" << endl;
-//        else cerr << "(x)" << endl;
-        G[v].emplace_back(idx + base, cost);
+        add_edge(v, idx + base, 1, G);
+        add_edge(idx + base + 4 * S, v, 1, G);
         return;
     }
 
@@ -33,40 +71,58 @@ void add_edge(int v, int l, int r, int base, int cost, Graph &G, int a = 0, int 
     }
 
     int mid = (a + b) / 2;
-    add_edge(v, l, r, base, cost, G, a, mid, 2 * idx + 1);
-    add_edge(v, l, r, base, cost, G, mid, b, 2 * idx + 2);
+    add_range(v, l, r, base, G, a, mid, 2 * idx + 1);
+    add_range(v, l, r, base, G, mid, b, 2 * idx + 2);
 }
 
 // y, x is complessed
-void add_edge(int v, int y, int x, Graph &G) {
-    int y_idx = y + S - 1 + S;
-    int x_idx = x + S - 1 + 3 * S;
+void add_v_to_xy(int v, int y, int x, Graph &G) {
+    int to_y = y + S - 1 + S;
+    int to_x = x + S - 1 + 3 * S;
+    int from_y = y + S - 1 + 5 * S;
+    int from_x = x + S - 1 + 7 * S;
 
-//    cerr << v << " -0> " << y << "(y)" << endl;
-//    cerr << v << " -0> " << x << "(x)" << endl;
-//    cerr << y << "(y)" << " -0> " << v << endl;
-//    cerr << x << "(x)" << " -0> " << v << endl;
+    add_edge(v, to_y, 0, G);
+    add_edge(v, to_x, 0, G);
+    add_edge(to_y, v, 0, G);
+    add_edge(to_x, v, 0, G);
 
-    G[v].emplace_back(y_idx, 0);
-    G[y_idx].emplace_back(v, 0);
-    G[v].emplace_back(x_idx, 0);
-    G[x_idx].emplace_back(v, 0);
+    add_edge(v, from_y, 0, G);
+    add_edge(v, from_x, 0, G);
+    add_edge(from_y, v, 0, G);
+    add_edge(from_x, v, 0, G);
 }
 
 void build_range(Graph &G) {
-    { // y
+    { // to y
         int base = S;
         for (int i = 0; i < S - 1; ++i) {
-            G[i + base].emplace_back(2 * i + 1 + base, 0);
-            G[i + base].emplace_back(2 * i + 2 + base, 0);
+            add_edge(i + base, 2 * i + 1 + base, 0, G);
+            add_edge(i + base, 2 * i + 2 + base, 0, G);
         }
     }
 
-    { // x
+    { // to x
         int base = 3 * S;
         for (int i = 0; i < S - 1; ++i) {
-            G[i + base].emplace_back(2 * i + 1 + base, 0);
-            G[i + base].emplace_back(2 * i + 2 + base, 0);
+            add_edge(i + base, 2 * i + 1 + base, 0, G);
+            add_edge(i + base, 2 * i + 2 + base, 0, G);
+        }
+    }
+
+    { // from y
+        int base = 5 * S;
+        for (int i = 0; i < S - 1; ++i) {
+            add_edge(2 * i + 1 + base, i + base, 0, G);
+            add_edge(2 * i + 2 + base, i + base, 0, G);
+        }
+    }
+
+    { // from x
+        int base = 7 * S;
+        for (int i = 0; i < S - 1; ++i) {
+            add_edge(2 * i + 1 + base, i + base, 0, G);
+            add_edge(2 * i + 2 + base, i + base, 0, G);
         }
     }
 }
@@ -81,20 +137,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> xs[i] >> ys[i];
         zip_x.emplace_back(xs[i]);
-        zip_x.emplace_back(xs[i] - 1);
-        zip_x.emplace_back(xs[i] + 1);
         zip_y.emplace_back(ys[i]);
-        zip_y.emplace_back(ys[i] - 1);
-        zip_y.emplace_back(ys[i] + 1);
     }
 
     sort(zip_x.begin(), zip_x.end());
     sort(zip_y.begin(), zip_y.end());
     zip_x.erase(unique(zip_x.begin(), zip_x.end()), zip_x.end());
     zip_y.erase(unique(zip_y.begin(), zip_y.end()), zip_y.end());
-
-//    cerr << "x size: " << zip_x.size() << endl;
-//    cerr << "y size: " << zip_y.size() << endl;
 
     for (auto &x: xs) {
         x = lower_bound(zip_x.begin(), zip_x.end(), x) - zip_x.begin();
@@ -104,50 +153,57 @@ int main() {
         y = lower_bound(zip_y.begin(), zip_y.end(), y) - zip_y.begin();
     }
 
-//    for (auto x: xs) cerr << x << " ";
-//    cerr << endl;
-//    for (auto y: ys) cerr << y << " ";
-//    cerr << endl;
-
-    Graph G(5 * S);
+    Graph G(9 * S);
 
     build_range(G);
 
     for (int i = 0; i < n; ++i) {
-        add_edge(i, ys[i], xs[i], G);
+        add_v_to_xy(i, ys[i], xs[i], G);
     }
 
-    vector< pair< int, pair< int, int > > > pys(n), pxs(n);
+
+    vector< pair< pair< int, int >, int > > pys(n), pxs(n);
     for (int i = 0; i < n; ++i) {
-        pys[i] = make_pair(ys[i], make_pair(i, xs[i]));
-        pxs[i] = make_pair(xs[i], make_pair(i, ys[i]));
+        pys[i] = make_pair(make_pair(ys[i], xs[i]), i);
+        pxs[i] = make_pair(make_pair(xs[i], ys[i]), i);
     }
 
     sort(pys.begin(), pys.end());
     sort(pxs.begin(), pxs.end());
 
     for (int i = 1; i < n; ++i) {
-        if (pys[i].first != pys[i - 1].first) continue;
-//        cerr << "y: " << i << endl;
-        int l = pys[i - 1].second.second + 1;
-        int r = pys[i].second.second;
+        if (pys[i].first.first != pys[i - 1].first.first) continue;
+        int l = pys[i - 1].first.second;
+        int r = pys[i].first.second + 1;
 
-        add_edge(pys[i].second.first, l, r, 3 * S, 1, G);
+        int v = pys[i].second;
+        int u = pys[i - 1].second;
+        add_edge(u, v, 0, G);
+        add_edge(v, u, 0, G);
+
+        add_range(v, l, r, 3 * S, G);
+        //add_to_range(v, l, r, 3 * S, 1, G);
+        //add_from_range(v, l, r, 7 * S, 1, G);
     }
 
     for (int i = 1; i < n; ++i) {
-        if (pxs[i].first != pxs[i - 1].first) continue;
-//        cerr << "x: " << i << endl;
-        int l = pxs[i - 1].second.second + 1;
-        int r = pxs[i].second.second;
+        if (pxs[i].first.first != pxs[i - 1].first.first) continue;
+        int l = pxs[i - 1].first.second;
+        int r = pxs[i].first.second + 1;
 
-        add_edge(pxs[i].second.first, l, r, S, 1, G);
+        int v = pxs[i].second;
+        int u = pxs[i - 1].second;
+        add_edge(u, v, 0, G);
+        add_edge(v, u, 0, G);
+        add_range(v, l, r, S, G);
+        //add_to_range(v, l, r, S, 1, G);
+        //add_from_range(v, l, r, 5 * S, 1, G);
     }
 
     using pii = pair< int, int >;
     priority_queue< pii, vector< pii >, greater< pii > > pq;
 
-    vector< int > ds(5 * S, inf);
+    vector< int > ds(9 * S, inf);
     pq.emplace(0, 0);
     ds[0] = 0;
 
