@@ -6,7 +6,7 @@ $N$ 個の関数 $f_1, f_2, \ldots , f_N$ があります。$f_i(x) = A_ix + B_i
 
 以下で説明されるクエリを順に $Q$ 回処理して下さい。
 
-- 整数 $L_j, R_j, P_j$ が与えられるので、$\displaystyle \min_{L_j \le i \le R_j}f_i(P_j)$ を出力する
+- $j$ 回目のクエリで整数 $L_j, R_j, P_j$ が与えられるので、$\displaystyle \min_{L_j \le i \le R_j}f_i(P_j)$ を出力する
 
 @{lang.end}
 
