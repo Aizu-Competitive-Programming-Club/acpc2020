@@ -48,7 +48,6 @@ forum = ""
 
 [[solutions]]
     name = "Luzhiled.cpp"
-    wrong = true
 
 [params]
     N_MIN = 2
