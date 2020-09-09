@@ -15,7 +15,7 @@ forum = ""
     wrong = true
 
 [params]
-    N_MIN = 1
+    N_MIN = 3
     N_MAX = 1000
     M_MIN = 1
     M_MAX = 10
