@@ -14,6 +14,7 @@ struct edge {
     edge() {}
     edge(int to, int cost) : to(to), cost(cost) {}
 };
+
 using Graph = vector< vector< edge > >;
 
 inline void add_edge(int v, int u, int c, Graph &G) {
@@ -41,7 +42,7 @@ inline void add_range(int v, int l, int r, int base, Graph &G, int a = 0, int b 
 }
 
 // y, x is complessed
-void add_v_to_xy(int v, int y, int x, Graph &G) {
+inline void add_v_to_xy(int v, int y, int x, Graph &G) {
     int to_y = y + S - 1 + S;
     int to_x = x + S - 1 + 3 * S;
     int from_y = y + S - 1 + 5 * S;
@@ -145,7 +146,6 @@ int main() {
         int u = pys[i - 1].second;
         add_edge(u, v, 0, G);
         add_edge(v, u, 0, G);
-
         add_range(v, l, r, 3 * S, G);
     }
 
@@ -161,24 +161,27 @@ int main() {
         add_range(v, l, r, S, G);
     }
 
-    using pii = pair< int, int >;
-    priority_queue< pii, vector< pii >, greater< pii > > pq;
-
     vector< int > ds(9 * S, inf);
-    pq.emplace(0, 0);
     ds[0] = 0;
 
-    while (!pq.empty()) {
-        auto p = pq.top();
-        pq.pop();
+    deque< int > que;
+    que.push_front(0);
 
-        int v = p.second;
-        if (ds[v] < p.first) continue;
+    while (!que.empty()) {
+        int v = que.front();
+        que.pop_front();
 
         for (const auto &e: G[v]) {
-            if (ds[e.to] > ds[v] + e.cost) {
-                ds[e.to] = ds[v] + e.cost;
-                pq.emplace(ds[e.to], e.to);
+            if (ds[e.to] <= ds[v] + e.cost) {
+                continue;
+            }
+
+            ds[e.to] = ds[v] + e.cost;
+
+            if (e.cost == 0) {
+                que.push_front(e.to);
+            } else {
+                que.push_back(e.to);
             }
         }
     }
