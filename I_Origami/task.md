@@ -56,3 +56,5 @@ $2^M$ 行出力する。 $i$ 行目には $i$ 枚の紙が重なっている部�
 @{example.example_01}
 
 @{example.example_02}
+
+@{example.example_03}
