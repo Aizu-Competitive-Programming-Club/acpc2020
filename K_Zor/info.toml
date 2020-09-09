@@ -1,17 +1,25 @@
 title = 'K - Zor'
-timelimit = 2.0
+timelimit = 8.0
 forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 
 [[tests]]
     name = "random.cpp"
     number = 10
 
 [[tests]]
+    name = "maximum.cpp"
+    number = 5
+
+[[tests]]
     name = "random2.cpp"
+    number = 10
+
+[[tests]]
+    name = "random_loop.cpp"
     number = 10
 
 [[tests]]
@@ -26,22 +34,27 @@ forum = ""
     name = "maximum_loop.cpp"
     number = 10
 
-[[tests]]
-    name = "critical1.cpp"
-    number = 2
-
-[[tests]]
-    name = "critical2.cpp"
-    number = 2
+[[solutions]]
+    name = "tubuann3log.cpp"
 
 [[solutions]]
-    name = "wa.cpp"
-#    wrong = true
+    name = "tubuann4lin.cpp"
+    allow_tle = true
 
 [[solutions]]
-    name = "tubuann.cpp"
+    name = "tubuann4dbl.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "Endered.cpp"
+    allow_tle = true
 
 [params]
-    K=64
+    MIN_K = 1
+    MAX_K = 1000
     MIN_N = 1
-    MAX_N = 10
+    MAX_N = 1000
+    small_loop = 13
+    large_loop = 497
+    maximum_loop = 990
+    mod = 998244353

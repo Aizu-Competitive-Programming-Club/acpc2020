@@ -13,7 +13,7 @@ int main() {
     inf.readEoln();
     
     for(int i = 0; i < N; i++){
-        sum += inf.readInt(B_MIN, P_MAX, "B_i");
+        sum += inf.readInt(A_MIN, P_MAX, "B_i");
         if(i < N - 1) inf.readSpace();
     }
     inf.readEoln();

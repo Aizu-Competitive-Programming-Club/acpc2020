@@ -1,8 +1,5 @@
 #include<bits/stdc++.h>
-#include "random.h"
-#include "../params.h"
 using namespace std;
-
 typedef unsigned long long int ull;
 typedef long long int ll;
 typedef pair<ll,ll> pll;
@@ -18,14 +15,16 @@ template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
 
-
-
+#include "random.h"
+#include "../params.h"
 
 int main(int, char* argv[]) {
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
+    int K=gen.uniform<int>(MIN_K,MAX_K);
+    
     vector<int> P(K);
     for(int i=0;i<K;i++){P[i]=i;}
     for(int i=0;i<K;i++){
@@ -39,7 +38,7 @@ int main(int, char* argv[]) {
       for(int j=0;j<K;j++){A[i].push_back('0'+gen.uniform<int>(0,1));}
     }
     
-    cout<<N<<endl;
+    cout<<N<<" "<<K<<endl;
     cout<<P<<endl;
     for(auto &I:A){cout<<I<<endl;}
     

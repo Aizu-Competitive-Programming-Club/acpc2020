@@ -8,19 +8,19 @@ forum = ""
 
 [[tests]]
     name = "small.cpp"
-    number = 20
+    number = 30
 
 [[tests]]
     name = "random.cpp"
-    number = 3
+    number = 5
 
 [[tests]]
     name = "maximum.cpp"
-    number = 3
+    number = 5
 
 [[tests]]
     name = "itimatu.cpp"
-    number = 2
+    number = 5
 
 [[solutions]]
     name = "bf.cpp"
@@ -29,8 +29,11 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
-[[solutions]]
-    name = "Luzhiled.cpp"
+#[[solutions]]
+#    name = "Luzhiled.cpp"
+
+#[[solutions]]
+#    name = "Endered.cpp"
 
 [params]
     HW_MIN = 1
@@ -42,6 +45,6 @@ forum = ""
     SMALL_Q_MIN = 1
     SMALL_Q_MAX = 100_000
     P_ALL = 5
-    mod = 2048
+    mod = 1024
     roll = 427
-    cst = 1821
+    cst = 821
