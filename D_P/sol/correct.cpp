@@ -78,6 +78,7 @@ signed main(){
 	
 	vector<long long> B, C;
 	long long N, P;
+	long long sum = 0;
 	
 	cin>>N>>P;
 	
@@ -85,6 +86,13 @@ signed main(){
 	
 	for(int i = 0; i < N; i++){
 		cin>>B[i];
+		
+		sum += B[i];
+	}
+	
+	if(sum < P - N + 1 || sum > P) {
+		cout<<-1<<endl;
+		return 0;
 	}
 	
 	solve(B, C, N, P);

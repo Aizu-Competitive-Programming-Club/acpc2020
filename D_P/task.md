@@ -22,8 +22,8 @@
 ## @{keyword.constraints}
 
 - $@{param.N_MIN} \le N \le @{param.N_MAX}$
-- $@{param.P_MIN} \leq P \leq @{param.P_MAX}$
-- $@{param.A_MIN} \le A_i \le P$ 
+- $@{param.P_MIN} \le P \le @{param.P_MAX}$
+- $@{param.A_MIN} \le A_i \le @{param.A_MAX}$ 
 - 入力はすべて整数である
 
 ## @{keyword.input}
