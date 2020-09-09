@@ -15,7 +15,7 @@ $1$ から $N$ の番号が付けられた $N$ 個の関数 $f$ があります�
 - 入力は全て整数
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $|A_i|, |B_i| \leq @{param.A_MAX})$
+- $|A_i|, |B_i| \leq @{param.A_MAX}$
 - $@{param.N_MIN} \leq L_j \leq R_j \leq N$
 - $|P_j| \leq @{param.X_MAX}$
 
