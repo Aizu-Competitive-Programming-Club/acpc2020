@@ -8,7 +8,7 @@ forum = ""
 
 [[tests]]
     name = "handmade.in"
-    number = 6
+    number = 5
 
 [[tests]]
     name = "random.cpp"
@@ -25,8 +25,8 @@ forum = ""
 # [[solutions]]
 #     name = "Endered.cpp"
 
-[[solutions]]
-    name = "toyama.cpp"
+# [[solutions]]
+#       name = "toyama.cpp"
 
 [params]
     N_MIN = 1
