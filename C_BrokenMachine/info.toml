@@ -25,6 +25,9 @@ forum = ""
 [[solutions]]
     name = "Endered.cpp"
 
+[[solutions]]
+    name = "toyama.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 100
