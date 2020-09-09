@@ -22,8 +22,8 @@ forum = ""
    name = "extra_out.cpp"
    wrong = true
 
-[[solutions]]
-    name = "Endered.cpp"
+# [[solutions]]
+#     name = "Endered.cpp"
 
 [[solutions]]
     name = "toyama.cpp"
