@@ -75,7 +75,7 @@ int main(){
   }
 
   vector<int> dif(NUM,1);
-  
+  /*
   auto shift1=
     [&](const BT &X,int k){
       BT tmp;
@@ -86,7 +86,7 @@ int main(){
       }
       return tmp;
     };
-  /*
+  */
   auto shift2=
     [&](const BT &X){
       BT tmp;
@@ -97,7 +97,7 @@ int main(){
       }
       return tmp;
     };
-  */
+
   auto gauss=
     [&](vector<BT> &A){
       int N=A.size();
@@ -115,30 +115,16 @@ int main(){
       }
       while(!A.empty() && A.back().none()){A.pop_back();}
     };
-
-  gauss(B);
-  vector<BT> C(K);
-  int sz=B.size();
-  for(int i=0;i<sz;i++){
-    for(int j=0;j<K;j++){
-      if(B[i][j]){C[j]=B[i]; break;}
-    }
-  }
-  int rnk=sz;
-  for(int i=0;i<sz;i++){
-    for(int k=1;;k++,rnk++){
-      BT tmp=shift1(B[i],k);
-      for(int j=0;j<K;j++){
-        if(tmp[j]){
-          if(C[j][j]){tmp^=C[j];}
-          else{C[j]=tmp; break;}
-        }
-      }
-      if(tmp.none()){break;}
-    }
-  }
   
-  cout<<mod_pow(2,rnk)<<endl;
+  
+  for(int i=0;i<K;i++){
+    vector<BT> TMP=B;
+    for(auto &I:B){TMP.push_back(shift2(I));}
+    gauss(TMP);
+    B=TMP;
+    for(int j=0;j<NUM;j++){dif[j]++; dif[j]%=lg[j];}
+  }
+  cout<<mod_pow(2,B.size())<<endl;
 
   return 0;
 }

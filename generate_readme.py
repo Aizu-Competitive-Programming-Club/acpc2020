@@ -40,7 +40,7 @@ def parse():
         for sol in dict_toml["solutions"]:
             p_list.append(sol)
         res[p_name]['SOL'] = p_list
-        res[p_name]['directory'] = str(file)[:-5]
+        res[p_name]['directory'] = str(file)[:-9]
 
     return res
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         if target == "*":
             str_base += "<!-- start " + p_name + " -->\n"
 
-        str_base += "## [" + p_name + "] ("+d+"/info.toml)\n"
+        str_base += "## [" + p_name + "]("+d+"/info.toml)\n"
         str_base += "### Time Limit: " + str(p_item["TL"]) + "\n"
 
         str_base += "| solution name | type |\n"

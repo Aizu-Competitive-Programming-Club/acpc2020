@@ -15,34 +15,44 @@ template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
 
-using P=pair<int,int>;
+ll ceil(ll a,ll b){return (a+b-1)/b;}
+
+ll lt(ll a,ll b){return (a-1)/b;}
 
 int main(){
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  const int SIZE=5001;
-
-  int N,W,B;
-  cin>>N>>W>>B;
-  vector<P> A(N);
+  ll N,P;
+  cin>>N>>P;
+  vector<ll> A(N);
   cin>>A;
-  vector<bitset<SIZE>> dp(W+1);
-  dp[W][B]=true;
-  for(auto &I:A){
-    for(int i=0;i<=W;i++){
-      if(i>=I.F){dp[i-I.F]|=dp[i];}
-      dp[i][0]=dp[i][0]|(dp[i]<<SIZE-I.S).any();
-      dp[i]|=dp[i]>>I.S;
+  vector<ll> cnt(P+1,0);
+  ll T=0;
+  for(auto &I:A){cnt[I]++; T+=I;}
+  assert(T<=P && P<T+N);
+  for(ll S=1;;S++){
+    ll lf=0,rg=0,gd=1;
+    for(ll j=0;j<=P && gd;j++){
+      if(cnt[j]==0){continue;}
+      ll l=ceil(j*S,P),r=lt((j+1)*S,P);
+      if(l>r){gd=0; break;}
+      lf+=l*cnt[j];
+      rg+=r*cnt[j];
     }
-  }
-  int mx=0;
-  for(int i=0;i<=W;i++){
-    for(int j=0;j<=B;j++){
-      if(dp[i][j]){mx=max(mx,W-i+B-j);}
+    if(gd==0 || S<lf || rg<S){continue;}
+    ll rem=S-lf;
+    vector<ll> ans(N);
+    for(int i=N-1;i>=0;i--){
+      ll l=ceil(A[i]*S,P),r=lt((A[i]+1)*S,P);
+      ans[i]=min(r,l+rem);
+      rem-=ans[i]-l;
     }
+    cout<<ans<<endl;
+    return 0;
   }
-  cout<<mx<<endl;
+  assert(false);
+  
 
   return 0;
 }

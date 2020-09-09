@@ -32,6 +32,9 @@ forum = ""
 [[solutions]]
     name = "Luzhiled.cpp"
 
+[[solutions]]
+    name = "Endered.cpp"
+
 [params]
     HW_MIN = 1
     HW_MAX = 1000
