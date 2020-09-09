@@ -63,32 +63,44 @@ void build_range(Graph &G) {
     { // to y
         int base = S;
         for (int i = 0; i < S - 1; ++i) {
-            add_edge(i + base, 2 * i + 1 + base, 0, G);
-            add_edge(i + base, 2 * i + 2 + base, 0, G);
+            int v = i + base;
+            int l = 2 * i + 1 + base;
+            int r = 2 * i + 2 + base;
+            add_edge(v, l, 0, G);
+            add_edge(v, r, 0, G);
         }
     }
 
     { // to x
         int base = 3 * S;
         for (int i = 0; i < S - 1; ++i) {
-            add_edge(i + base, 2 * i + 1 + base, 0, G);
-            add_edge(i + base, 2 * i + 2 + base, 0, G);
+            int v = i + base;
+            int l = 2 * i + 1 + base;
+            int r = 2 * i + 2 + base;
+            add_edge(v, l, 0, G);
+            add_edge(v, r, 0, G);
         }
     }
 
     { // from y
         int base = 5 * S;
         for (int i = 0; i < S - 1; ++i) {
-            add_edge(2 * i + 1 + base, i + base, 0, G);
-            add_edge(2 * i + 2 + base, i + base, 0, G);
+            int v = i + base;
+            int l = 2 * i + 1 + base;
+            int r = 2 * i + 2 + base;
+            add_edge(l, v, 0, G);
+            add_edge(r, v, 0, G);
         }
     }
 
     { // from x
         int base = 7 * S;
         for (int i = 0; i < S - 1; ++i) {
-            add_edge(2 * i + 1 + base, i + base, 0, G);
-            add_edge(2 * i + 2 + base, i + base, 0, G);
+            int v = i + base;
+            int l = 2 * i + 1 + base;
+            int r = 2 * i + 2 + base;
+            add_edge(l, v, 0, G);
+            add_edge(r, v, 0, G);
         }
     }
 }
@@ -119,7 +131,13 @@ int main() {
         y = lower_bound(zip_y.begin(), zip_y.end(), y) - zip_y.begin();
     }
 
-    Graph G(9 * S);
+    // [ 0,  S) : dots
+    // [ S, 3S) : dots to y-range
+    // [3S, 5S) : dots to x-range
+    // [5S, 7S) : y-range to dots
+    // [7S, 9S) : x-range to dots
+    int V = 9 * S;
+    Graph G(V);
 
     build_range(G);
 
@@ -161,7 +179,7 @@ int main() {
         add_range(v, l, r, S, G);
     }
 
-    vector< int > ds(9 * S, inf);
+    vector< int > ds(V, inf);
     ds[0] = 0;
 
     deque< int > que;
