@@ -47,12 +47,13 @@ forum = ""
 
 [[solutions]]
     name = "Endered.cpp"
+    allow_tle = true
 
 [params]
     MIN_K = 1
     MAX_K = 1000
     MIN_N = 1
-    MAX_N = 10
+    MAX_N = 1000
     small_loop = 13
     large_loop = 497
     maximum_loop = 990

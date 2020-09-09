@@ -1,9 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include "random.h"
+#include "../params.h"
 using namespace std;
-
-#define int long long
-#define double long double
-#define REP(i, n) for ( int i = 0; i < (n); i++ )
 
 #define EPS (1e-10)
 #define equals(a,b) (fabs((a)-(b)) < EPS)
@@ -61,10 +60,10 @@ istream &operator >> (istream &is,Point &p){
   return is;
 }
 
-ostream &operator << (ostream &os,Point p){
+/*ostream &operator << (ostream &os,Point p){
   os<<fixed<<setprecision(12)<<p.x<<" "<<p.y;
   return os;
-}
+  }*/
 
 bool sort_x(Point a,Point b){
   return a.x!=b.x?a.x<b.x:a.y<b.y;
@@ -355,8 +354,6 @@ Polygon andrewScan(Polygon s){
 }
 
 Polygon convex_hull(Polygon ps){
-  sort(ps.begin(), ps.end());  
-  ps.erase(unique(ps.begin(), ps.end()), ps.end());  
   int n=ps.size();
   sort(ps.begin(),ps.end(),sort_y);
   int k=0;
@@ -443,115 +440,59 @@ Polygon convexCut(Polygon p,Line l){
 
 Polygon linearly_symmetric_movement(Polygon p, Line l) {
   Polygon ret;
-  for ( Point &pt: p ) ret.push_back(reflect(l, pt));
+  for ( Point &pt: p ) ret.push_back(project(l, pt));
   ret = convex_hull(ret);
   return ret;  
 }
 
-signed main() {
-  cin.tie(0);
-  ios_base::sync_with_stdio(0);
-  cout << fixed << setprecision(10);
-
-  int N, M;
-  cin >> N >> M;
-  vector<Polygon> Ps;
-  {
-    Polygon P(N);
-    REP(i, N) cin >> P[i].x >> P[i].y;    
-    Ps.push_back(convex_hull(P));
-  }
-  
-  REP(i, M) {
-    Segment s;
-    cin >> s.p1.x >> s.p1.y >> s.p2.x >> s.p2.y;
-    vector<Polygon> n_Ps;
-    for ( Polygon &P: Ps ) {
-      Polygon tmp = convexCut(P, s);      
-      if ( tmp.size() ) n_Ps.push_back(linearly_symmetric_movement(tmp, s));
-      tmp = convexCut(P, Line(s.p2, s.p1));
-      if ( tmp.size() ) n_Ps.push_back(tmp);      
+int main(int, char* argv[]) {
+    long long seed = atoll(argv[1]);
+    auto gen = Random(seed);    
+    // 凸多角形作成
+    int N = 5;
+    Polygon P;    
+    for ( int i = 0; i < N; i++ ) {
+      double x = gen.uniform<int>(xy_MIN, xy_MAX);
+      double y = gen.uniform<int>(xy_MIN, xy_MAX);
+      x /= 1e5;
+      y /= 1e5;      
+      P.push_back(Point(x, y));      
     }
-    Ps = n_Ps;    
-  }
+    sort(P.begin(), P.end());    
+    P.erase(unique(P.begin(), P.end()), P.end());
+    P = convex_hull(P);
+    N = P.size();
+    
+    int M = gen.uniform<int>(M_MIN, 2);
+    
+    printf("%d %d\n", N, M);
 
-  vector<double> ans((1<<M), 0);
-  vector<Segment> ss;
-  for ( Polygon &P: Ps ) {   
-    for ( int i = 0; i < (int)P.size(); i++ ) {
-      ss.push_back(Segment(P[i], P[(i+1)%(int)P.size()]));      
-    }
-  }
-
-  // 交差点列挙
-  vector<double> events;  
-  for ( int i = 0; i < (int)ss.size(); i++ ) {
-    for ( int j = i+1; j < (int)ss.size(); j++ ) {
-      if ( getDistanceSS(ss[i], ss[j]) > EPS ) continue;
-      events.push_back(getCrossPointSS(ss[i], ss[j]).x);      
-    }
-  }
-
-  sort(events.begin(), events.end());
-  // for ( auto i: events ) cout << i << endl;  
-  // 広義unique(差がEPS以下の要素があったら片方消去)
-  {
-    vector<double> tmp{events[0]};
-    for ( int i = 1; i < (int)events.size(); i++ ) {
-      if ( events[i]-events[i-1] > EPS ) tmp.push_back(events[i]);
-    }
-    events = tmp;    
-  }
-
-  // 平面捜査
-  using Pdd = pair<double, double>; 
-  for ( int i = 1; i < (int)events.size(); i++ ) {
-    Segment s2(Point(events[i], -2e9), Point(events[i], 2e9));
-    Segment s1(Point(events[i-1], -2e9), Point(events[i-1], 2e9));    
-    vector<Pdd> cross_y;    
-    for ( Segment &s: ss ) {      
-      if ( getDistanceSS(s, s1) > EPS || getDistanceSS(s, s2) > EPS ) continue;
-      cross_y.push_back(Pdd(getCrossPointSS(s1, s).y, getCrossPointSS(s2, s).y));      
+    for ( int i = 0; i < N; i++ ) {
+      printf("%.5lf %.5lf\n", P[i].x, P[i].y);      
     }
 
-    sort(cross_y.begin(), cross_y.end()); 
-    double height = events[i] - events[i-1]; // 台形の高さ
-    if ( height < EPS ) continue;    
-    for ( int j = 1; j < (int)cross_y.size(); j++ ) {
-      double a = cross_y[j].first  - cross_y[j-1].first; // 上底
-      double b = cross_y[j].second - cross_y[j-1].second; // 下底
-      if ( a < EPS && b < EPS ) continue;      
-
-      Polygon trapezoid{Point(events[i-1], cross_y[j].first),
-	  Point(events[i-1], cross_y[j-1].first),
-	  Point(events[i], cross_y[j].second),
-	  Point(events[i], cross_y[j-1].second)};      
-      
-      Point middle(0, 0); // 台形の中に含まれているような点を一つ見つける
-      for ( Point &p: trapezoid ) middle = middle + p;      
-      middle = middle/4;      
-      
-      int cnt = 0; // いくつの多角形に内包されているかカウント
-      for ( Polygon &P: Ps ) {	
-	if ( contains(P, middle) > 0 ) cnt++;	
+    vector<Polygon> polygons{P};    
+    for ( int m = 0; m < M; m++ ) {
+      Polygon now = polygons[0];
+      Point p1 = now[0];      
+      Point p2;      
+      if ( now.size() > 3 ) {
+	// 頂点数が3の場合, (点1, 点2点3の中点)
+	p2 = now[gen.uniform<int>(2, (int)now.size()-2)];
+      } else { 	
+	p2 = Point((now[1].x+now[2].x)/2, (now[1].y+now[2].y)/2);	
       }
-      
-      if ( cnt == 0 ) continue;          
-      ans[cnt-1] += height * (a+b) / 2;      
+      printf("%.5lf %.5lf %.5lf %.5lf\n", p1.x, p1.y, p2.x, p2.y);
+      Line l(p1, p2), rl(p2, p1);
+      vector<Polygon> next_polygons;
+      for ( Polygon &p: polygons ) {
+	if ( !intersectPS(p, l) ) continue;	
+	Polygon poly1 = convexCut(p, l), poly2 = linearly_symmetric_movement(convexCut(p, rl), l);  
+	if ( poly1.size() > 2 ) next_polygons.push_back(poly1);
+	if ( poly2.size() > 2 ) next_polygons.push_back(poly2);	
+      }
+      polygons = next_polygons;     
     }
-  }
-
-  if ( N == 4 && M == 1 ) {
-    cout << fixed << setprecision(15);
-  }
-
-  if ( N == 4 && M == 2 ) {
-    cout << fixed << setprecision(0);
-  }
-
-  for ( int i = 0; i < (1<<M); i++ ) {
-    cout << ans[i] << endl;    
-  }
-  
-  return 0;
+    
+    return 0;
 }
