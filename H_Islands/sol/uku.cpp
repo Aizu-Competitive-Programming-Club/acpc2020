@@ -92,15 +92,16 @@ int main(){
       if(c=='.'){erase(i,j);}
     }
   }
-  ll s=0,roll=427,cst=821,mod=1024;
+  ll s=0,roll=427,cst=1821,mod=2048;
   while(Q--){
     ll x,y;
     cin>>x>>y;
     x=s^x; x++;
     y=s^y; y++;
+    cout<<x<<" "<<y<<endl;
     assert(A[x][y]=='#');
     erase(x,y);
-    cout<<ans<<endl;
+    //cout<<ans<<endl;
     s=roll*s+cst*ans;
     s%=mod;
   }
