@@ -44,9 +44,15 @@ int main(int argc, char * argv[])
       ans.readChar('\n');      
       double ouf_value = ouf.readDouble();
       ouf.readChar('\n');
-        
-      if(abs(ans_value-ouf_value) / ans_value > param_EPS){
-	quitf(_wa,"diif is greater than 1e-6");
+
+      if ( ans_value > 0 ) {
+	if(abs(ans_value-ouf_value) > param_EPS && abs(ans_value-ouf_value) / ans_value > param_EPS){
+	  quitf(_wa,"diif is greater than 1e-6");
+	}
+      } else {
+	if(abs(ans_value-ouf_value) > param_EPS){
+	  quitf(_wa,"diif is greater than 1e-6");
+	}
       }
     }
 
