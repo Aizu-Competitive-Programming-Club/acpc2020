@@ -363,7 +363,7 @@ Polygon convex_hull(Polygon ps){
     qs[k++]=ps[i];
   }
   for(int i=n-2,t=k;i>=0;i--){
-    while(k>t&&cross(qs[k-1]-qs[k-2],ps[i]-qs[k-1])<0) k--;
+    while(k>=t&&cross(qs[k-1]-qs[k-2],ps[i]-qs[k-1])<0) k--;
     qs[k++]=ps[i];
   }
   qs.resize(k-1);
