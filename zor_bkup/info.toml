@@ -41,7 +41,11 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
+[[solutions]]
+    name = "Endered.cpp"
+
 [params]
     K=64
     MIN_N = 1
     MAX_N = 10
+    mod = 998244353
