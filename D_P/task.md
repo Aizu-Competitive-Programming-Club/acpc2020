@@ -47,7 +47,7 @@ $B_0$ $B_1$ $\cdots$ $B_{N-1}$
 
 @{example.example_00}
 
-$\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$となる。
+$\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$ となる。
 
 @{example.example_01}
 
