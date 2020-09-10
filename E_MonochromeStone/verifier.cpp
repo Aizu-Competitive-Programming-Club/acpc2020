@@ -10,9 +10,9 @@ int main() {
     inf.readInt(N_P_K_MIN, N_P_K_MAX); // K
     inf.readChar('\n');
     for (int i = 0; i < N; i++) {
-      inf.readInt(N_P_K_MIN, N_P_K_MAX); // w_i
+      inf.readInt(W_B_MIN, W_B_MAX); // w_i
       inf.readChar(' ');
-      inf.readInt(N_P_K_MIN, N_P_K_MAX); // b_i
+      inf.readInt(W_B_MIN, W_B_MAX); // b_i
       inf.readChar('\n');
      
     }

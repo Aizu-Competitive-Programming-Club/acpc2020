@@ -15,8 +15,8 @@ int main(int, char* argv[]) {
     printf("%d %d %d\n", N, P, K);
 
     for(int i=0;i<N;i++){
-      int WI = gen.uniform<int>(100, N_P_K_MAX);
-      int BI = gen.uniform<int>(100, N_P_K_MAX);
+      int WI = gen.uniform<int>(100, W_B_MAX);
+      int BI = gen.uniform<int>(100, W_B_MAX);
       printf("%d %d\n", WI, BI);
     }
     return 0;
