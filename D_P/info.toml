@@ -47,6 +47,9 @@ forum = ""
     name = "correct2.cpp"
 
 [[solutions]]
+    name = "correct3.cpp"
+	
+[[solutions]]
     name = "Endered.cpp"
     allow_tle = true
 
