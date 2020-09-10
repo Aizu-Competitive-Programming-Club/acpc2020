@@ -26,6 +26,7 @@ $\displaystyle S=\bigcup_{n=0}^{\infty}S_n$ としたとき、$S$ の要素数 $
 - $0\leq A_i\lt 2^{K}$
 - 非負整数 $n$ が $K$ より小さいなら $P(n)<K$
 - 非負整数 $n$ が $K$ 以上なら $P(n)=n$
+- 非負整数 $n,m$ に対して $n\neq m$ なら $P(n)\neq P(m)$
 
 ## @{keyword.input}
 

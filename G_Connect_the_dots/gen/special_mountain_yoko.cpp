@@ -38,7 +38,7 @@ int main(int, char* argv[]) {
     reverse(y_sel.begin(),y_sel.end());
     lp(i,N){
       if(i%2==0)cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2+i/2]<<endl;
-      else cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2-i/2]<<endl;
+      else cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2-1-i/2]<<endl;
     }
     return 0;
 }
