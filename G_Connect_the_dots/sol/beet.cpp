@@ -14,7 +14,6 @@ vector<T> read(size_t n){
   return ts;
 }
 
-
 struct RangeToRange{
   const int n;
   int ptr;
