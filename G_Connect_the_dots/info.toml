@@ -44,6 +44,12 @@ forum = ""
 [[tests]]
     name = "special_pole_sort.cpp"
     number = 10
+[[tests]]
+    name = "special_spiral.cpp"
+    number = 2
+[[tests]]
+    name = "special_spiral_rev.cpp"
+    number = 2
 
 [[tests]]
     name = "handmade.in"
@@ -62,5 +68,4 @@ forum = ""
 [params]
     N_MIN = 2
     N_MAX = 100_000
-    XY_MIN = -1_000_000_000
-    XY_MAX = 1_000_000_000
+    XY_ABS = 1_000_000_000
