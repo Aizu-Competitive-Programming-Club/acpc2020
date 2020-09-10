@@ -25,7 +25,7 @@ xy平面上に、 $1$ から $N$ の番号のついた $N$ 個の点が与えら
 ## @{keyword.constraints}
 
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
-- $|x_i|, |y_i| \leq @{param.XY_MAX} (1 \leq i \leq N)$
+- $|x_i|, |y_i| \leq @{param.XY_ABS} (1 \leq i \leq N)$
 - $ i \neq j$ ならば $x_i \neq x_j$ または $y_i \neq y_j$ を満たす
 - 入力は全て整数
 
