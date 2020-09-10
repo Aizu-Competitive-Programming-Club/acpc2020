@@ -26,8 +26,7 @@ forum = ""
    name = "beet.cpp"
 
 [[solutions]]
-   name = "Endered_wa.cpp"
-   wrong = true
+   name = "Endered.cpp"
 
 [[solutions]]
    name = "toyama_wa.cpp"
