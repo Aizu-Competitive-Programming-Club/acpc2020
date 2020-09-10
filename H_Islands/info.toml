@@ -29,11 +29,11 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
-#[[solutions]]
-#    name = "Luzhiled.cpp"
+[[solutions]]
+    name = "Luzhiled.cpp"
 
-#[[solutions]]
-#    name = "Endered.cpp"
+[[solutions]]
+    name = "Endered.cpp"
 
 [params]
     HW_MIN = 1
