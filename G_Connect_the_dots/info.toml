@@ -12,11 +12,11 @@ forum = ""
 
 [[tests]]
     name = "mini.cpp"
-    number = 5
+    number = 3
 
 [[tests]]
     name = "large.cpp"
-    number = 10
+    number = 5
 
 [[tests]]
     name = "special_mountain_tate.cpp"
@@ -37,6 +37,13 @@ forum = ""
 [[tests]]
     name = "special_long_yoko.cpp"
     number = 1
+
+[[tests]]
+    name = "special_pole_random.cpp"
+    number = 10
+[[tests]]
+    name = "special_pole_sort.cpp"
+    number = 10
 
 [[tests]]
     name = "handmade.in"
