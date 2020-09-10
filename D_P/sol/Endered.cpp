@@ -112,9 +112,9 @@ vector<ll> func(){
     {
         int sum = 0;
         foreach(i,b)sum += i;
-        int not_zero = 0;
-        foreach(i,b)not_zero += !i;
-        if(p<sum and not_zero < p - n)return wrong;
+        int zero = 0;
+        foreach(i,b)zero += !i;
+        if(p<sum or n <= p - sum)return wrong;
     }
 
     method(func,vector<ll>,int sum){

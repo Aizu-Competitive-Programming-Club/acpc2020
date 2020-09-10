@@ -48,7 +48,6 @@ forum = ""
 
 [[solutions]]
     name = "Endered.cpp"
-    allow_tle = true
 
 [[solutions]]
     name = "keymoon.cpp"
