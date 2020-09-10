@@ -102,120 +102,37 @@ namespace templates{
 
 using namespace templates;
 
-template<long long mod>
-class modint{
-	public:
-		long long x;
-		modint(long long a){x=a%mod;if(x<0)x+=mod;}
-		modint(){x=0;}
-
-		modint pow(long long a){
-			modint res(1), b(x);
-			while(a){
-				if(a&1)res*=b;
-				b*=b;
-				a>>=1;
-			}
-			return res;
-		}
-
-		modint inv(){return pow(mod-2);}
-
-		modint& operator+=(modint a){x=(x+a.x)%mod;return *this;}
-		modint& operator-=(modint a){x=x-a.x;if(x<0)x+=mod;return *this;}
-		modint& operator*=(modint a){x=x*a.x%mod;return *this;}
-		modint& operator/=(modint a){x=x*a.inv().x%mod;return *this;}
-
-		modint operator+(modint a){return modint(x)+=a;}
-		modint operator-(modint a){return modint(x)-=a;}
-		modint operator*(modint a){return modint(x)*=a;}
-		modint operator/(modint a){return modint(x)/=a;}
-
-		modint operator-(){return modint(x);}
-
-		bool operator==(const modint a){return x == a.x;}
-		bool operator<(const modint a){return x < a.x;}
-		bool operator>(const modint a){return x > a.x;}
-};
-
-template<long long mod>
-ostream& operator<<(ostream& os, const modint<mod>& a){
-	os << a.x;
-	return os;
-}
-
-using mint = modint<MOD>;
-
-template<class t>
-vector<t> concat(vector<t> a,vector<t> b){
-    a.insert(a.end(),b.begin(),b.end());
-    return a;
-}
-
-vector<int> mul(vector<int> a,vector<int> b){
-    rep(i,64){
-        a[i] = b[a[i]];
-    }
-    return a;
-}
-
-vvector<int> sweep(vvector<int> table){
-    int n = table.size();
-    rep(i,n){
-        int itr = i;
-        int most_left = 100;
-        rep(j,i,n){
-            int p=100;
-            rep(k,64){
-                if(table[j][k]){
-                    p = k;
-                    break;
-                }
-            }
-            if(chmin(most_left,p)){
-                itr = j;
-            }
-        }
-        if(most_left==100){
-            while(i<(int)table.size())table.pop_back();
-            break;
-        }
-        swap(table[i],table[itr]);
-        rep(j,i+1,n){
-            if(!table[j][most_left])continue;
-            rep(k,most_left,64)table[j][k] = table[j][k] ^ table[i][k];
-        }
-
-    }
-    return table;
-}
-
-
-mint func(){
+ll func(){
     int n = in();
-    vector<int> p(64);
-    foreach(i,p)i=in();
-    vvector<int> values;
-    rep(i,n){
-        vector<int> value(64);
-        foreach(j,value)j=in<char>()=='1';
-        reverse(all(value));
-        values.emplace_back(value);
-    }
-
-    rep(i,100){
-        int n = values.size();
-        rep(j,n){
-            values.emplace_back(mul(p,values[j]));
+    int w = in();
+    int b = in();
+    vector<pii> line(n);
+    foreach(i,line)i=in<pii>();
+    vector<int> dp(w+1,-1);
+    dp[0] = 0;
+    foreach(card,line){
+        vector<int> next(w+1,-1);
+        per(i,w+1-card.first){
+            if(dp[i]==-1)continue;
+            chmax(next[i+card.first],dp[i]);
         }
-        p = mul(p,p);
-        values = sweep(values);
+        per(i,w+1){
+            if(dp[i]==-1)continue;
+            chmax(next[i],dp[i]+card.second);
+        }
+        rep(i,w+1){
+            chmax(dp[i],next[i]);
+        }
     }
-
-    return mint(2).pow(values.size());
+    int res = 0;
+    rep(i,w+1){
+        if(dp[i]==-1)continue;
+        chmax(res,i+min(dp[i],b));
+    }
+    return res;
 }
 
 int main(){
     cout << func() << endl;
-  return 0;
+    return 0;
 }
