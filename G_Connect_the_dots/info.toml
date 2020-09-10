@@ -74,7 +74,6 @@ forum = ""
 
 [[solutions]]
     name = "tubuann.cpp"
-    wrong = true
 
 [params]
     N_MIN = 2

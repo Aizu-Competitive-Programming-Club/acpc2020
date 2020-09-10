@@ -100,7 +100,7 @@ int main(){
   auto XOUT=
     [&](int a){
       for(auto &v:xedge[a]){
-        if(pts[v]>xout[a]){pts[v]=xout[a]+1; Q.push_back({4,v});}
+        if(pts[v]>xout[a]+1){pts[v]=xout[a]+1; Q.push_back({4,v});}
       }
       if(a>1 && xout[a/2]>xout[a]){xout[a/2]=xout[a]; Q.push_front({1,a/2});}
     };
@@ -108,7 +108,7 @@ int main(){
   auto YOUT=
     [&](int a){
       for(auto &v:yedge[a]){
-        if(pts[v]>yout[a]){pts[v]=yout[a]+1; Q.push_back({4,v});}
+        if(pts[v]>yout[a]+1){pts[v]=yout[a]+1; Q.push_back({4,v});}
       }
       if(a>1 && yout[a/2]>yout[a]){yout[a/2]=yout[a]; Q.push_front({3,a/2});}
     };
@@ -118,14 +118,20 @@ int main(){
       int lf=xmin[a],rg=xmax[a]+1;
       lf+=MAX; rg+=MAX;
       while(lf<rg){
-        if((lf&1) && xin[lf]>pts[a]){xin[lf]=pts[a]; Q.push_front({0,lf}); lf++;}
+        if(lf&1){
+          if(xin[lf]>pts[a]){xin[lf]=pts[a]; Q.push_front({0,lf});}
+          lf++;
+        }
         if((rg&1) && xin[rg-1]>pts[a]){xin[rg-1]=pts[a]; Q.push_front({0,rg-1});}
         lf/=2; rg/=2;
       }
       lf=ymin[a],rg=ymax[a]+1;
       lf+=MAX; rg+=MAX;
       while(lf<rg){
-        if((lf&1) && yin[lf]>pts[a]){yin[lf]=pts[a]; Q.push_front({2,lf}); lf++;}
+        if(lf&1){
+          if(yin[lf]>pts[a]){yin[lf]=pts[a]; Q.push_front({2,lf});}
+          lf++;
+        }
         if((rg&1) && yin[rg-1]>pts[a]){yin[rg-1]=pts[a]; Q.push_front({2,rg-1});}
         lf/=2; rg/=2;
       }
