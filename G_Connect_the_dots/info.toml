@@ -9,18 +9,23 @@ forum = ""
 [[tests]]
     name = "random.cpp"
     number = 5
+
 [[tests]]
     name = "mini.cpp"
     number = 5
+
 [[tests]]
     name = "large.cpp"
     number = 10
+
 [[tests]]
     name = "special_mountain_tate.cpp"
     number = 1
+
 [[tests]]
     name = "special_mountain_tate_rev.cpp"
     number = 1
+
 [[tests]]
     name = "special_mountain_yoko.cpp"
     number = 1
@@ -28,6 +33,7 @@ forum = ""
 [[tests]]
     name = "special_long_tate.cpp"
     number = 1
+
 [[tests]]
     name = "special_long_yoko.cpp"
     number = 1
@@ -35,13 +41,13 @@ forum = ""
 [[tests]]
     name = "handmade.in"
     number = 1
-[[tests]]
-    name = "handmade.in"
-    number = 1
 
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+
+[[solutions]]
+    name = "Luzhiled.cpp"
 
 [params]
     N_MIN = 2

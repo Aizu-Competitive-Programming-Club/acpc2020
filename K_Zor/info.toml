@@ -46,8 +46,11 @@ forum = ""
     allow_tle = true
 
 [[solutions]]
+    name = "beet.cpp"
+
+[[solutions]]
     name = "Endered.cpp"
-    allow_tle = true
+#    allow_tle = true
 
 [params]
     MIN_K = 1
