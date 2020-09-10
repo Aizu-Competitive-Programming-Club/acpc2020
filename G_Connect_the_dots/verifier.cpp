@@ -15,9 +15,7 @@ int main() {
       inf.readChar(' ');
       int y = inf.readInt(XY_MIN, XY_MAX);
       inf.readChar('\n');
-      if(s.find({x,y}) != s.end()){
-	assert("two dots in same place");
-      }
+      ensuref(s.find({x,y})==s.end(), "two dots in same place");
       s.insert({x,y});
     }
     inf.readEof();

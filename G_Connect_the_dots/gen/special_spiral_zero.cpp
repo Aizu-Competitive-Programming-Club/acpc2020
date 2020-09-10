@@ -13,16 +13,16 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int N = N_MAX;
-    cout<<N<<endl;
+    cout<<N-1<<endl;
 
     vector<int> x_sel,y_sel;
     set<int> xl,yl;
-    int k = N/4;
+    int k = N/2;
     lp(i,k){
       int x,y;
       while(1){
-	x = gen.uniform<int>(XY_MIN,XY_MAX)/10*10;
-	y = gen.uniform<int>(XY_MIN,XY_MAX)/10*10;
+	x = gen.uniform<int>(XY_MIN,XY_MAX);
+	y = gen.uniform<int>(XY_MIN,XY_MAX);
 	if(xl.find(x)!=xl.end()||yl.find(y)!=yl.end()){
 	  continue;
 	}
@@ -39,20 +39,11 @@ int main(int, char* argv[]) {
     lp(i,k/2){
       v.push_back({x_sel[i], y_sel[i]});
       v.push_back({x_sel[k-1-i], y_sel[k-1-i]});
-      w.push_back({x_sel[i],y_sel[k-1-i]});
-      w.push_back({x_sel[k-1-i],y_sel[i+1]});
+      v.push_back({x_sel[i],y_sel[k-1-i]});
+      if(i!=k/2-1)v.push_back({x_sel[k-1-i],y_sel[i+1]});
     }
-    lp(j,v.size()){
-      int i = v.size()-1-j;
-      int l = gen.uniform<int>(1,3);
-      cout<<v[i].first+l<<" "<<v[i].second<<endl;
-      cout<<v[i].first-l<<" "<<v[i].second<<endl;
-    }
-    lp(j,w.size()){
-      int i = w.size()-1-j;
-      int l = gen.uniform<int>(1,3);
-      cout<<w[i].first<<" "<<w[i].second+l<<endl;
-      cout<<w[i].first<<" "<<w[i].second-l<<endl;
+    lp(i,v.size()){
+      cout<<v[i].first<<" "<<v[i].second<<endl;
     }
     return 0;
 }
