@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-// 精度が出ていません！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-
 // basis
 namespace geometry {
     using real_number = long double;
@@ -108,7 +106,7 @@ namespace geometry {
     constexpr int COUNTER_CLOCKWISE = +1;
     constexpr int CLOCKWISE         = -1;
     constexpr int ONLINE_BACK       = +2; // c-a-b
-    constexpr int ONLINE_FRONT     = -2; // a-b-c
+    constexpr int ONLINE_FRONT      = -2; // a-b-c
     constexpr int ON_SEGMENT        =  0; // a-c-b
     int ccw(const point &a, point b, point c) {
         b = b - a, c = c - a;
@@ -209,13 +207,13 @@ namespace geometry {
 
         polygon res(2 * n);
         for (int i = 0; i < n; res[k++] = p[i++]) {
-            while (k >= 2 && sign(cross(res[k - 1] - res[k - 2], p[i] - res[k - 1])) == -1) {
+            while (k >= 2 && sign(cross(res[k - 1] - res[k - 2], p[i] - res[k - 1])) != +1) {
                 --k;
             }
         }
 
         for (int i = n - 2, t = k + 1; i >= 0; res[k++] = p[i--]) {
-            while (k >= t && sign(cross(res[k - 1] - res[k - 2], p[i] - res[k - 1])) == -1) {
+            while (k >= t && sign(cross(res[k - 1] - res[k - 2], p[i] - res[k - 1])) != +1) {
                 --k;
             }
         }
@@ -230,13 +228,13 @@ namespace geometry {
         for (int i = 0; i < n; ++i) {
             int j = (i + 1 == n ? 0 : i + 1);
 
-            int ci = cross(l.a - p[i], l.b - p[i]);
-            int cj = cross(l.a - p[j], l.b - p[j]);
+            real_number ci = cross(l.a - p[i], l.b - p[i]);
+            real_number cj = cross(l.a - p[j], l.b - p[j]);
 
             if (sign(ci) >= 0) res.emplace_back(p[i]);
             if (sign(ci) * sign(cj) < 0) {
-                real_number s = cross(p[j] - p[i], l.a - l.b);
-                real_number t = cross(l.a - p[i], l.a - l.b);
+                real_number s = cross(p[j] - p[i], l.b - l.a);
+                real_number t = cross(l.a - p[i], l.b - l.a);
                 res.emplace_back(p[i] + t / s * (p[j] - p[i]));
             }
         }
@@ -277,12 +275,9 @@ int main() {
     for (auto &p: ps) cin >> p;
 
     {
-        // random_00 でひっかかる
         assert(is_convex(ps));
     }
 
-//     cerr << fixed << setprecision(2);
-//     cerr << "origami start" << endl;
     // origami part
     polygons polys({ps});
     for (int i = 0; i < m; ++i) {
@@ -291,52 +286,35 @@ int main() {
         point p, q;
         cin >> p >> q;
 
-//         cerr << "p: " << p << endl;
-//         cerr << "q: " << q << endl;
-
-        for (auto &poly: polys) {
+        for (auto poly: polys) {
+            poly = convex_hull(poly);
             
             { // left side
                 polygon l = convex_cut(poly, line(p, q));
-//                 cerr << "polygon l" << endl;
-//                 for (auto &p: l) {
-//                     cerr << "(" << p << ") ";
-//                 }
-//                 cerr << endl;
+
+                for (point &v: l) {
+                    v = reflection(line(p, q), v);
+                }
+
+                l = convex_hull(l);
 
                 if (l.size() > 2) {
-                    for (point &v: l) {
-                        v = reflection(line(p, q), v);
-                    }
                     new_polys.emplace_back(l);
                 }
             }
 
             { // right side
                 polygon r = convex_cut(poly, line(q, p));
-//                 cerr << "polygon r" << endl;
-//                 for (auto &p: r) {
-//                     cerr << "(" << p << ") ";
-//                 }
-//                 cerr << endl;
 
+                r = convex_hull(r);
                 if (r.size() > 2) {
                     new_polys.emplace_back(r);
                 }
             }
-
-            polys = new_polys;
         }
-    } // origami end
-//     cerr << "origami end" << endl;
 
-//     for (int i = 0; i < (int)polys.size(); ++i) {
-//         cerr << "poly " << i << " : ";
-//         for (auto &p: polys[i]) {
-//             cerr << "(" << p << ") ";
-//         }
-//         cerr << endl;
-//     }
+        polys = new_polys;
+    } // origami end
 
     // cross point
     // V = N + 2^M, O(V^2 * log V) ? 
@@ -358,6 +336,7 @@ int main() {
                     segment s2(p2[j], p2[nj]);
 
                     if ( !is_intersect(s1, s2) ) continue;
+                    if ( is_parallel(s1, s2) ) continue;
 
                     xs.emplace_back(cross_point(s1, s2).real());
                 }
@@ -371,33 +350,12 @@ int main() {
         }
     }
 
-//     cerr << "xs : ";
-//     for (auto &x: xs) cerr << x << " ";
-//     cerr << endl;
-// 
-//     cerr << "compless xs" << endl;
+    sort(xs.begin(), xs.end());
 
-    { // compless xs
-        sort(xs.begin(), xs.end());
-        vector< real_number > old_xs = xs;
-        int idx = 1;
-        for (int i = 1; i < (int)old_xs.size(); ++i) {
-            if (is_equal(xs[i - 1], xs[i])) continue;
-            xs[idx++] = old_xs[i];
-        }
-
-        xs.resize(idx);
-    }
-
-//     cerr << "xs : ";
-//     for (auto &x: xs) cerr << x << " ";
-//     cerr << endl;
-
-    vector< real_number > anss(1 << m);
+    vector< real_number > ans((1 << m) + 1);
     for (int i = 1; i < (int)xs.size(); ++i) {
         real_number l = xs[i - 1], r = xs[i];
 
-//         cerr << "[" << l << ", " << r << "]" << endl;
         point ld(l, -xy_inf), lu(l, xy_inf);
         point rd(r, -xy_inf), ru(r, xy_inf);
 
@@ -426,30 +384,12 @@ int main() {
         sort(ls.begin(), ls.end());
         sort(rs.begin(), rs.end());
 
-//         cerr << "ls: ";
-//         for (auto &l: ls) cerr << l << " ";
-//         cerr << endl;
-// 
-//         cerr << "rs: ";
-//         for (auto &r: rs) cerr << r << " ";
-//         cerr << endl;
-
         for (int j = 1; j < (int)ls.size(); ++j) {
-            point p1(l, ls[j]);
-            point p2(r, rs[j]);
-            point p3;
+            real_number gy = (ls[j - 1] + ls[j] + rs[j - 1] + rs[j]) / 4.0;
+            real_number gx = (l + r) / 2.0;
+            point g(gx, gy);
 
-            if ( !is_equal(ls[j - 1], ls[j]) ) {
-                p3 = point(l, ls[j - 1]);
-            } else {
-                p3 = point(r, rs[j - 1]);
-            }
-
-            real_number k = 1.0 / 3.0;
-            point g = k * (p1 + p2 + p3);
-//            cerr << "g : (" << g << ")" << endl;
-
-            real_number S = (ls[j] - ls[j - 1] + rs[j] - rs[j - 1]) * (xs[i] - xs[i - 1]) / 2.0;
+            real_number S = (ls[j] - ls[j - 1] + rs[j] - rs[j - 1]) * (r - l) / 2.0;
             int cnt = 0;
             for (const auto &poly: polys) {
                 if (contains(poly, g) == 2) {
@@ -457,25 +397,22 @@ int main() {
                 }
             }
 
-            if (cnt == 0) continue;
-            anss[cnt - 1] += S;
+            ans[cnt] += S;
         }
     }
 
     cout << fixed << setprecision(15);
-    for (auto &ans: anss) {
-        cout << ans << endl;
+    for (int i = 1; i <= (1 << m); ++i) {
+        cout << ans[i] << endl;
     }
 
     { // debug
         real_number S = 0;
-        for (int i = 0; i < (int)anss.size(); ++i) {
-            S += (i + 1) * anss[i];
+        for (int i = 1; i < (int)ans.size(); ++i) {
+            S += i * ans[i];
         }
 
-        cerr << fixed << setprecision(10) << endl;
-        cerr << "area ps : " << area(ps) << endl;
-        cerr << "area ans: " << S << endl;
+        assert(fabs(area(ps) - S) < 1e-6);
     }
 }
 
