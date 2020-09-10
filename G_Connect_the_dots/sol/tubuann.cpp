@@ -118,14 +118,20 @@ int main(){
       int lf=xmin[a],rg=xmax[a]+1;
       lf+=MAX; rg+=MAX;
       while(lf<rg){
-        if((lf&1) && xin[lf]>pts[a]){xin[lf]=pts[a]; Q.push_front({0,lf}); lf++;}
+        if(lf&1){
+          if(xin[lf]>pts[a]){xin[lf]=pts[a]; Q.push_front({0,lf});}
+          lf++;
+        }
         if((rg&1) && xin[rg-1]>pts[a]){xin[rg-1]=pts[a]; Q.push_front({0,rg-1});}
         lf/=2; rg/=2;
       }
       lf=ymin[a],rg=ymax[a]+1;
       lf+=MAX; rg+=MAX;
       while(lf<rg){
-        if((lf&1) && yin[lf]>pts[a]){yin[lf]=pts[a]; Q.push_front({2,lf}); lf++;}
+        if(lf&1){
+          if(yin[lf]>pts[a]){yin[lf]=pts[a]; Q.push_front({2,lf});}
+          lf++;
+        }
         if((rg&1) && yin[rg-1]>pts[a]){yin[rg-1]=pts[a]; Q.push_front({2,rg-1});}
         lf/=2; rg/=2;
       }
