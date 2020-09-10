@@ -7,22 +7,50 @@ using namespace std;
 bool check(vector<long long> &b, vector<long long> &c, long long N, long long P, long long num) {
 	long long tsum = 0, tsum2 = 0;
 	vector<long long> d(N);
-
-	c.resize(N);
+	
+	c.clear();
+	c.resize(N, 0);
 	
 	for(int i = 0; i < N; i++){ 
-		c[i] = (b[i] * num + P - 1) / P;
+		
+		{
+			long long l = -1, h = num + 10, m;
+			
+			while(l + 1 < h){
+				m = (l + h) / 2;
+				if(m * P / num < b[i]) {
+					l = m;
+				} else {
+					h = m;
+				}
+			}
+			
+			c[i] = h;
+		}
 		
 		if(c[i] * P / num != b[i]) return false;
 		tsum += c[i];
-		d[i] = ((b[i] + 1)* num + P - 1) / P;
-		d[i]--;
+		
+		{
+			long long l = 0, h = num + 10, m;
+			
+			while(l + 1 < h){
+				m = (l + h) / 2;
+				
+				if(m * P / num < b[i] + 1) {
+					l = m;
+				} else {
+					h = m;
+				}
+			}
+			
+			d[i] = l;
+		}
 		
 		assert(c[i] * P / num == d[i] * P / num);
 	}
 	
 	if(tsum > num) return false;
-	
 	
 	for(int i = N-1; i >= 0; i--){
 		if(tsum == num) break;
@@ -49,60 +77,12 @@ bool check(vector<long long> &b, vector<long long> &c, long long N, long long P,
 	return true;
 }
 
-bool check2(vector<pair<long long, long long>> &e, long long P, long long num) {
-	long long tsum = 0, tsum3 = 0;
-	
-	for(int i = 0; i < (long long)e.size(); i++){
-		long long c = 0, d = 0;
-		
-		c = (e[i].second * num + P - 1) / P;
-		
-		if(c * P / num != e[i].second) return false;
-		
-		tsum += c * e[i].first;
-		
-		d = ((e[i].second + 1) * num + P - 1) / P;
-		
-		d--;
-		
-		assert(c * P / num == d * P / num);
-		
-		tsum3 += (d - c) * e[i].first;
-	}
-	
-	if(tsum > num) return false;
-	
-	
-	if(tsum3 < num - tsum) return false;
-	
-	
-	return true;
-}
-
-long long solve2(vector<long long> &b, vector<long long> &c, long long N, long long P) {
+long long solve(vector<long long> &b, vector<long long> &c, long long N, long long P) {
 	long long res = 1;
-	vector<pair<long long,long long>> con(P+1);
-	vector<pair<long long,long long>> e;
-	
-	for(int i = 0; i <= P; i++){
-		con[i].second = i;
-	}
-	
-	for(int i = 0; i < N; i++){
-		con[b[i]].first++;
-	}
-	
-	for(int i = 0; i <= P; i++){
-		if(con[i].first >= 1) {
-			e.push_back(con[i]);
-		}
-	}
 	
 	for(;; res++){
-		if(check2(e, P, res)) break;
+		if(check(b, c, N, P, res)) break;
 	}
-	
-	assert(check(b, c, N, P, res) == true);
 	
 	long long sum = 0;
 	
@@ -127,6 +107,7 @@ signed main(){
 	vector<long long> B, C;
 	long long N, P;
 	long long sum = 0;
+	
 	cin>>N>>P;
 	
 	B.resize(N);
@@ -141,7 +122,7 @@ signed main(){
 		return 0;
 	}
 	
-	solve2(B, C, N, P);
+	solve(B, C, N, P);
 	
 	for(int i = 0; i < N; i++){
 		if(i) cout<<" ";

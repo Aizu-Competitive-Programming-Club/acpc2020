@@ -17,10 +17,14 @@ int main(int, char* argv[]) {
     
     cout<<N<<" "<<P<<endl;
     
-	sum = gen.uniform<int>(max(0ll, P - N + 1), P);
+	sum = gen.uniform<int>(P + 1, min(N * A_MAX, P + 1 + P/10));
 	
     for(int i = 0; i < sum; i++){
-		B[gen.uniform<int>(0, N-1)] += 1;
+		int index = gen.uniform<int>(0, N-1);
+		
+		if(B[index] == A_MAX) continue;
+		
+		B[index] += 1;
     }
 	
     for(int i = 0; i < N; i++){

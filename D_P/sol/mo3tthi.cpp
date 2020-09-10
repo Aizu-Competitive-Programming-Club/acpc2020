@@ -5,35 +5,39 @@ using namespace std;
 int main(){
   int n,p;
   cin>>n>>p;
-  int b[n];
-  int c[n]={};
-  for(int i=0;i<n;i++) cin>>b[i];
-  int now=1;
-  while(1){
+  int a[n];
+  int b[n]={};
+  int sum=0;
+  for(int i=0;i<n;i++){cin>>a[i];sum+=a[i];}
+  if(sum<p && p-n>=sum){cout<<-1<<endl;return 0;}
+  for(int k=1;k<(n*p);k++){
     bool flag=true;
-    int sum=0;
+    int nowsum=0;
     for(int i=0;i<n;i++){
-      c[i]=((now*b[i])+(p-1))/p;
-      if((c[i]*p)/now != b[i]){
+      b[i]=((k*a[i])+(p-1))/p;
+      if((b[i]*p)/k != a[i]){
 	flag=false;
 	break;
       }
-      sum+=c[i];
+      nowsum+=b[i];
     }
-    if(!flag || now<sum){now++; continue;}
+    if(!flag || k<nowsum){continue;}
     for(int i=n-1;i>=0;i--){
-      while(sum<now && ((c[i]+1)*p)/now == b[i]){
-	sum++;c[i]++;
+      while(nowsum<k && ((b[i]+1)*p)/k == a[i]){
+	nowsum++;b[i]++;
       }
     }
-    if(sum!=now){now++;continue;}
-    else break;
+    if(nowsum!=k){continue;}
+    else{
+      for(int i=0;i<n;i++){
+	if(i!=0) cout<<" ";
+	cout<<b[i];
+      }
+      cout<<endl;
+      return 0;
+    }
   }
-  for(int i=0;i<n;i++){
-    if(i!=0) cout<<" ";
-    cout<<c[i];
-  }
-  cout<<endl;
+  cout<<-1<<endl;
   return 0;
     
 }

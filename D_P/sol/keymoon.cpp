@@ -10,8 +10,16 @@ int main() {
 	int n, p;
 	cin >> n >> p;
 	vector<int> b(n);
-	for (int i = 0; i < n; i++) cin >> b[i];
-	for (int cSum = 1; ; cSum++) {
+	int bSum = 0;
+	for (int i = 0; i < n; i++) {
+		cin >> b[i];
+		bSum += b[i];
+	}
+	if (p - n >= bSum && bSum < p){
+		cout << -1 << endl;
+		return 0;
+	}
+	for (int cSum = 1; cSum <= n * p; cSum++) {
 		vector<int> c(n);
 		bool flag = false;
 		for (int i = 0; i < n; i++) {
@@ -33,7 +41,8 @@ int main() {
 			cout << c[i] << " ";
 		}
 		cout << endl;
-		break;
+		return 0;
 	end:;
 	}
+	cout << -1 << endl;
 }
