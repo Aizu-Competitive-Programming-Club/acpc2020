@@ -397,7 +397,7 @@ bool isConvex(Polygon p){
   int n=p.size();
   for(int i=0;i<n;i++){
     int t=ccw(p[(i+n-1)%n],p[i],p[(i+1)%n]);
-    f&=t!=CCW_CLOCKWISE;
+    f&=t==CCW_COUNTER_CLOCKWISE;
   }
   return f;
 }
@@ -517,6 +517,8 @@ int main() {
       ensure(is_less_than_6_decimal_points(s));
       double qy = stod(s);
       ensure(xy_MIN <= qy && qy <= xy_MAX);
+
+      ensure(px != qx || py != qy);      
       inf.readChar('\n');
     }
     inf.readEof();

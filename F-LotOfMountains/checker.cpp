@@ -23,10 +23,11 @@
 // SOFTWARE.
 
 #include "testlib.h"
+#include "params.h"
 
 using namespace std;
 
-const double EPS = 1e-6;
+const double EPS = pow(10,-EPS_DIGIT);
 
 int main(int argc, char * argv[])
 {

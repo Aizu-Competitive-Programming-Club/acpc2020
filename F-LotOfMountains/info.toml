@@ -29,9 +29,9 @@ forum = ""
 [[solutions]]
     name = "rel-1e-7.cpp"
 
-#[[solutions]]
-#    name = "Luzhiled.cpp"
-#
+[[solutions]]
+    name = "Luzhiled.cpp"
+
 #[[solutions]]
 #    name = "keymoon.cpp"
 #
@@ -58,3 +58,4 @@ forum = ""
     H_MAX = 100_000_000
     X_MIN = 1
     X_MAX = 100_000_000
+    EPS_DIGIT = 6
