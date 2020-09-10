@@ -50,6 +50,10 @@ forum = ""
 [[tests]]
     name = "special_spiral_rev.cpp"
     number = 2
+[[tests]]
+    name = "special_spiral_zero.cpp"
+    number = 2
+
 
 [[tests]]
     name = "handmade.in"

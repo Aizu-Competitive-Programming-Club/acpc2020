@@ -90,5 +90,9 @@
   "special_spiral_rev_00.in": "dda3732286f4a98eba64d82a66eeae84c39fa69eeff820942e50e73aadc82cbe",
   "special_spiral_rev_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
   "special_spiral_rev_01.in": "c49fe03332af15be86c09157b95b5244af799866f89c2db510f05f956af50b8a",
-  "special_spiral_rev_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+  "special_spiral_rev_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
+  "special_spiral_zero_00.in": "f77cfd03a790a9932c357b363daca30060365a228dc278a2f0fe331d69af7cd8",
+  "special_spiral_zero_00.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "special_spiral_zero_01.in": "f163888af220e5ec47453eb5aa554f9d1b7e50d88730d62c2bc00f76adeec399",
+  "special_spiral_zero_01.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
 }
