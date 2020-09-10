@@ -180,7 +180,7 @@ struct segment_graph{
 
   vector< int > zero_one_bfs(int s) {
     if (s < n) s += n;
-    constexpr int inf = 1001001001;
+    constexpr int inf = numeric_limits<int>::max();
     vector< int > dist(g.size(), inf);
     dist[s] = 0;
 
