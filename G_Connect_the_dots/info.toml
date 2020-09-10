@@ -1,10 +1,10 @@
 title = 'G - Connect the dots'
-timelimit = 2.0
+timelimit = 3.0
 forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 
 [[tests]]
     name = "random.cpp"
@@ -12,11 +12,11 @@ forum = ""
 
 [[tests]]
     name = "mini.cpp"
-    number = 5
+    number = 3
 
 [[tests]]
     name = "large.cpp"
-    number = 10
+    number = 5
 
 [[tests]]
     name = "special_mountain_tate.cpp"
@@ -39,6 +39,19 @@ forum = ""
     number = 1
 
 [[tests]]
+    name = "special_pole_random.cpp"
+    number = 10
+[[tests]]
+    name = "special_pole_sort.cpp"
+    number = 10
+[[tests]]
+    name = "special_spiral.cpp"
+    number = 2
+[[tests]]
+    name = "special_spiral_rev.cpp"
+    number = 2
+
+[[tests]]
     name = "handmade.in"
     number = 1
 
@@ -49,8 +62,10 @@ forum = ""
 [[solutions]]
     name = "Luzhiled.cpp"
 
+[[solutions]]
+    name = "beet.cpp"
+
 [params]
     N_MIN = 2
     N_MAX = 100_000
-    XY_MIN = -1_000_000_000
-    XY_MAX = 1_000_000_000
+    XY_ABS = 1_000_000_000

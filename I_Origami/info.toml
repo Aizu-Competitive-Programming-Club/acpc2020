@@ -4,18 +4,22 @@ forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 3
+    number = 4
 
 [[tests]]
     name = "random.cpp"
     number = 10
+
+[[tests]]
+    name = "random_small.cpp"
+    number = 5
 
 [[solutions]]
     name = "wa.cpp"
     wrong = true
 
 [params]
-    N_MIN = 1
+    N_MIN = 3
     N_MAX = 1000
     M_MIN = 1
     M_MAX = 10

@@ -33,6 +33,10 @@ forum = ""
     name = "beet_tle.cpp"
     allow_tle = true
 
+[[solutions]]
+    name = "tubuann.cpp"
+    allow_tle = true
+
 [params]
     N_MIN = 2
     N_MAX = 100_000

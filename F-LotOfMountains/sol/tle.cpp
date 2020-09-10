@@ -3,22 +3,24 @@
 using namespace std;
 
 int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
     int n;
     cin >> n;
 
     using ll = long long;
     using ldouble = long double;
 
-    using T = tuple<ll,ldouble,ll>;
+    using T = tuple<ll,ldouble,ldouble>;
 
     vector<T> line;
 
     for(int i=0;i<n;++i){
         int a;
-        int b;
-        int c;
+        ldouble b;
+        ldouble c;
         cin >> a >> b >> c;
-        line.emplace_back(a,b,c);
+        line.emplace_back(a,b,c/2);
     }
 
     function<ldouble(ll)> func = 
