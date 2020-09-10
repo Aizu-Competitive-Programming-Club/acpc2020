@@ -26,6 +26,10 @@ forum = ""
     name = "keymoon.cpp"
 
 [[solutions]]
+    name = "keymoon_tle.cpp"
+    allow_tle = true
+
+[[solutions]]
     name = "beet_naive.cpp"
     allow_tle = true
 
