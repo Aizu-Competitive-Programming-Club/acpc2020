@@ -29,7 +29,16 @@ forum = ""
 [[tests]]
     name = "random6.cpp"
     number = 5
+
+[[tests]]
+    name = "random7.cpp"
+    number = 10
 	
+	
+[[tests]]
+    name = "handmade.in"
+    number = 6
+
 [[solutions]]
     name = "wa.cpp"
     wrong = true

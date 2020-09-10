@@ -17,7 +17,6 @@ int main(int, char* argv[]) {
     
     cout<<N<<" "<<P<<endl;
     
-	// sum = gen.uniform<int>(max(0ll, P - N + 1), P);
 	sum = gen.uniform<int>(P + 1, min(N * A_MAX, P + 1 + P/10));
 	
     for(int i = 0; i < sum; i++){
