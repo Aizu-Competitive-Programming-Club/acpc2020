@@ -32,8 +32,22 @@ forum = ""
 [[solutions]]
     name = "Luzhiled.cpp"
 
+#[[solutions]]
+#    name = "keymoon.cpp"
+#
+#[[solutions]]
+#    name = "shot.cpp"
+#
 [[solutions]]
-    name = "keymoon.cpp"
+    name = "tubuann.cpp"
+
+#[[solutions]]
+#    name = "tubuann_bf.cpp"
+#    allow_tle = true
+
+[[solutions]]
+    name = "tubuann_float.cpp"
+    wrong = true
 
 [params]
     N_MIN = 1
@@ -44,3 +58,4 @@ forum = ""
     H_MAX = 100_000_000
     X_MIN = 1
     X_MAX = 100_000_000
+    EPS_DIGIT = 6
