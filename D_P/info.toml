@@ -51,13 +51,12 @@ forum = ""
 	
 [[solutions]]
     name = "Endered.cpp"
-    allow_tle = true
 
 [[solutions]]
     name = "keymoon.cpp"
 
-#[[solutions]]
-#    name = "mo3tthi.cpp"
+[[solutions]]
+    name = "mo3tthi.cpp"
 
 #[[solutions]]
 #    name = "tubuann.cpp"
