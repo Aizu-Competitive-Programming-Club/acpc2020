@@ -35,8 +35,8 @@ $f(x)$ の最大を1行目に出力してください。
 
 ## @{keyword.sample}
 @{example.example_00}
-この入力例では $f(x)$ の値は次のようになります。
-https://github.com/Aizu-Competitive-Programming-Club/acpc2020/blob/problem/F-lot-of-mountains/F-LotOfMountains/img/sample_00.png
+この入力例では $f(x)$ の値は次のようになります。  
+https://judgeapi.u-aizu.ac.jp/resources/images/73c530f1e9b3e44100f8ea9e502a0f0e.png
 
 また、この入力に対する解答として $6$ や $6.0$ なども有効です。
 @{example.example_01}

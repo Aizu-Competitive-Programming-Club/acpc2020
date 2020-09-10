@@ -517,6 +517,8 @@ int main() {
       ensure(is_less_than_6_decimal_points(s));
       double qy = stod(s);
       ensure(xy_MIN <= qy && qy <= xy_MAX);
+
+      ensure(px != qx || py != qy);      
       inf.readChar('\n');
     }
     inf.readEof();
