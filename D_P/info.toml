@@ -13,11 +13,23 @@ forum = ""
 [[tests]]
     name = "random2.cpp"
     number = 10
+	
 [[tests]]
-
     name = "random3.cpp"
     number = 10
 
+[[tests]]
+    name = "random4.cpp"
+    number = 10
+
+[[tests]]
+    name = "random5.cpp"
+    number = 5
+
+[[tests]]
+    name = "random6.cpp"
+    number = 5
+	
 [[solutions]]
     name = "wa.cpp"
     wrong = true
@@ -25,21 +37,21 @@ forum = ""
 [[solutions]]
     name = "correct2.cpp"
 
-[[solutions]]
-    name = "Endered.cpp"
+#[[solutions]]
+#    name = "Endered.cpp"
 
-[[solutions]]
-    name = "keymoon.cpp"
+#[[solutions]]
+#    name = "keymoon.cpp"
 
-[[solutions]]
-    name = "mo3tthi.cpp"
+#[[solutions]]
+#    name = "mo3tthi.cpp"
 
-[[solutions]]
-    name = "tubuann.cpp"
+#[[solutions]]
+#    name = "tubuann.cpp"
 
-[[solutions]]
-    name = "tubuann_TLE.cpp"
-    allow_tle = true
+#[[solutions]]
+#    name = "tubuann_TLE.cpp"
+#    allow_tle = true
 
 [params]
     P_MIN = 1
