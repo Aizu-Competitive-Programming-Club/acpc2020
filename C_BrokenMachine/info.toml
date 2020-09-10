@@ -28,8 +28,12 @@ forum = ""
 # [[solutions]]
 #     name = "Endered.cpp"
 
-# [[solutions]]
-#       name = "toyama.cpp"
+[[solutions]]
+   name = "toyama_wa.cpp"
+   wrong = true
+
+[[solutions]]
+   name = "toyama.cpp"
 
 [params]
     N_MIN = 1
