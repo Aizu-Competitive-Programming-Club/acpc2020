@@ -35,12 +35,8 @@ $f(x)$ の最大を1行目に出力してください。
 
 ## @{keyword.sample}
 @{example.example_00}
-x座標の小さい順から山の標高は次のようになります。  
-座標 $x=8$ で標高 $0$  
-座標 $x=9$ で標高 $2$  
-座標 $x=10$ で標高 $6$  
-座標 $x=11$ で標高 $2$  
-座標 $x=12$ で標高 $0$  
+この入力例では $f(x)$ の値は次のようになります。
+https://github.com/Aizu-Competitive-Programming-Club/acpc2020/blob/problem/F-lot-of-mountains/F-LotOfMountains/img/sample_00.png
 
 また、この入力に対する解答として $6$ や $6.0$ なども有効です。
 @{example.example_01}
