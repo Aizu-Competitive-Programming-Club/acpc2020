@@ -53,8 +53,8 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
-#[[solutions]]
-#    name = "mo3tthi.cpp"
+[[solutions]]
+    name = "mo3tthi.cpp"
 
 #[[solutions]]
 #    name = "tubuann.cpp"
