@@ -22,6 +22,9 @@ forum = ""
    name = "extra_out.cpp"
    wrong = true
 
+[[solutions]]
+   name = "beet.cpp"
+
 # [[solutions]]
 #     name = "Endered.cpp"
 
