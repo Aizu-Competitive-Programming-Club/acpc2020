@@ -308,10 +308,10 @@ vector<int> func(){
         int u = in();
         int v = in();
         if(i){
-            s = 427 * s + 1821 * ans[i-1];
-            s %= bit(11);
+            s = 427 * s + 821 * ans[i-1];
+            s %= bit(10);
         }
-        sum += func((s^u)%bit(11)+1,(s^v)%bit(11)+1);
+        sum += func((s^u)%bit(10)+1,(s^v)%bit(10)+1);
         ans[i] = sum;
     }
     return ans;

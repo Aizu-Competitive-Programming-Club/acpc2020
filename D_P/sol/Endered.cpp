@@ -103,10 +103,19 @@ namespace templates{
 using namespace templates;
 
 vector<ll> func(){
+    vector<ll> wrong(1,-1);
     int n = in();
     int p = in();
     vector<ll> b(n);
     foreach(i,b)i=in();
+
+    {
+        int sum = 0;
+        foreach(i,b)sum += i;
+        int zero = 0;
+        foreach(i,b)zero += !i;
+        if(p<sum or n <= p - sum)return wrong;
+    }
 
     method(func,vector<ll>,int sum){
         int rem = sum;

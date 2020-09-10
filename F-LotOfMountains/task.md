@@ -1,17 +1,11 @@
 ## @{keyword.statement}
 
 @{lang.ja}
+$X_i, H_i, R_i \(1 \leq i \leq N\)$ が与えられ、実数 $x$ を受け取る関数 $f(x)$ を次のように定義します。
 
-考古学者のtoyamaさんはある二次元の国に訪れた際に奇妙な地形を目にして気になりました。
-調査をしたところ、この奇妙な地形は沢山の山が生まれて山々が干渉した結果出来たようです。
-$N$ 個の山は次のように一直線上に生まれました。
+$f(x) = \displaystyle \sum_{i=1}^{N} \max \left( 0, H_i \left(1 - \displaystyle \frac{2|x - X_i|}{R_i}\right) \right)$
 
-それぞれの山は、底辺の長さが $R_i$、高さ $H_i$ の二等辺三角形状に地面が盛り上がり、その中心は座標 $X_i$ です。
-
-具体的には座標 $x$ の標高は、$\displaystyle \sum_{i=1}^{N} \max(0, H_i - H_i \frac{2|x - X_i|}{R_i})$ になります。
-
-toyamaさんはこの国で一番標高が高い場所の標高がどれくらいなのか気になりました。
-プログラマーのあなたはそれを計算するプログラムを制作してください。
+$f(x)$ の最大を計算してください。
 
 @{lang.end}
 
@@ -21,11 +15,11 @@ toyamaさんはこの国で一番標高が高い場所の標高がどれくら�
 - $@{param.X_MIN} \leq X_i \leq @{param.X_MAX}$
 - $@{param.H_MIN} \leq H_i \leq @{param.H_MAX}$
 - $@{param.R_MIN} \leq R_i \leq @{param.R_MAX}$
-- 全ての入力は整数である。
+- 全ての入力は整数である
 
 ## @{keyword.input}
-$1$ 行目に山の個数 $N$ が与えられる。
-続く、$N$ 行は $X_i,H_i,R_i$ が空白区切りで与えられる。
+1行目に $N$ が与えられる。
+続く $N$ 行は $X_i,H_i,R_i$ が空白区切りで与えられる。
 
 ```
 $N$
@@ -35,16 +29,15 @@ $X_N$ $H_N$ $R_N$
 ```
 
 ## @{keyword.output}
-一番標高が高い地点の高さを一行目に出力する。
-尚、想定解から$10^{-@{param.EPS_DIGIT}}$までの相対誤差は正答扱いとする。
+
+$f(x)$ の最大を1行目に出力してください。
+なお、想定解から$10^{-@{param.EPS_DIGIT}}$までの相対誤差は正答扱いとします。
 
 ## @{keyword.sample}
 @{example.example_00}
-x座標の小さい順から山の標高は次のようになります。  
-座標 $x=8$ で標高 $0$  
-座標 $x=9$ で標高 $2$  
-座標 $x=10$ で標高 $6$  
-座標 $x=11$ で標高 $2$  
-座標 $x=12$ で標高 $0$  
+この入力例では $f(x)$ の値は次のようになります。  
+<a href=https://judgeapi.u-aizu.ac.jp/resources/images/73c530f1e9b3e44100f8ea9e502a0f0e.png>sample_00</a>
+
+また、この入力に対する解答として $6$ や $6.0$ なども有効です。
 @{example.example_01}
 @{example.example_02}

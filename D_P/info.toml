@@ -13,10 +13,31 @@ forum = ""
 [[tests]]
     name = "random2.cpp"
     number = 10
+	
 [[tests]]
-
     name = "random3.cpp"
     number = 10
+
+[[tests]]
+    name = "random4.cpp"
+    number = 10
+
+[[tests]]
+    name = "random5.cpp"
+    number = 5
+
+[[tests]]
+    name = "random6.cpp"
+    number = 5
+
+[[tests]]
+    name = "random7.cpp"
+    number = 10
+	
+	
+[[tests]]
+    name = "handmade.in"
+    number = 6
 
 [[solutions]]
     name = "wa.cpp"
@@ -26,6 +47,9 @@ forum = ""
     name = "correct2.cpp"
 
 [[solutions]]
+    name = "correct3.cpp"
+	
+[[solutions]]
     name = "Endered.cpp"
 
 [[solutions]]
@@ -34,16 +58,17 @@ forum = ""
 [[solutions]]
     name = "mo3tthi.cpp"
 
-[[solutions]]
-    name = "tubuann.cpp"
+#[[solutions]]
+#    name = "tubuann.cpp"
 
-[[solutions]]
-    name = "tubuann_TLE.cpp"
-    allow_tle = true
+#[[solutions]]
+#    name = "tubuann_TLE.cpp"
+#    allow_tle = true
 
 [params]
+	N_MIN = 1
+    N_MAX = 500
     P_MIN = 1
-    P_MAX = 100
-    N_MIN = 1
-    N_MAX = 10_000
+    P_MAX = 500
     A_MIN = 0
+    A_MAX = 500

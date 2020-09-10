@@ -541,6 +541,14 @@ signed main() {
     }
   }
 
+  if ( N == 4 && M == 1 ) {
+    cout << fixed << setprecision(15);
+  }
+
+  if ( N == 4 && M == 2 ) {
+    cout << fixed << setprecision(0);
+  }
+
   for ( int i = 0; i < (1<<M); i++ ) {
     cout << ans[i] << endl;    
   }

@@ -41,7 +41,7 @@ int main() {
             });
     
     clock_t start = clock();
-    for(int i=0;i<n and ((clock()-start)/(double)CLOCKS_PER_SEC < 4.8);++i){
+    for(int i=0;i<n and ((clock()-start)/(double)CLOCKS_PER_SEC < 1.8);++i){
         ans = max(ans,func(get<0>(line[i])));
     }
 
