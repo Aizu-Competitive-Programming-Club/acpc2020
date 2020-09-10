@@ -13,6 +13,8 @@ using namespace std;
 #define lp(i,n) repi(i,0,n)
 #define repn(i,n) for(int i=n;i>=0;i--)
 
+int dp[5005][5010];
+
 int main() {
   int n,w,b;
   cin>>n>>w>>b;
@@ -22,7 +24,7 @@ int main() {
     cin>>W[i]>>B[i];
     sumb+=B[i];
   }
-  int dp[n+5][w+10];
+  
   rep(i,n+5) rep(j,w+10) dp[i][j]=(-1)*INF;
   dp[0][0]=sumb;
   rep(i,n){

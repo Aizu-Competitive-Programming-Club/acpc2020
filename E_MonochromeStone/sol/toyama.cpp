@@ -9,16 +9,16 @@ using i64 = long long;
 using namespace std;
 using llong = long long;
 
-llong N, W, B;
-llong w[1024];
-llong b[1024];
-llong dp[1024][1024];
+int N, W, B;
+int w[5005];
+int b[5005];
+int dp[5005][5005];
 
 int main() {
 	cin >> N >> W >> B;
 	repeat(i, 1, N + 1) cin >> w[i] >> b[i];
 
-	repeat(i, 1024) repeat(j, 1024) dp[i][j] = -100000;
+	repeat(i, 5005) repeat(j, 5005) dp[i][j] = -100000;
 	dp[0][0] = 0;
 
 	// dp[i][j] := i:card, j:sum_ws, maximum bs
@@ -26,17 +26,17 @@ int main() {
 	repeat(i, 1, N + 1) {
 		repeat(j, W + 1) {
 			if (j >= w[i]) {
-				dp[i][j] = max(dp[i - 1][j - w[i]], min(B, dp[i - 1][j] + b[i]));
+				dp[i][j] = max<int>(dp[i - 1][j - w[i]], min(B, dp[i - 1][j] + b[i]));
 			}
 			else {
-				dp[i][j] = min(B, dp[i - 1][j] + b[i]);
+				dp[i][j] = min<int>(B, dp[i - 1][j] + b[i]);
 			}
 		}
 	}
 
-	llong ans = 0;
+	int ans = 0;
 	repeat(i, W + 1) {
-		ans = max(ans, i + dp[N][i]);
+		ans = max<int>(ans, i + dp[N][i]);
 	}
 
 	cout << ans << endl;

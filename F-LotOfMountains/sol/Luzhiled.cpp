@@ -10,7 +10,9 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int x, h, r;
         cin >> x >> h >> r;
-        
+
+        x *= 2;
+
         double t = (double)h / r;
         mp[x - r] += t;
         mp[x] -= 2 * t;
