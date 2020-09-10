@@ -14,15 +14,13 @@ int main(int, char* argv[]) {
     printf("%d\n", N);
 
     vector<int> x_sel,y_sel;
-    int k = 10 + N;
+    int k = N;
     lp(i,k){
       x_sel.push_back(gen.uniform<int>(XY_MIN,XY_MAX));
       y_sel.push_back(gen.uniform<int>(XY_MIN,XY_MAX));
     }
     lp(i,N){
-      int rndx=gen.uniform<int>(0,k-1);
-      int rndy=gen.uniform<int>(0,k-1);
-      cout<<x_sel[rndx]<<" "<<y_sel[rndy]<<endl;
+      cout<<x_sel[i]<<" "<<y_sel[i]<<endl;
     }
     return 0;
 }

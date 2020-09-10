@@ -1,5 +1,5 @@
 title = 'G - Connect the dots'
-timelimit = 2.0
+timelimit = 3.0
 forum = ""
 
 [[tests]]
@@ -8,11 +8,56 @@ forum = ""
 
 [[tests]]
     name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "mini.cpp"
+    number = 3
+
+[[tests]]
+    name = "large.cpp"
+    number = 5
+
+[[tests]]
+    name = "special_mountain_tate.cpp"
+    number = 1
+
+[[tests]]
+    name = "special_mountain_tate_rev.cpp"
+    number = 1
+
+[[tests]]
+    name = "special_mountain_yoko.cpp"
+    number = 1
+
+[[tests]]
+    name = "special_long_tate.cpp"
+    number = 1
+
+[[tests]]
+    name = "special_long_yoko.cpp"
+    number = 1
+
+[[tests]]
+    name = "special_pole_random.cpp"
     number = 10
+[[tests]]
+    name = "special_pole_sort.cpp"
+    number = 10
+
+[[tests]]
+    name = "handmade.in"
+    number = 1
 
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+
+[[solutions]]
+    name = "Luzhiled.cpp"
+
+[[solutions]]
+    name = "beet.cpp"
 
 [params]
     N_MIN = 2
