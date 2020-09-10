@@ -13,7 +13,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int N = N_MAX;
-    cout<<N<<endl;
+    cout<<N-1<<endl;
 
     vector<int> x_sel,y_sel;
     set<int> xl,yl;
@@ -40,7 +40,7 @@ int main(int, char* argv[]) {
       v.push_back({x_sel[i], y_sel[i]});
       v.push_back({x_sel[k-1-i], y_sel[k-1-i]});
       v.push_back({x_sel[i],y_sel[k-1-i]});
-      v.push_back({x_sel[k-1-i],y_sel[i+1]});
+      if(i!=k/2-1)v.push_back({x_sel[k-1-i],y_sel[i+1]});
     }
     lp(i,v.size()){
       cout<<v[i].first<<" "<<v[i].second<<endl;

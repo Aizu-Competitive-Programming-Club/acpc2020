@@ -43,7 +43,7 @@ forum = ""
     number = 15
 [[tests]]
     name = "special_pole_sort.cpp"
-    number = 5
+    number = 10
 [[tests]]
     name = "special_spiral.cpp"
     number = 2
