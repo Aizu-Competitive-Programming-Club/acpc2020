@@ -82,5 +82,13 @@
   "special_pole_sort_08.in": "730b7ee4f7e6b9bae25a8a1c6e3db2e8508f6b95dbb7dd7344f34ba6a34a4e65",
   "special_pole_sort_08.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
   "special_pole_sort_09.in": "0b38ec45714c144bf9160d170d257b065882b0c1e1dbffda59370810e977c865",
-  "special_pole_sort_09.out": "09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844"
+  "special_pole_sort_09.out": "09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844",
+  "special_spiral_00.in": "730a1aee695be7741d09060f0047e7492d8abd268d295788fb05e630b5342f7c",
+  "special_spiral_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "special_spiral_01.in": "26f6e885cacac0640e28accd0e15432029a8fc8620cb8e29c4c75f3aa71db387",
+  "special_spiral_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
+  "special_spiral_rev_00.in": "dda3732286f4a98eba64d82a66eeae84c39fa69eeff820942e50e73aadc82cbe",
+  "special_spiral_rev_00.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "special_spiral_rev_01.in": "c49fe03332af15be86c09157b95b5244af799866f89c2db510f05f956af50b8a",
+  "special_spiral_rev_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
 }
