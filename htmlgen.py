@@ -156,8 +156,9 @@ class ToHTMLConverter:
     def __init__(self, probdir: Path, config):
         logger.info("HTML Generate {}".format(probdir.name))
         md_statement = open(str(probdir / 'task.md'), encoding='utf-8').read()
-        md_statement = md_statement.replace('```\n', '<pre>', 1)
-        md_statement = md_statement.replace('\n```', '</pre>', 1)
+        while '```' in md_statement:
+            md_statement = md_statement.replace('```\n', '<pre>', 1)
+            md_statement = md_statement.replace('\n```', '</pre>', 1)
         # evaluate jinja2
         lang_manager = LangManager()
         environment = Environment(
