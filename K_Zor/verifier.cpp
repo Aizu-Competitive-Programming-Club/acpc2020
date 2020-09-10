@@ -27,8 +27,8 @@ int main() {
     }
     inf.readEof();
 
-    sort(P.begin(),P.end());
-    for(int i=0;i<K;i++){ensuref(P[i]==i,"P is not permutation\n");}
-    
+    for(int i=0;i<K;i++)
+      for(int j=0;j<K;j++)
+        if(i!=j) ensuref(P[i]!=P[j], "permutation");
     return 0;
 }
