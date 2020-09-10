@@ -1,5 +1,5 @@
 title = 'G - Connect the dots'
-timelimit = 2.0
+timelimit = 10.0
 forum = ""
 
 [[tests]]
@@ -42,12 +42,15 @@ forum = ""
     name = "handmade.in"
     number = 1
 
-[[solutions]]
-    name = "wa.cpp"
-    wrong = true
+#[[solutions]]
+#    name = "wa.cpp"
+#    wrong = true
+
+#[[solutions]]
+#    name = "Luzhiled.cpp"
 
 [[solutions]]
-    name = "Luzhiled.cpp"
+    name = "beet.cpp"
 
 [params]
     N_MIN = 2
