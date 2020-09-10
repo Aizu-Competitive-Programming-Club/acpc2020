@@ -75,6 +75,10 @@ forum = ""
 [[solutions]]
     name = "tubuann.cpp"
 
+[[solutions]]
+    name = "moritaoy_naive.cpp"
+    allow_tle = true
+
 [params]
     N_MIN = 2
     N_MAX = 100_000
