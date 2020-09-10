@@ -16,7 +16,7 @@ $N$ 個の関数 $f_1, f_2, \ldots , f_N$ があります。$f_i(x) = A_ix + B_i
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $|A_i|, |B_i| \leq @{param.AB_ABS}$
-- $@{param.N_MIN} \leq L_j \leq R_j \leq N$
+- $1 \leq L_j \leq R_j \leq N$
 - $|P_j| \leq @{param.P_ABS}$
 
 ## @{keyword.input}
