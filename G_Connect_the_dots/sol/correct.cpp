@@ -187,7 +187,7 @@ struct segment_graph{
     deque< int > que;
     que.push_back(s);
 
-    while (!que.emptu()) {
+    while (!que.empty()) {
       int v = que.front();
       que.pop_front();
 
