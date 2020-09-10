@@ -155,30 +155,26 @@ signed main(){
     auto cx=compress(xs);
     auto dx=dict(cx);
 
-    using P = pair<int, int>;
-    map<P, int> idx;
-    for(int i=0;i<n;i++) idx[P(xs[i],ys[i])]=i;
+    vector<int> tx(n);
+    for(int i=0;i<n;i++) tx[i]=dx[xs[i]];
 
     map<int, int> ls,rs;
-    for(int i=0;i<n;i++) ls[ys[i]]=rs[ys[i]]=xs[i];
+    for(int i=0;i<n;i++) ls[ys[i]]=rs[ys[i]]=tx[i];
     for(int i=0;i<n;i++){
-      chmin(ls[ys[i]],xs[i]);
-      chmax(rs[ys[i]],xs[i]);
+      chmin(ls[ys[i]],tx[i]);
+      chmax(rs[ys[i]],tx[i]);
     }
 
     // connect
     for(int i=0;i<n;i++){
-      D.add_edge(m+k*n+dx[xs[i]],m+i,0);
-      D.add_edge(m+i,m+k*n+dx[xs[i]],0);
-      if(ls[ys[i]]==xs[i]) continue;
-      D.add_edge(m+i,m+idx[P(ls[ys[i]],ys[i])],0);
-      D.add_edge(m+idx[P(ls[ys[i]],ys[i])],m+i,0);
+      D.add_edge(m+k*n+tx[i],m+i,0);
+      D.add_edge(m+i,m+k*n+tx[i],0);
     }
 
     // add point
     for(int i=0;i<n;i++){
-      R.add_edge(i,i+1,k*n+dx[ls[ys[i]]],k*n+dx[rs[ys[i]]]+1,f0,f1);
-      R.add_edge(k*n+dx[ls[ys[i]]],k*n+dx[rs[ys[i]]]+1,i,i+1,f0,f1);
+      R.add_edge(i,i+1,k*n+ls[ys[i]],k*n+rs[ys[i]]+1,f0,f1);
+      R.add_edge(k*n+ls[ys[i]],k*n+rs[ys[i]]+1,i,i+1,f0,f1);
     }
 
     swap(xs,ys);
