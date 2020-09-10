@@ -55,15 +55,18 @@ forum = ""
     name = "handmade.in"
     number = 1
 
-[[solutions]]
-    name = "wa.cpp"
-    wrong = true
+#[[solutions]]
+#    name = "wa.cpp"
+#    wrong = true
+
+#[[solutions]]
+#    name = "Luzhiled.cpp"
+
+#[[solutions]]
+#    name = "beet.cpp"
 
 [[solutions]]
-    name = "Luzhiled.cpp"
-
-[[solutions]]
-    name = "beet.cpp"
+    name = "tubuann.cpp"
 
 [params]
     N_MIN = 2
