@@ -254,7 +254,7 @@ int main(){
   int cnt = uf.count();
   vector<pair<int,int>> range_x(cnt);
   vector<pair<int,int>> range_y(cnt);
-  map<int,int> uf_num;
+  map<int,int> uf_num = {};
   int start=0,goal=0;
   lp(i,n){
     int tg = uf.find(i),tn;

@@ -8,7 +8,7 @@ forum = ""
 
 [[tests]]
     name = "handmade.in"
-    number = 6
+    number = 5
 
 [[tests]]
     name = "random.cpp"
@@ -22,11 +22,14 @@ forum = ""
    name = "extra_out.cpp"
    wrong = true
 
-[[solutions]]
-    name = "Endered.cpp"
+# [[solutions]]
+#     name = "Endered.cpp"
+
+# [[solutions]]
+#       name = "toyama.cpp"
 
 [params]
     N_MIN = 1
     N_MAX = 100
-    M_MIN = 0
+    M_MIN = 1
     M_MAX = 1000

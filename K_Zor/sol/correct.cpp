@@ -15,106 +15,130 @@ template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
 
+#include "../params.h"
 
+ll mod_pow(ll a,ll x){
+  ll ret=1;
+  while(x>0){
+    if(x&1){(ret*=a)%=MOD;}
+    x>>=1;
+    (a*=a)%=MOD;
+  }
+  return ret;
+}
 
 int main(){
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int N;
-  cin>>N;
-  vector<int> P(64);
-  vector<string> Mt(N);
-  cin>>P>>Mt;
-  vector<vector<int>> c;
-  vector<int> used(64,0);
-  for(int i=0;i<64;i++){
-    if(used[i]){continue;}
-    c.push_back({});
-    int idx=i;
-    do{c.back().push_back(idx); idx=P[idx]; used[idx]=1;}while(idx!=i);
+  const int SIZE=MAX_K;
+  using BT=bitset<SIZE>;
+  ll N,K;
+  cin>>N>>K;
+  vector<int> P(K);
+  cin>>P;
+  vector<string> A(N);
+  cin>>A;
+  int NUM=0;
+  vector<vector<int>> cic;
+  vector<int> lg;
+  for(int i=0;i<K;i++){
+    if(P[i]==-1){continue;}
+    NUM++;
+    cic.push_back({});
+    lg.push_back(0);
+    for(int idx=i;P[idx]!=-1;){
+      int nx=P[idx];
+      cic.back().push_back(idx);
+      lg.back()++;
+      P[idx]=-1;
+      idx=nx;
+    }
   }
-  sort(c.begin(),c.end(),[](const vector<int> &a,const vector<int> &b){return a.size()<b.size() || (a.size()==b.size() && a<b);});
-  vector<int> cic;
-  for(auto &I:c){cic.push_back(I.size());}
-  int jb=cic.size();
-  for(int i=1;i<jb;i++){cic[i]+=cic[i-1];}
-  vector<ull> A(N);
+  vector<BT> B(N);
   for(int i=0;i<N;i++){
-    reverse(Mt[i].begin(),Mt[i].end());
-    ull k=0;
+    reverse(A[i].begin(),A[i].end());
     int cnt=0;
-    for(auto &C:c){
-      for(auto &idx:C){
-        if(Mt[i][idx]=='1'){k^=1ull<<cnt;}
+    for(auto &I:cic){
+      for(auto &idx:I){
+        if(A[i][idx]=='1'){B[i][cnt]=1;}
         cnt++;
       }
     }
-    A[i]=k;
+  }
+  vector<BT> msk;
+  int base=0;
+  for(auto &L:lg){
+    BT tmp;
+    for(int i=0;i<L;i++){tmp[base+i]=1;}
+    msk.push_back(tmp);
+    base+=L;
   }
 
-  auto MSK=
-    [](int lf,int rg){
-      ull ret=0;
-      for(int i=lf;i<rg;i++){ret^=1ull<<i;}
-      return ret;
-    };
+  vector<int> dif(NUM,1);
   
-  auto perm=
-    [&](ull k,int a){
-      ull ret=0;
-      for(int i=0;i<jb;i++){
-        int rg=cic[i],lf=i==0?0:cic[i-1];
-        ull msk=MSK(lf,rg);
-        ull x=k&msk;
-        int A=a%(rg-lf);
-        ull tmp1=x<<A;
-        ull tmp2=A==0?0:x>>(rg-lf-A);
-        assert((tmp1&tmp2)==0);
-        x=tmp1|tmp2;
-        x&=msk;
-        ret^=x;
+  auto shift1=
+    [&](const BT &X,int k){
+      BT tmp;
+      for(int i=0;i<NUM;i++){
+        int L=lg[i];
+        int b=k%L;
+        tmp|=msk[i]&((msk[i]&X)<<b|(msk[i]&X)>>(L-b)); 
       }
-      return ret;
+      return tmp;
     };
-  ll ans=1;
-  for(int i=0;i<jb;i++){
-    int rg=cic[i],lf=i==0?0:cic[i-1];
-    ull msk=MSK(lf,rg);
-    N=A.size();
-    for(int idx=1;idx<N;idx++){
-      while((A[0]&msk)!=0 && (A[idx]&msk)!=0){
-        ull a=A[0]&msk,b=A[idx]&msk;
-        if(a<b){swap(a,b); swap(A[0],A[idx]);}
-        int x=rg-1,y=rg-1;
-        while(!(a>>x&1)){x--;}
-        while(!(b>>y&1)){y--;}
-        A[0]^=perm(A[idx],x-y);
-        assert((perm(A[idx],x-y)&msk)==((b<<(x-y))&msk));
+  /*
+  auto shift2=
+    [&](const BT &X){
+      BT tmp;
+      for(int i=0;i<NUM;i++){
+        int L=lg[i];
+        int b=dif[i];
+        tmp|=msk[i]&((msk[i]&X)<<b|(msk[i]&X)>>(L-b)); 
       }
-      if((A[0]&msk)==0){swap(A[0],A[idx]);}
-    }
-    for(int j=1;j<=rg-lf;j++){
-      A.push_back(perm(A[0],j));
-    }
-    for(int idx=N;idx<N+rg-lf;idx++){
-      while((A[0]&msk)!=0 && (A[idx]&msk)!=0){
-        ull a=A[0]&msk,b=A[idx]&msk;
-        if(a<b){swap(a,b); swap(A[0],A[idx]);}
-        int x=rg-1,y=rg-1;
-        while(!(a>>x&1)){x--;}
-        while(!(b>>y&1)){y--;}
-        A[0]^=perm(A[idx],x-y);
+      return tmp;
+    };
+  */
+  auto gauss=
+    [&](vector<BT> &A){
+      int N=A.size();
+      int row=0;
+      for(int i=0;i<SIZE && row<N;i++){
+        bool done=A[row][i];
+        for(int j=row;j<N && !done;j++){
+          if(A[j][i]){done=true; swap(A[j],A[row]);}
+        }
+        if(!done){continue;}
+        for(int j=row+1;j<N;j++){
+          if(A[j][i]){A[j]^=A[row];}
+        }
+        row++;
       }
-      if((A[0]&msk)==0){swap(A[0],A[idx]);}
+      while(!A.empty() && A.back().none()){A.pop_back();}
+    };
+
+  gauss(B);
+  vector<BT> C(K);
+  int sz=B.size();
+  for(int i=0;i<sz;i++){
+    for(int j=0;j<K;j++){
+      if(B[i][j]){C[j]=B[i]; break;}
     }
-    ull a=A[0]&msk;
-    ll db=1,k=rg-1;
-    if(a!=0){do{db*=2; db%=MOD;}while(!(a>>(k--)&1));}
-    ans*=db; ans%=MOD;
-    swap(A[0],A[N+rg-lf-1]);
-    A.pop_back();
   }
-  cout<<ans<<endl;
+  int rnk=sz;
+  for(int i=0;i<sz;i++){
+    for(int k=1;;k++,rnk++){
+      BT tmp=shift1(B[i],k);
+      for(int j=0;j<K;j++){
+        if(tmp[j]){
+          if(C[j][j]){tmp^=C[j];}
+          else{C[j]=tmp; break;}
+        }
+      }
+      if(tmp.none()){break;}
+    }
+  }
   
+  cout<<mod_pow(2,rnk)<<endl;
+
   return 0;
 }
