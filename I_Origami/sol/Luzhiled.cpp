@@ -15,8 +15,6 @@ int main() {
         assert(is_convex(ps));
     }
 
-    cerr << fixed << setprecision(2);
-    cerr << "origami start" << endl;
     // origami part
     polygons polys({ps});
     for (int i = 0; i < m; ++i) {
@@ -25,18 +23,10 @@ int main() {
         point p, q;
         cin >> p >> q;
 
-        cerr << "p: " << p << endl;
-        cerr << "q: " << q << endl;
-
         for (auto &poly: polys) {
             
             { // left side
                 polygon l = convex_cut(poly, line(p, q));
-                cerr << "polygon l" << endl;
-                for (auto &p: l) {
-                    cerr << "(" << p << ") ";
-                }
-                cerr << endl;
 
                 if (l.size() > 2) {
                     for (point &v: l) {
@@ -48,11 +38,6 @@ int main() {
 
             { // right side
                 polygon r = convex_cut(poly, line(q, p));
-                cerr << "polygon r" << endl;
-                for (auto &p: r) {
-                    cerr << "(" << p << ") ";
-                }
-                cerr << endl;
 
                 if (r.size() > 2) {
                     new_polys.emplace_back(r);
@@ -62,15 +47,6 @@ int main() {
             polys = new_polys;
         }
     } // origami end
-    cerr << "origami end" << endl;
-
-    for (int i = 0; i < (int)polys.size(); ++i) {
-        cerr << "poly " << i << " : ";
-        for (auto &p: polys[i]) {
-            cerr << "(" << p << ") ";
-        }
-        cerr << endl;
-    }
 
     // cross point
     // V = N + 2^M, O(V^2 * log V) ? 
@@ -105,12 +81,6 @@ int main() {
         }
     }
 
-    cerr << "xs : ";
-    for (auto &x: xs) cerr << x << " ";
-    cerr << endl;
-
-    cerr << "compless xs" << endl;
-
     { // compless xs
         sort(xs.begin(), xs.end());
         vector< real_number > old_xs = xs;
@@ -123,15 +93,10 @@ int main() {
         xs.resize(idx);
     }
 
-    cerr << "xs : ";
-    for (auto &x: xs) cerr << x << " ";
-    cerr << endl;
-
     vector< real_number > anss(1 << m);
     for (int i = 1; i < xs.size(); ++i) {
         real_number l = xs[i - 1], r = xs[i];
 
-        cerr << "[" << l << ", " << r << "]" << endl;
         point ld(l, -xy_inf), lu(l, xy_inf);
         point rd(r, -xy_inf), ru(r, xy_inf);
 
@@ -160,14 +125,6 @@ int main() {
         sort(ls.begin(), ls.end());
         sort(rs.begin(), rs.end());
 
-        cerr << "ls: ";
-        for (auto &l: ls) cerr << l << " ";
-        cerr << endl;
-
-        cerr << "rs: ";
-        for (auto &r: rs) cerr << r << " ";
-        cerr << endl;
-
         for (int j = 1; j < ls.size(); ++j) {
             point p1(l, ls[j]);
             point p2(r, rs[j]);
@@ -181,7 +138,6 @@ int main() {
 
             real_number k = 1.0 / 3.0;
             point g = k * (p1 + p2 + p3);
-            cerr << "g : (" << g << ")" << endl;
 
             real_number S = (ls[j] - ls[j - 1] + rs[j] - rs[j - 1]) * (xs[i] - xs[i - 1]) / 2.0;
             int cnt = 0;
@@ -202,17 +158,16 @@ int main() {
     }
 
     { // debug
-        cerr << "area ps : " << area(ps) << endl;
 
         real_number S = 0;
         for (int i = 0; i < (int)anss.size(); ++i) {
             S += (i + 1) * anss[i];
         }
-
-        cerr << "area ans: " << S << endl;
-
         real_number sample = 24.545862697754065 + 2 * 10.102028899903089;
-        cerr << "sample  : " << sample << endl;
+
+        cerr << "area ps  : " << area(ps) << endl;
+        cerr << "area ans : " << S << endl;
+        cerr << "sample4  : " << sample << endl;
     }
 }
 
