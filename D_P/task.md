@@ -22,8 +22,8 @@
 ## @{keyword.constraints}
 
 - $@{param.N_MIN} \le N \le @{param.N_MAX}$
-- $@{param.P_MIN} \leq P \leq @{param.P_MAX}$
-- $@{param.A_MIN} \le A_i \le P$ 
+- $@{param.P_MIN} \le P \le @{param.P_MAX}$
+- $@{param.A_MIN} \le A_i \le @{param.A_MAX}$ 
 - 入力はすべて整数である
 
 ## @{keyword.input}
@@ -37,7 +37,7 @@ $A_0$ $A_1$ $\cdots$ $A_{N-1}$
 
 ## @{keyword.output}
 
-以下の形式で答えを出力せよ。条件満たす整数列が存在する場合は `-1` を出力してください。
+以下の形式で答えを出力せよ。条件満たす整数列が存在しない場合は `-1` を出力せよ。
 
 ```
 $B_0$ $B_1$ $\cdots$ $B_{N-1}$

@@ -10,14 +10,14 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     long long P = gen.uniform<long long>(P_MIN, P_MAX);
-    long long N = gen.uniform<long long>(N_MIN, N_MAX);
+    long long N = gen.uniform<long long>(N_MIN, max(N_MIN, min(P, N_MAX)));
     
     long long sum = 0;
     vector<long long> B(N);
     
     cout<<N<<" "<<P<<endl;
     
-	sum = gen.uniform<int>(max(0ll, P - N + 1), P);
+	sum = gen.uniform<int>(0, max(0ll, P - N));
 	
     for(int i = 0; i < sum; i++){
 		B[gen.uniform<int>(0, N-1)] += 1;
