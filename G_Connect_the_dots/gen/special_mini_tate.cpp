@@ -3,7 +3,7 @@
 #include "random.h"
 #include "../params.h"
 using namespace std;
-#define lp(i,n) for(int i=0;i<(signed)n;i++)
+#define lp(i,n) for(int i=0;i<n;i++)
 
 const long long XY_MIN = XY_ABS * -1;
 const long long XY_MAX = XY_ABS;
@@ -12,12 +12,12 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int N = N_MAX;
-    cout<<N<<endl;
+    int N = 10;
+    printf("%d\n", N);
 
     vector<int> x_sel,y_sel;
     set<int> xl,yl;
-    int k = N/2;
+    int k = N+100;
     lp(i,k){
       int x,y;
       while(1){
@@ -34,16 +34,9 @@ int main(int, char* argv[]) {
       y_sel.push_back(y);
     }
     sort(x_sel.begin(),x_sel.end());
-    sort(y_sel.begin(),y_sel.end());
-    vector<pair<int,int>> v,w;
-    lp(i,k/2){
-      v.push_back({x_sel[i], y_sel[i]});
-      v.push_back({x_sel[k-1-i], y_sel[k-1-i]});
-      v.push_back({x_sel[i],y_sel[k-1-i]});
-      v.push_back({x_sel[k-1-i],y_sel[i+1]});
-    }
-    lp(i,v.size()){
-      cout<<v[i].first<<" "<<v[i].second<<endl;
+    lp(i,N){
+      if(i%2==0)cout<<x_sel[i]<<" "<<y_sel[(i/2)*2]<<endl;
+      else cout<<x_sel[i+2]<<" "<<y_sel[(i/2)*2]<<endl;
     }
     return 0;
 }
