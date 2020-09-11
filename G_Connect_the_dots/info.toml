@@ -40,7 +40,7 @@ forum = ""
 
 [[tests]]
     name = "special_pole_random.cpp"
-    number = 10
+    number = 15
 [[tests]]
     name = "special_pole_sort.cpp"
     number = 10
@@ -50,10 +50,17 @@ forum = ""
 [[tests]]
     name = "special_spiral_rev.cpp"
     number = 2
+[[tests]]
+    name = "special_spiral_zero.cpp"
+    number = 2
+[[tests]]
+    name = "special_square_random.cpp"
+    number = 3
+
 
 [[tests]]
     name = "handmade.in"
-    number = 1
+    number = 3
 
 [[solutions]]
     name = "wa.cpp"
@@ -64,6 +71,9 @@ forum = ""
 
 [[solutions]]
     name = "beet.cpp"
+
+[[solutions]]
+    name = "tubuann.cpp"
 
 [params]
     N_MIN = 2

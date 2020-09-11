@@ -14,7 +14,7 @@
 
 そのような数列が存在しない場合は `-1` を出力してください。
 
-ただし、長さ $N$ の整数列 $C=(C_0,\ldots,C_{N-1})$、 $D=(D_0,\ldots,D_{N-1})$ に対して辞書順で $C$ が $D$ より小さいとは二つの整数列が異なり、かつ $i$ を $C_i \neq D_i$ であるような最小の整数としたとき $C_i \le D_i$ であることをを言います。
+ただし、長さ $N$ の整数列 $C=(C_0,\ldots,C_{N-1})$、 $D=(D_0,\ldots,D_{N-1})$ に対して辞書順で $C$ が $D$ より小さいとは二つの整数列が異なり、かつ $i$ を $C_i \neq D_i$ であるような最小の整数としたとき $C_i \le D_i$ であることを言います。
 
 実数 $x$ に対して $\lfloor x \rfloor$ とは $x$ 以下の最大の整数を表します。
 
@@ -37,7 +37,7 @@ $A_0$ $A_1$ $\cdots$ $A_{N-1}$
 
 ## @{keyword.output}
 
-以下の形式で答えを出力せよ。条件満たす整数列が存在しない場合は `-1` を出力せよ。
+以下の形式で答えを出力せよ。条件を満たす整数列が存在しない場合は `-1` を出力せよ。
 
 ```
 $B_0$ $B_1$ $\cdots$ $B_{N-1}$
@@ -47,7 +47,7 @@ $B_0$ $B_1$ $\cdots$ $B_{N-1}$
 
 @{example.example_00}
 
-$\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$となる。
+$\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$ となる。
 
 @{example.example_01}
 
