@@ -35,6 +35,7 @@ output(){
     done
 }
 
+rm -r judgedata
 mkdir  judgedata
 input
 output

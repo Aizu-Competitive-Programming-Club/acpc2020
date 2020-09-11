@@ -43,7 +43,8 @@ build(){
     cp params.h $judgedata_path
 }
 
-mkdir  judgedata
+rm -r judgedata
+mkdir judgedata
 input
 output
 build
