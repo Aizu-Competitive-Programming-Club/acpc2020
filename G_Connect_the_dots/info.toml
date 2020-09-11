@@ -56,6 +56,9 @@ forum = ""
 [[tests]]
     name = "special_square_random.cpp"
     number = 3
+[[tests]]
+    name = "special_long_mountain.cpp"
+    number = 10
 
 
 [[tests]]
