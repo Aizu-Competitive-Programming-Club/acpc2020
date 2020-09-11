@@ -35,6 +35,9 @@ forum = ""
 [[solutions]]
     name = "Endered.cpp"
 
+[[solutions]]
+    name = "beet_snuke.cpp"
+
 [params]
     HW_MIN = 1
     HW_MAX = 1000
