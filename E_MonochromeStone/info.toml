@@ -57,5 +57,7 @@ forum = ""
     allow_tle = true
 
 [params]
-    N_W_B_MIN = 1
-    N_W_B_MAX = 5000
+    N_P_K_MIN = 1
+    N_P_K_MAX = 5000
+    W_B_MIN = 1
+    W_B_MAX = 5000

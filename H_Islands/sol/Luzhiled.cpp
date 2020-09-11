@@ -41,7 +41,6 @@ class union_find {
 };
 // }}}
 
-
 template <typename T> vector<T> make_vector(size_t a, T b) { return vector<T>(a, b); }
 template <typename... Ts> auto make_vector(size_t a, Ts... ts) { return vector<decltype(make_vector(ts...))>(a, make_vector(ts...)); }
 
@@ -74,7 +73,14 @@ int main() {
         }
     };
 
+    bool is_preprocess = true;
     auto add_sea = [&](int y, int x) {
+        // !assert
+        if ( !is_preprocess ) {
+            assert(bs[y][x] == '#');
+            bs[y][x] = '.';
+        }
+
         int ul = x + y * (w + 1);
         int dr = (x + 1) + (y + 1) * (w + 1);
         vector< int > as({ul, ul + 1, dr, dr - 1});
@@ -109,6 +115,8 @@ int main() {
         }
     }
 
+    is_preprocess = false;
+
     int s = 0;
     while (q--) {
         int u, v;
@@ -116,6 +124,10 @@ int main() {
 
         int r = (1 + (s ^ u)) % mod;
         int c = 1 + ((s ^ v)) % mod;
+
+        // ! assert
+        assert(1 <= r && r <= h - 2);
+        assert(1 <= c && c <= w - 2);
 
         add_sea(r, c);
 

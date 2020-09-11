@@ -17,7 +17,7 @@ int main(int, char* argv[]) {
 
     vector<int> x_sel,y_sel;
     set<int> xl,yl;
-    int k = N/8;
+    int k = N/4;
     lp(i,k){
       int x,y;
       while(1){
@@ -36,21 +36,21 @@ int main(int, char* argv[]) {
     sort(x_sel.begin(),x_sel.end());
     sort(y_sel.begin(),y_sel.end());
     vector<pair<int,int>> v,w;
-    lp(i,k){
+    lp(i,k/2){
       v.push_back({x_sel[i], y_sel[i]});
-      v.push_back({x_sel[N/8-1-i], y_sel[N/8-1-i]});
-      w.push_back({x_sel[i],y_sel[N/8-1-i]});
-      w.push_back({x_sel[N/8-1-i],y_sel[i]});
+      v.push_back({x_sel[k-1-i], y_sel[k-1-i]});
+      w.push_back({x_sel[i],y_sel[k-1-i]});
+      w.push_back({x_sel[k-1-i],y_sel[i+1]});
     }
     lp(i,v.size()){
       int l = gen.uniform<int>(1,3);
-      cout<<v[i].first-l<<" "<<v[i].second-l<<endl;
-      cout<<v[i].first+l<<" "<<v[i].second+l<<endl;
+      cout<<v[i].first+l<<" "<<v[i].second<<endl;
+      cout<<v[i].first-l<<" "<<v[i].second<<endl;
     }
     lp(i,w.size()){
       int l = gen.uniform<int>(1,3);
-      cout<<w[i].first-l<<" "<<w[i].second-l<<endl;
-      cout<<w[i].first+l<<" "<<w[i].second+l<<endl;
+      cout<<w[i].first<<" "<<w[i].second+l<<endl;
+      cout<<w[i].first<<" "<<w[i].second-l<<endl;
     }
     return 0;
 }
