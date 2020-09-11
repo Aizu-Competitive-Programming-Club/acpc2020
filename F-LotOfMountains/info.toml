@@ -53,6 +53,9 @@ forum = ""
     name = "tubuann_float.cpp"
     wrong = true
 
+[[solutions]]
+    name = "beet.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 100_000
