@@ -12,22 +12,17 @@ int main(int, char* argv[]) {
     long long P = gen.uniform<long long>(P_MIN, P_MAX);
     long long N = gen.uniform<long long>(N_MIN, N_MAX);
     
-    long long sum = 0;
+    // long long sum = 0;
     vector<long long> B(N);
     
     cout<<N<<" "<<P<<endl;
     
-	// sum = gen.uniform<int>(max(0ll, P - N + 1), P);
-	sum = gen.uniform<int>(P, N * A_MAX);
 	
-    for(int i = 0; i < sum; i++){
-		int index = gen.uniform<int>(0, N-1);
-		
-		if(B[index] == A_MAX) continue;
-		
-		B[index] += 1;
-    }
+	for(int i = 0; i < N; i++){
+		B[i] = gen.uniform<long long>(max(A_MIN, A_MAX/2), A_MAX);
+	}
 	
+
     for(int i = 0; i < N; i++){
         if(i) cout<<" ";
         cout<<B[i];
