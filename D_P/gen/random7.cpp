@@ -17,15 +17,15 @@ int main(int, char* argv[]) {
     
     cout<<N<<" "<<P<<endl;
     
-	sum = gen.uniform<int>(max(0ll, P - N + 1), P);
+	sum = gen.uniform<long long>(max(0ll, P - N + 1), P);
 	
 	 for(int i = 1; i * i <= P; i++){
 		 sqrtp = i;
 	 }
 	 
     for(int i = 0; i < N; i++){
-		int index = gen.uniform<int>(0, N-1);
-		int num = gen.uniform<int>(1, sqrtp);
+		int index = gen.uniform<long long>(0, N-1);
+		int num = gen.uniform<long long>(1, sqrtp);
 		
 		if(B[index] + num > A_MAX) continue;
 		if(sum - num < 0) continue;
@@ -35,7 +35,7 @@ int main(int, char* argv[]) {
     }
 	
 	 for(; sum;){
-		int index = gen.uniform<int>(0, N-1);
+		int index = gen.uniform<long long>(0, N-1);
 		int num = 1;
 		
 		if(B[index] + num > A_MAX) continue;

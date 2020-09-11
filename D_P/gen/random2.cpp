@@ -18,7 +18,7 @@ int main(int, char* argv[]) {
     cout<<N<<" "<<P<<endl;
     
     for(int i = 0; i < N; i++){
-        A[i] = gen.uniform<int>(0, P_MAX * 2);
+        A[i] = gen.uniform<long long>(0, P_MAX * 2);
         sum += A[i];
     }
     
