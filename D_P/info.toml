@@ -1,5 +1,5 @@
 title = 'D - P'
-timelimit = 2.0
+timelimit = 5.0
 forum = ""
 
 [[tests]]
@@ -73,7 +73,6 @@ forum = ""
 	
 [[solutions]]
     name = "beet.cpp"
-	allow_tle = true
 	
 #[[solutions]]
 #    name = "tubuann_TLE.cpp"
