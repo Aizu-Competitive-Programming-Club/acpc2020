@@ -4,7 +4,7 @@
 namespace geometry {
     using real_number = long double;
 
-    constexpr real_number eps = 1e-8;
+    constexpr real_number eps = 1e-10;
     constexpr real_number pi = acos(-1);
 
     real_number radian_to_degree(real_number r);
@@ -287,7 +287,6 @@ int main() {
         cin >> p >> q;
 
         for (auto poly: polys) {
-            poly = convex_hull(poly);
             
             { // left side
                 polygon l = convex_cut(poly, line(p, q));
@@ -295,8 +294,6 @@ int main() {
                 for (point &v: l) {
                     v = reflection(line(p, q), v);
                 }
-
-                l = convex_hull(l);
 
                 if (l.size() > 2) {
                     new_polys.emplace_back(l);
@@ -306,7 +303,6 @@ int main() {
             { // right side
                 polygon r = convex_cut(poly, line(q, p));
 
-                r = convex_hull(r);
                 if (r.size() > 2) {
                     new_polys.emplace_back(r);
                 }
@@ -355,6 +351,8 @@ int main() {
     vector< real_number > ans((1 << m) + 1);
     for (int i = 1; i < (int)xs.size(); ++i) {
         real_number l = xs[i - 1], r = xs[i];
+
+        if (sign(r - l) == 0) continue;
 
         point ld(l, -xy_inf), lu(l, xy_inf);
         point rd(r, -xy_inf), ru(r, xy_inf);
@@ -415,5 +413,3 @@ int main() {
         assert(fabs(area(ps) - S) < 1e-6);
     }
 }
-
-
