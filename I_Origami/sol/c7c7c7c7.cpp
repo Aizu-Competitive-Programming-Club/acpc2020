@@ -4,8 +4,8 @@
 using namespace std;
 
 
-#define rep(i,n) for (int i=0; i < (n); i++)
-typedef long double D;      // 座標値の型。doubleかlong doubleを想定
+#define rep(i,n) for (int i=0; i < (int)(n); i++)
+typedef long double D;      // 座標値の型。Dかlong Dを想定
 typedef complex<D> P;  // Point
 typedef pair<P, P> L;  // Line
 typedef vector<P> VP;
@@ -76,7 +76,7 @@ P proj(P a1, P a2, P p) {
  
 // 点pの直線aへの反射点を返す
 P reflection(P a1, P a2, P p) {
-  return (long double)2.0*proj(a1, a2, p) - p;
+  return (D)2.0*proj(a1, a2, p) - p;
 }
  
 
@@ -156,7 +156,7 @@ D area(const VP& ps) {
 
 
 
-double ans[1<<11];
+D ans[1<<11];
 
 int main(){
   int n,m;
@@ -233,7 +233,7 @@ int main(){
   rep(i,(int)tm.size()-1){
     P A=tm[i];
     P B=tm[i+1];
-    double sax=abs(A.X-B.X);
+    D sax=abs(A.X-B.X);
     if(sax<EPS) continue;
     P A1=P(A.X,-1e9) , A2=P(A.X,1e9);
     P B1=P(B.X,-1e9) , B2=P(B.X,1e9);
@@ -252,10 +252,10 @@ int main(){
     sort(right.begin(),right.end());
     if((int)left.size()==1)exit(1);
     rep(j,(int)left.size()-1){
-      double say=abs(left[j]-left[j+1]) + abs(right[j]-right[j+1]);
-      double ar = say * sax / 2;
-      double y = ( left[j] + left[j+1] + right[j] + right[j+1] ) / 4;
-      double x = ( A.X + B.X )/2;
+      D say=abs(left[j]-left[j+1]) + abs(right[j]-right[j+1]);
+      D ar = say * sax / 2;
+      D y = ( left[j] + left[j+1] + right[j] + right[j+1] ) / 4;
+      D x = ( A.X + B.X )/2;
       int cnt = 0;
       rep(k,v.size()){
         if(isCcwConvex(v[k])==0)exit(1);
@@ -267,17 +267,17 @@ int main(){
     //cerr<<endl<<endl<<endl;
   }
 
-  rep(i,(1<<m)) printf("%.9lf\n",ans[i+1]);
+  rep(i,(1<<m)) printf("%.9Lf\n",ans[i+1]);
 
-/*
+  /*
   printf("%.9Lf\n",area(VEX));
-  long double sa=0;
+  D sa=0;
   rep(i,(1<<m))sa+=ans[i+1]*(i+1);
   printf("%.9Lf\n",sa);
-  long double sa2=0;
+  D sa2=0;
   rep(i,(int)v.size())sa2+=area(v[i]);
   printf("%.9Lf\n",sa2);
-*/
+  */
 
 }
 
