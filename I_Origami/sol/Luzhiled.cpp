@@ -266,7 +266,7 @@ using namespace geometry;
 using namespace std;
 
 int main() {
-    constexpr real_number xy_inf = 1000001.0;
+    constexpr real_number xy_inf = 10000010.0;
 
     int n, m;
     cin >> n >> m;
