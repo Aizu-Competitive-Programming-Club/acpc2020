@@ -30,7 +30,8 @@ int main(){
   vector<ll> cnt(P+1,0);
   ll T=0;
   for(auto &I:A){cnt[I]++; T+=I;}
-  assert(T<=P && P<T+N);
+  //assert(T<=P && P<T+N);
+  if(!(T<=P && P<T+N)){cout<<-1<<endl; return 0;}
   for(ll S=1;;S++){
     ll lf=0,rg=0,gd=1;
     for(ll j=0;j<=P && gd;j++){

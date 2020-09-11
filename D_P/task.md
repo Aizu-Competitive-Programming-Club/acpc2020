@@ -2,7 +2,7 @@
 
 @{lang.ja}
 
-整数 $N$、 $P$  と長さ $N$ の整数列 $A=(A_0,\ldots,A_{N-1})$ があります。
+整数 $N$, $P$  と長さ $N$ の整数列 $A=(A_0,\ldots,A_{N-1})$ があります。
 
 以下の条件を満たす長さ $N$ の整数列 $B=(B_0,\ldots,B_{N-1})$ を構築してください。
 
@@ -14,7 +14,7 @@
 
 そのような数列が存在しない場合は `-1` を出力してください。
 
-ただし、長さ $N$ の整数列 $C=(C_0,\ldots,C_{N-1})$、 $D=(D_0,\ldots,D_{N-1})$ に対して辞書順で $C$ が $D$ より小さいとは二つの整数列が異なり、かつ $i$ を $C_i \neq D_i$ であるような最小の整数としたとき $C_i \le D_i$ であることを言います。
+ただし、長さ $N$ の整数列 $C=(C_0,\ldots,C_{N-1})$, $D=(D_0,\ldots,D_{N-1})$ に対して辞書順で $C$ が $D$ より小さいとは二つの整数列が異なり、かつ $i$ を $C_i \neq D_i$ であるような最小の整数としたとき $C_i \le D_i$ であることを言います。
 
 実数 $x$ に対して $\lfloor x \rfloor$ とは $x$ 以下の最大の整数を表します。
 
@@ -47,7 +47,7 @@ $B_0$ $B_1$ $\cdots$ $B_{N-1}$
 
 @{example.example_00}
 
-$\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$となる。
+$\displaystyle\left\lfloor\frac{26\times 100}{51}\right\rfloor$ は $50$、 $\displaystyle\left\lfloor\frac{25\times 100}{51}\right\rfloor$ は $49$ となる。
 
 @{example.example_01}
 
