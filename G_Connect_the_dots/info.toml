@@ -59,11 +59,14 @@ forum = ""
 [[tests]]
     name = "special_long_mountain.cpp"
     number = 10
+[[tests]]
+    name = "special_long_mountain_mega.cpp"
+    number = 2
 
 
 [[tests]]
     name = "handmade.in"
-    number = 3
+    number = 4
 
 [[solutions]]
     name = "wa.cpp"
