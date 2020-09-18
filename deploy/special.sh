@@ -33,7 +33,7 @@ output(){
 
 build(){
     cp $BASE_DIR/common/testlib.h $judgedata_path
-    cp $BASE_DIR/deploy/build.sh $judgedata_path
+    cp $BASE_DIR/common/build.sh $judgedata_path
     cp checker.cpp $judgedata_path
     cp params.h $judgedata_path
 }

@@ -6,6 +6,7 @@ find $BASE_DIR -name "info.toml" | sort | while read inpath; do
     PROB_DIR=$(dirname $inpath);
     cd $PROB_DIR
     echo $PWD
+    rm -r in out
     ../common/htmlgen.sh
     ../deploy/special.sh
 done
