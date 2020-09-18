@@ -40,9 +40,13 @@ forum = ""
     number = 6
 
 [[tests]]
-    name = "zhandmade.in"
-    number = 9
+    name = "yhandmade.in"
+    number = 8
     
+    [[tests]]
+    name = "zhandmade.in"
+    number = 10
+	
 [[solutions]]
     name = "wa.cpp"
     wrong = true
