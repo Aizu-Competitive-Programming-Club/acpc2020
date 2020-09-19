@@ -449,12 +449,12 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int xy_MIN = -xy_abs;
+        int xy_MIN = -xy_abs;
     int xy_MAX = xy_abs;
     
     // 凸多角形作成
-    int N = N_MAX;
-    Polygon P;    
+    int N = N_MAX;    
+    /*
     for ( int i = 0; i < N; i++ ) {
       double x = gen.uniform<int>(xy_MIN, xy_MAX);
       double y = gen.uniform<int>(xy_MIN, xy_MAX);
@@ -464,6 +464,16 @@ int main(int, char* argv[]) {
     P.erase(unique(P.begin(), P.end()), P.end());
     P = andrewScan(P);
     N = P.size();
+    */
+    double x = 900, y = 900;
+    Polygon P{Point(x, y)};
+    for ( int i = 0; i < N; i++ ) {
+      x -= (30-i);
+      y -= 1;
+      P.push_back(Point(x, y));      
+    }
+
+    P = andrewScan(P);    
     
     int M = gen.uniform<int>(M_MIN, M_MAX);
     
