@@ -45,15 +45,19 @@ forum = ""
     
     [[tests]]
     name = "zhandmade.in"
-    number = 10
-	
+    number = 11
+
 [[solutions]]
     name = "wa.cpp"
     wrong = true
 
-[[solutions]]
-    name = "correct2.cpp"
-	allow_tle = true
+#[[solutions]]
+#    name = "correct.py"
+#	allow_tle = true
+
+#[[solutions]]
+#    name = "correct2.cpp"
+#	allow_tle = true
 	
 #[[solutions]]
 #    name = "correct3.cpp"
