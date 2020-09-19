@@ -505,6 +505,7 @@ int main() {
 	ensure(ccw(P[i], P[(i+1)%sz], P[(i+2)%sz]) == CCW_COUNTER_CLOCKWISE);	
       }
     }
+    ensure(P.size() == andrewScan(P).size());    
     ensure(isConvex(P));    
 
     vector<Polygon> Ps{P};    
