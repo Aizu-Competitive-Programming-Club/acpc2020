@@ -49,12 +49,60 @@ bool check(vector<long long> &b, vector<long long> &c, long long N, long long P,
 	return true;
 }
 
-long long solve(vector<long long> &b, vector<long long> &c, long long N, long long P) {
+bool check2(vector<pair<long long, long long>> &e, long long P, long long num) {
+	long long tsum = 0, tsum3 = 0;
+	
+	for(int i = 0; i < (long long)e.size(); i++){
+		long long c = 0, d = 0;
+		
+		c = (e[i].second * num + P - 1) / P;
+		
+		if(c * P / num != e[i].second) return false;
+		
+		tsum += c * e[i].first;
+		
+		d = ((e[i].second + 1) * num + P - 1) / P;
+		
+		d--;
+		
+		assert(c * P / num == d * P / num);
+		
+		tsum3 += (d - c) * e[i].first;
+	}
+	
+	if(tsum > num) return false;
+	
+	
+	if(tsum3 < num - tsum) return false;
+	
+	
+	return true;
+}
+
+long long solve2(vector<long long> &b, vector<long long> &c, long long N, long long P) {
 	long long res = 1;
+	vector<pair<long long,long long>> con(P+1);
+	vector<pair<long long,long long>> e;
+	
+	for(int i = 0; i <= P; i++){
+		con[i].second = i;
+	}
+	
+	for(int i = 0; i < N; i++){
+		con[b[i]].first++;
+	}
+	
+	for(int i = 0; i <= P; i++){
+		if(con[i].first >= 1) {
+			e.push_back(con[i]);
+		}
+	}
 	
 	for(;; res++){
-		if(check(b, c, N, P, res)) break;
+		if(check2(e, P, res)) break;
 	}
+	
+	assert(check(b, c, N, P, res) == true);
 	
 	long long sum = 0;
 	
@@ -78,16 +126,22 @@ signed main(){
 	
 	vector<long long> B, C;
 	long long N, P;
-	
+	long long sum = 0;
 	cin>>N>>P;
 	
 	B.resize(N);
 	
 	for(int i = 0; i < N; i++){
 		cin>>B[i];
+		sum += B[i];
 	}
 	
-	solve(B, C, N, P);
+	if(sum < P - N + 1 || sum > P) {
+		cout<<-1<<endl;
+		return 0;
+	}
+	
+	solve2(B, C, N, P);
 	
 	for(int i = 0; i < N; i++){
 		if(i) cout<<" ";

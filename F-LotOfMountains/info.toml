@@ -14,6 +14,10 @@ forum = ""
     name = "random-big.cpp"
     number = 5
 
+[[tests]]
+    name = "random-big-narrow.cpp"
+    number = 5
+
 [[solutions]]
     name = "wa-1e-5.cpp"
     wrong = true
@@ -49,13 +53,16 @@ forum = ""
     name = "tubuann_float.cpp"
     wrong = true
 
+[[solutions]]
+    name = "beet.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 100_000
-    R_MIN = 1
-    R_MAX = 1_000_000
-    H_MIN = 1
-    H_MAX = 100_000_000
     X_MIN = 1
     X_MAX = 100_000_000
+    H_MIN = 1
+    H_MAX = 100_000_000
+    R_MIN = 1
+    R_MAX = 100_000_000
     EPS_DIGIT = 6

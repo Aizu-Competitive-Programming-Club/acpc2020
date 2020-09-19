@@ -81,8 +81,8 @@ int main(){
   }
   
   int s=0;
-  int mod=1<<11;
-  int roll=427,cst=1821;
+  int mod=1<<10;
+  int roll=427,cst=821;
   while(Q--){
     int x,y;
     cin>>x>>y;

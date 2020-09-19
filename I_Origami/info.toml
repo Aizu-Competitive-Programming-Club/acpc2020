@@ -4,22 +4,34 @@ forum = ""
 
 [[tests]]
     name = "example.in"
-    number = 3
+    number = 4
 
 [[tests]]
     name = "random.cpp"
-    number = 10
+    number = 100
+
+[[tests]]
+    name = "random_small.cpp"
+    number = 5
+
+[[solutions]]
+name = "c7c7c7c7.cpp"
+allow_tle = true
+
+[[solutions]]
+name = "Luzhiled.cpp"
+allow_tle = true
 
 [[solutions]]
     name = "wa.cpp"
     wrong = true
 
 [params]
-    N_MIN = 1
+    N_MIN = 3
     N_MAX = 1000
     M_MIN = 1
-    M_MAX = 10
-    xy_MIN = -1e6
-    xy_MAX = 1e6
+    M_MAX = 8
+    xy_MIN = -1e4
+    xy_MAX = 1e4
     significant_digit = 6
     param_EPS = 1e-6

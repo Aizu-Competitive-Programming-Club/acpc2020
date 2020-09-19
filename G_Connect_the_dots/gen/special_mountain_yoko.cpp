@@ -5,6 +5,8 @@
 using namespace std;
 #define lp(i,n) for(int i=0;i<n;i++)
 
+const long long XY_MIN = XY_ABS * -1;
+const long long XY_MAX = XY_ABS;
 int main(int, char* argv[]) {
 
     long long seed = atoll(argv[1]);
@@ -36,7 +38,7 @@ int main(int, char* argv[]) {
     reverse(y_sel.begin(),y_sel.end());
     lp(i,N){
       if(i%2==0)cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2+i/2]<<endl;
-      else cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2-i/2]<<endl;
+      else cout<<x_sel[(i/2)*2]<<" "<<y_sel[N/2-1-i/2]<<endl;
     }
     return 0;
 }
