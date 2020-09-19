@@ -11,99 +11,99 @@ using namespace std;
 //#define int long long
 
 namespace {
-	#define __DECLARE__(C)    \
-	    template <typename T> \
-	std::ostream &operator<<(std::ostream &, const C<T> &);
+#define __DECLARE__(C)    \
+  template <typename T> \
+  std::ostream &operator<<(std::ostream &, const C<T> &);
 
-	#define __DECLAREM__(C)               \
-	    template <typename T, typename U> \
-	std::ostream &operator<<(std::ostream &, const C<T, U> &);
+#define __DECLAREM__(C)               \
+  template <typename T, typename U> \
+  std::ostream &operator<<(std::ostream &, const C<T, U> &);
 
-	__DECLARE__(std::vector)
-	__DECLARE__(std::deque)
-	__DECLARE__(std::set)
-	__DECLARE__(std::stack)
-	__DECLARE__(std::queue)
-	__DECLARE__(std::priority_queue)
-	__DECLARE__(std::unordered_set)
-	__DECLAREM__(std::map)
-	__DECLAREM__(std::unordered_map)
+  __DECLARE__(std::vector)
+    __DECLARE__(std::deque)
+    __DECLARE__(std::set)
+    __DECLARE__(std::stack)
+    __DECLARE__(std::queue)
+    __DECLARE__(std::priority_queue)
+    __DECLARE__(std::unordered_set)
+    __DECLAREM__(std::map)
+    __DECLAREM__(std::unordered_map)
 
-	template <typename T, typename U>
-	std::ostream &operator<<(std::ostream &, const std::pair<T, U> &);
-	template <typename... T>
-	std::ostream &operator<<(std::ostream &, const std::tuple<T...> &);
-	template <typename T, std::size_t N>
-	std::ostream &operator<<(std::ostream &, const std::array<T, N> &);
+    template <typename T, typename U>
+    std::ostream &operator<<(std::ostream &, const std::pair<T, U> &);
+  template <typename... T>
+    std::ostream &operator<<(std::ostream &, const std::tuple<T...> &);
+  template <typename T, std::size_t N>
+    std::ostream &operator<<(std::ostream &, const std::array<T, N> &);
 
-	template <typename Tuple, std::size_t N>
-	struct __TuplePrinter__ {
-		static void print(std::ostream &os, const Tuple &t) {
-			__TuplePrinter__<Tuple, N - 1>::print(os, t);
-			os << ", " << std::get<N - 1>(t);
-		}
-	};
+  template <typename Tuple, std::size_t N>
+    struct __TuplePrinter__ {
+      static void print(std::ostream &os, const Tuple &t) {
+        __TuplePrinter__<Tuple, N - 1>::print(os, t);
+        os << ", " << std::get<N - 1>(t);
+      }
+    };
 
-	template <typename Tuple>
-	struct __TuplePrinter__<Tuple, 1> {
-		static void print(std::ostream &os, const Tuple &t) { os << std::get<0>(t); }
-	};
+  template <typename Tuple>
+    struct __TuplePrinter__<Tuple, 1> {
+      static void print(std::ostream &os, const Tuple &t) { os << std::get<0>(t); }
+    };
 
-	template <typename... T>
-	std::ostream &operator<<(std::ostream &os, const std::tuple<T...> &t) {
-		os << '(';
-		__TuplePrinter__<decltype(t), sizeof...(T)>::print(os, t);
-		os << ')';
-		return os;
-	}
+  template <typename... T>
+    std::ostream &operator<<(std::ostream &os, const std::tuple<T...> &t) {
+      os << '(';
+      __TuplePrinter__<decltype(t), sizeof...(T)>::print(os, t);
+      os << ')';
+      return os;
+    }
 
-	template <typename T, typename U>
-	std::ostream &operator<<(std::ostream &os, const std::pair<T, U> &v) {
-		return os << '(' << v.first << ", " << v.second << ')';
-	}
+  template <typename T, typename U>
+    std::ostream &operator<<(std::ostream &os, const std::pair<T, U> &v) {
+      return os << '(' << v.first << ", " << v.second << ')';
+    }
 
-	#define __INNER__                             \
-	os << '[';                                \
-	for (auto it = begin(c); it != end(c);) { \
-		os << *it;                            \
-		os << (++it != end(c) ? ", " : "");   \
-	}                                         \
-	return os << ']';
+#define __INNER__                             \
+  os << '[';                                \
+  for (auto it = begin(c); it != end(c);) { \
+    os << *it;                            \
+    os << (++it != end(c) ? ", " : "");   \
+  }                                         \
+  return os << ']';
 
-	template <typename T, std::size_t N>
-	std::ostream &operator<<(std::ostream &os, const std::array<T, N> &c) {
-		__INNER__
-	}
+  template <typename T, std::size_t N>
+    std::ostream &operator<<(std::ostream &os, const std::array<T, N> &c) {
+      __INNER__
+    }
 
-	#define __DEFINE__(C)                                           \
-	    template <typename T>                                       \
-	std::ostream &operator<<(std::ostream &os, const C<T> &c) { \
-		__INNER__                                               \
-	}
+#define __DEFINE__(C)                                           \
+  template <typename T>                                       \
+  std::ostream &operator<<(std::ostream &os, const C<T> &c) { \
+    __INNER__                                               \
+  }
 
-	#define __DEFINEM__(C)                                             \
-	    template <typename T, typename U>                              \
-	std::ostream &operator<<(std::ostream &os, const C<T, U> &c) { \
-		__INNER__                                                  \
-	}
+#define __DEFINEM__(C)                                             \
+  template <typename T, typename U>                              \
+  std::ostream &operator<<(std::ostream &os, const C<T, U> &c) { \
+    __INNER__                                                  \
+  }
 
-	#define __DEFINEW__(C, M1, M2)                                  \
-	    template <typename T>                                       \
-	std::ostream &operator<<(std::ostream &os, const C<T> &c) { \
-		std::deque<T> v;                                        \
-		for (auto d = c; !d.empty(); d.pop()) v.M1(d.M2());     \
-			return os << v;                                         \
-	}
+#define __DEFINEW__(C, M1, M2)                                  \
+  template <typename T>                                       \
+  std::ostream &operator<<(std::ostream &os, const C<T> &c) { \
+    std::deque<T> v;                                        \
+    for (auto d = c; !d.empty(); d.pop()) v.M1(d.M2());     \
+    return os << v;                                         \
+  }
 
-	__DEFINE__(std::vector)
-	__DEFINE__(std::deque)
-	__DEFINE__(std::set)
-	__DEFINEW__(std::stack, push_front, top)
-	__DEFINEW__(std::queue, push_back, front)
-	__DEFINEW__(std::priority_queue, push_front, top)
-	__DEFINE__(std::unordered_set)
-	__DEFINEM__(std::map)
-	__DEFINEM__(std::unordered_map)
+  __DEFINE__(std::vector)
+    __DEFINE__(std::deque)
+    __DEFINE__(std::set)
+    __DEFINEW__(std::stack, push_front, top)
+    __DEFINEW__(std::queue, push_back, front)
+    __DEFINEW__(std::priority_queue, push_front, top)
+    __DEFINE__(std::unordered_set)
+    __DEFINEM__(std::map)
+    __DEFINEM__(std::unordered_map)
 }
 
 
@@ -167,16 +167,46 @@ struct segment_graph{
       int cost = p.first;
       if(dist[now]<cost)continue;
       for(int i=0;i<(signed)g[now].size();i++){
-	int next=g[now][i].first;
-	int next_cost=g[now][i].second+cost;
-	if(dist[next]>next_cost){
-	  dist[next]=next_cost;
-	  q.emplace(next_cost,next);
-	}
+        int next=g[now][i].first;
+        int next_cost=g[now][i].second+cost;
+        if(dist[next]>next_cost){
+          dist[next]=next_cost;
+          q.emplace(next_cost,next);
+        }
       }
     }
     return dist;
   }
+
+  vector< int > zero_one_bfs(int s) {
+    if (s < n) s += n;
+    constexpr int inf = numeric_limits<int>::max();
+    vector< int > dist(g.size(), inf);
+    dist[s] = 0;
+
+    deque< int > que;
+    que.push_back(s);
+
+    while (!que.empty()) {
+      int v = que.front();
+      que.pop_front();
+
+      for (const auto &e: g[v]) {
+        if (dist[e.first] <= dist[v] + e.second) continue;
+
+        dist[e.first] = dist[v] + e.second;
+
+        if (e.second == 1) {
+          que.push_back(e.first);
+        } else {
+          que.push_front(e.first);
+        }
+      }
+    }
+
+    return dist;
+  }
+
 };
 
 struct UnionFind{
@@ -254,7 +284,7 @@ int main(){
   int cnt = uf.count();
   vector<pair<int,int>> range_x(cnt);
   vector<pair<int,int>> range_y(cnt);
-  map<int,int> uf_num;
+  map<int,int> uf_num = {};
   int start=0,goal=0;
   lp(i,n){
     int tg = uf.find(i),tn;

@@ -143,81 +143,67 @@ ostream& operator<<(ostream& os, const modint<mod>& a){
 	os << a.x;
 	return os;
 }
-
 using mint = modint<MOD>;
 
-template<class t>
-vector<t> concat(vector<t> a,vector<t> b){
-    a.insert(a.end(),b.begin(),b.end());
-    return a;
+const int MAX_K = 1010;
+using bset = bitset<MAX_K>;
+
+bset mul(vector<int> a,bset b){
+    bset res;
+    rep(i,a.size()){
+        res[i] = b[a[i]];
+    }
+    return res;
 }
 
 vector<int> mul(vector<int> a,vector<int> b){
-    int K = a.size();
-    rep(i,K){
-        a[i] = b[a[i]];
-    }
-    return a;
-}
-
-vvector<int> sweep(vvector<int> table){
-    int K = table.front().size();
-    int n = table.size();
+    int n = a.size();
+    vector<int> res(n);
     rep(i,n){
-        int itr = i;
-        int most_left = K;
-        rep(j,i,n){
-            int p=K;
-            rep(k,K){
-                if(table[j][k]){
-                    p = k;
-                    break;
-                }
-            }
-            if(chmin(most_left,p)){
-                itr = j;
-            }
-        }
-        if(most_left==K){
-            while(i<(int)table.size())table.pop_back();
-            break;
-        }
-        swap(table[i],table[itr]);
-        rep(j,i+1,n){
-            if(!table[j][most_left])continue;
-            rep(k,most_left,K)table[j][k] = table[j][k] ^ table[i][k];
-        }
-
+        res[i] = b[a[i]];
     }
-    return table;
+    return res;
 }
 
+vector<bset> sweep(vector<bset> values){
+    int cnt = 0;
+    rep(i,MAX_K){
+        int itr = INF;
+        rep(j,cnt,values.size()){
+            if(values[j][i]){
+                itr = j;
+                break;
+            }
+        }
+        if(itr==INF)continue;
+        swap(values[cnt],values[itr]);
+        rep(j,cnt+1,values.size()){
+            if(values[j][i])values[j] ^= values[cnt];
+        }
+        ++cnt;
+    }
+    while(values.size() and values.back().none())values.pop_back();
+    return values;
+}
 
 mint func(){
     int n = in();
     int k = in();
     vector<int> p(k);
     foreach(i,p)i=in();
-    vvector<int> values;
+    vector<bset> values;
     rep(i,n){
-        vector<int> value(k);
-        foreach(j,value)j=in<char>()=='1';
-        reverse(all(value));
+        bset value;
+        per(j,k)value[j] = in<char>()=='1';
         values.emplace_back(value);
     }
-
     int sum = 1;
-    while(true){
-        if(k<sum)break;
-        int n = values.size();
-        rep(j,n){
-            values.emplace_back(mul(p,values[j]));
-        }
-        p = mul(p,p);
+    while(sum<k){
+        per(i,values.size())values.emplace_back(mul(p,values[i]));
         values = sweep(values);
+        p = mul(p,p);
         sum *= 2;
     }
-
     return mint(2).pow(values.size());
 }
 

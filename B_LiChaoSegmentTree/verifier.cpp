@@ -1,6 +1,11 @@
 #include "testlib.h"
 #include "params.h"
 
+const long long AB_MIN = AB_ABS * -1;
+const long long AB_MAX = AB_ABS;
+const long long P_MIN = P_ABS * -1;
+const long long P_MAX = P_ABS;
+
 int main() {
     registerValidation();
 
@@ -10,9 +15,9 @@ int main() {
     inf.readChar('\n');
 
     for (int i = 0; i < N; i++) {
-        inf.readInt(A_MIN, A_MAX);
+        inf.readInt(AB_MIN, AB_MAX);
         inf.readChar(' ');
-        inf.readInt(B_MIN, B_MAX);
+        inf.readInt(AB_MIN, AB_MAX);
         inf.readChar('\n');
     }
 
@@ -22,7 +27,7 @@ int main() {
         inf.readChar(' ');
         inf.readInt(l, N);
         inf.readChar(' ');
-        inf.readInt(X_MIN, X_MAX);
+        inf.readInt(P_MIN, P_MAX);
         inf.readChar('\n');
     }
     inf.readEof();

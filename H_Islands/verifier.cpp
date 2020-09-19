@@ -7,7 +7,6 @@ typedef long double D;
 //typedef complex<D> P;
 #define F first
 #define S second
-const ll MOD=1000000007;
 //const ll MOD=998244353;
 
 template<typename T,typename U>istream & operator >> (istream &i,pair<T,U> &A){i>>A.F>>A.S; return i;}

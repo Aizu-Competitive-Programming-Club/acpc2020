@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
         int v = ouf.readInt(1, n) - 1;
         int w = ouf.readInt(1, n) - 1;
         if (v >= w) quitf(_wa, "edge should v < w");
+        if (find(edges[v].begin(), edges[v].end(), w) != edges[v].end()) quitf(_wa, "should not have multiple edges");
         edges[v].push_back(w);
         has_in[w] = true;
     }

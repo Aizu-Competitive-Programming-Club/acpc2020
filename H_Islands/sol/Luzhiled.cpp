@@ -41,11 +41,12 @@ class union_find {
 };
 // }}}
 
-
 template <typename T> vector<T> make_vector(size_t a, T b) { return vector<T>(a, b); }
 template <typename... Ts> auto make_vector(size_t a, Ts... ts) { return vector<decltype(make_vector(ts...))>(a, make_vector(ts...)); }
 
 int main() {
+    constexpr int mod = 1 << 10;
+
     int h, w, q;
     cin >> h >> w >> q;
 
@@ -58,14 +59,6 @@ int main() {
             cin >> bs[i][j];
         }
     }
-
-//    for (int i = 0; i < h; ++i) {
-//        for (int j = 0; j < w; ++j) {
-//            cerr << bs[i][j];
-//        }
-//        cerr << endl;
-//    }
-
 
     int m = 0, t = 0, n = (h + 1) * (w + 1), f = 0;
     vector< bool > used(2 * h * w + h + w);
@@ -80,7 +73,14 @@ int main() {
         }
     };
 
+    bool is_preprocess = true;
     auto add_sea = [&](int y, int x) {
+        // !assert
+        if ( !is_preprocess ) {
+            assert(bs[y][x] == '#');
+            bs[y][x] = '.';
+        }
+
         int ul = x + y * (w + 1);
         int dr = (x + 1) + (y + 1) * (w + 1);
         vector< int > as({ul, ul + 1, dr, dr - 1});
@@ -115,24 +115,26 @@ int main() {
         }
     }
 
-//    cerr << m << " " << t << " " << n << " " << f << endl;
+    is_preprocess = false;
 
     int s = 0;
     while (q--) {
         int u, v;
         cin >> u >> v;
 
-        int r = (1 + (s ^ u)) % (1 << 11);
-        int c = 1 + ((s ^ v)) % (1 << 11);
+        int r = (1 + (s ^ u)) % mod;
+        int c = 1 + ((s ^ v)) % mod;
 
- //       cerr << "(" << r << ", " << c << ")" << endl;
+        // ! assert
+        assert(1 <= r && r <= h - 2);
+        assert(1 <= c && c <= w - 2);
 
         add_sea(r, c);
 
         int ans = m + t - n - f;
         cout << ans << endl;
 
-        s = 427 * s + 1821 * ans;
-        s %= (1 << 11);
+        s = 427 * s + 821 * ans;
+        s %= mod;
     }
 }
