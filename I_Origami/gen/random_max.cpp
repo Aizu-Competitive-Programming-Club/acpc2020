@@ -1,7 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 #include "random.h"
-#include "params.h"
-#include "testlib.h"
+#include "../params.h"
 using namespace std;
 
 #define EPS (1e-10)
@@ -363,7 +363,7 @@ Polygon convex_hull(Polygon ps){
     qs[k++]=ps[i];
   }
   for(int i=n-2,t=k;i>=0;i--){
-    while(k>t&&cross(qs[k-1]-qs[k-2],ps[i]-qs[k-1])<0) k--;
+    while(k>=t&&cross(qs[k-1]-qs[k-2],ps[i]-qs[k-1])<0) k--;
     qs[k++]=ps[i];
   }
   qs.resize(k-1);
@@ -397,7 +397,7 @@ bool isConvex(Polygon p){
   int n=p.size();
   for(int i=0;i<n;i++){
     int t=ccw(p[(i+n-1)%n],p[i],p[(i+1)%n]);
-    f&=t==CCW_COUNTER_CLOCKWISE;
+    f&=t!=CCW_CLOCKWISE;
   }
   return f;
 }
@@ -445,96 +445,71 @@ Polygon linearly_symmetric_movement(Polygon p, Line l) {
   return ret;  
 }
 
-bool is_less_than_6_decimal_points(string s) {
-  int minus_cnt = 0;  
-  int dot_cnt = 0;
-  int num_cnt = 0;  
-  for ( int i = 0; i < (int)s.size(); i++ ) {
-    if ( s[i] == '-' ) {
-      if ( i != 0 ) return false;
-      minus_cnt++;      
-    }
-    if ( s[i] == '.' ) dot_cnt++;
-    if ( '0' <= s[i] && s[i] <= '9' ) num_cnt++;    
-  }
-  if ( dot_cnt >= 2 || dot_cnt+num_cnt+minus_cnt != (int)s.size() ) return false;  
-  for ( int i = 0; i < (int)s.size(); i++ ) {
-    if ( s[i] == '.' ) {      
-      return ((int)s.size()-i <= significant_digit+1);
-    }
-  }
+int main(int, char* argv[]) {
+    long long seed = atoll(argv[1]);
+    auto gen = Random(seed);
 
-  return true;  
-}
-
-int main() {
-    registerValidation();
-
-    int N = inf.readInt(N_MIN, N_MAX); // N
-    inf.readChar(' ');
-    int M = inf.readInt(M_MIN, M_MAX); // N
-    inf.readChar('\n');
-    Polygon P;
-    string s;
-
-    int xy_MIN = -xy_abs;
+        int xy_MIN = -xy_abs;
     int xy_MAX = xy_abs;
     
+    // 凸多角形作成
+    int N = N_MAX;    
+    /*
     for ( int i = 0; i < N; i++ ) {
-      int x = inf.readInt(xy_MIN, xy_MAX);            
-      inf.readChar(' ');
-      int y = inf.readInt(xy_MIN, xy_MAX);            
-      inf.readChar('\n');
-      
+      double x = gen.uniform<int>(xy_MIN, xy_MAX);
+      double y = gen.uniform<int>(xy_MIN, xy_MAX);
+      P.push_back(Point(x, y));      
+    }
+    sort(P.begin(), P.end());    
+    P.erase(unique(P.begin(), P.end()), P.end());
+    P = andrewScan(P);
+    N = P.size();
+    */
+    double x = 900, y = 900;
+    Polygon P{Point(x, y)};
+    for ( int i = 0; i < N; i++ ) {
+      x -= (30-i);
+      y -= 1;
       P.push_back(Point(x, y));      
     }
 
-    // 同じ座標が２つ以上含まれていないか
-    {
-      set<pair<int, int> > S;
-      for ( auto p: P ) {
-	ensure(S.count(pair<int, int>(p.x, p.y)) == 0);
-	S.insert(pair<int, int>(p.x, p.y));	
-      }
-    }
+    P = andrewScan(P);    
+    
+    int M = gen.uniform<int>(M_MIN, M_MAX);
+    
+    printf("%d %d\n", N, M);
 
-    // 半時計回りに与えられているか
-    {
-      int sz = P.size();
-      for ( int i = 0; i < sz; i++ ) {
-	ensure(ccw(P[i], P[(i+1)%sz], P[(i+2)%sz]) == CCW_COUNTER_CLOCKWISE);	
-      }
+    for ( int i = 0; i < N; i++ ) {
+      printf("%d %d\n", (int)P[i].x, (int)P[i].y);      
     }
-    ensure(isConvex(P));    
 
     vector<Polygon> Ps{P};    
-    for ( int i = 0; i < M; i++ ) {
+    for ( int m = 0; m < M; m++ ) {
+      Polygon now = Ps[gen.uniform<int>(0, (int)Ps.size()-1)];
       Segment s;      
-      s.p1.x = inf.readInt(xy_MIN, xy_MAX);      
-      inf.readChar(' ');
-      
-      s.p1.y = inf.readInt(xy_MIN, xy_MAX);      
-      inf.readChar(' ');
-      
-      s.p2.x = inf.readInt(xy_MIN, xy_MAX);      
-      inf.readChar(' ');
-      
-      s.p2.y = inf.readInt(xy_MIN, xy_MAX);      
-      ensure(s.p1.x != s.p2.x || s.p1.y != s.p2.y);      
-      inf.readChar('\n');
+      s.p1.x = s.p1.y = 0;
+      while ( 1 ) {
+	s.p1.x = gen.uniform<int>(xy_MIN, xy_MAX);
+	s.p1.y = gen.uniform<int>(xy_MIN, xy_MAX);
 
-      bool flag = false; // 何かしらの多角形を切断していたらtrue      
+	bool flag = false;
+	for ( Polygon p: Ps )
+	  if ( contains(p, s.p1) == 2 ) flag = true;
+	if ( flag ) break;	
+      }
+      s.p2.x = gen.uniform<int>(xy_MIN, xy_MAX);
+      s.p2.y = gen.uniform<int>(xy_MIN, xy_MAX);
+      printf("%d %d %d %d\n", (int)s.p1.x, (int)s.p1.y, (int)s.p2.x, (int)s.p2.y);
+
       vector<Polygon> n_Ps;
       for ( Polygon &P: Ps ) {
-	Polygon tmp = convexCut(P, s);
-	if ( area(tmp) != 0 && (area(tmp) != area(P)) ) flag = true;	
+	Polygon tmp = convexCut(P, s);      
 	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(linearly_symmetric_movement(tmp, s)));
 	tmp = convexCut(P, Line(s.p2, s.p1));
 	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(tmp));      
       }
-      ensure(flag);      
       Ps = n_Ps;    
     }
-    inf.readEof();
+    
     return 0;
 }
