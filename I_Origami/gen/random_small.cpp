@@ -452,15 +452,13 @@ int main(int, char* argv[]) {
     int N = 5;
     Polygon P;    
     for ( int i = 0; i < N; i++ ) {
-      double x = gen.uniform<int>(xy_MIN, xy_MAX);
-      double y = gen.uniform<int>(xy_MIN, xy_MAX);
-      x /= 1e5;
-      y /= 1e5;      
+      double x = gen.uniform<int>(0, 100);
+      double y = gen.uniform<int>(0, 100);
       P.push_back(Point(x, y));      
     }
     sort(P.begin(), P.end());    
     P.erase(unique(P.begin(), P.end()), P.end());
-    P = convex_hull(P);
+    P = andrewScan(P);
     N = P.size();
     
     int M = gen.uniform<int>(M_MIN, 2);
@@ -468,30 +466,35 @@ int main(int, char* argv[]) {
     printf("%d %d\n", N, M);
 
     for ( int i = 0; i < N; i++ ) {
-      printf("%.5lf %.5lf\n", P[i].x, P[i].y);      
+      printf("%d %d\n", (int)P[i].x, (int)P[i].y);      
     }
 
-    vector<Polygon> polygons{P};    
+    vector<Polygon> Ps{P};    
     for ( int m = 0; m < M; m++ ) {
-      Polygon now = polygons[0];
-      Point p1 = now[0];      
-      Point p2;      
-      if ( now.size() > 3 ) {
-	// 頂点数が3の場合, (点1, 点2点3の中点)
-	p2 = now[gen.uniform<int>(2, (int)now.size()-2)];
-      } else { 	
-	p2 = Point((now[1].x+now[2].x)/2, (now[1].y+now[2].y)/2);	
+      Polygon now = Ps[gen.uniform<int>(0, (int)Ps.size()-1)];
+      Segment s;      
+      s.p1.x = s.p1.y = 0;
+      while ( 1 ) {
+	s.p1.x = gen.uniform<int>(xy_MIN, xy_MAX);
+	s.p1.y = gen.uniform<int>(xy_MIN, xy_MAX);
+
+	bool flag = false;
+	for ( Polygon p: Ps )
+	  if ( contains(p, s.p1) == 2 ) flag = true;
+	if ( flag ) break;	
       }
-      printf("%.5lf %.5lf %.5lf %.5lf\n", p1.x, p1.y, p2.x, p2.y);
-      Line l(p1, p2), rl(p2, p1);
-      vector<Polygon> next_polygons;
-      for ( Polygon &p: polygons ) {
-	if ( !intersectPS(p, l) ) continue;	
-	Polygon poly1 = convexCut(p, l), poly2 = linearly_symmetric_movement(convexCut(p, rl), l);  
-	if ( poly1.size() > 2 ) next_polygons.push_back(poly1);
-	if ( poly2.size() > 2 ) next_polygons.push_back(poly2);	
+      s.p2.x = gen.uniform<int>(xy_MIN, xy_MAX);
+      s.p2.y = gen.uniform<int>(xy_MIN, xy_MAX);
+      printf("%d %d %d %d\n", (int)s.p1.x, (int)s.p1.y, (int)s.p2.x, (int)s.p2.y);
+
+      vector<Polygon> n_Ps;
+      for ( Polygon &P: Ps ) {
+	Polygon tmp = convexCut(P, s);      
+	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(linearly_symmetric_movement(tmp, s)));
+	tmp = convexCut(P, Line(s.p2, s.p1));
+	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(tmp));      
       }
-      polygons = next_polygons;     
+      Ps = n_Ps;    
     }
     
     return 0;
