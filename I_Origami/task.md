@@ -10,7 +10,7 @@ $i\ (1 \leq i \leq M)$ 回目の操作は以下のように表される。
 - 下記の図のように、2点 $p_i$, $q_i$ を通る直線を折り目とし、折り紙の左側部分を右側に折る
 
 
-[図](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=ja)
+<img src="https://judgeapi.u-aizu.ac.jp/resources/images/f798df78sf.png" alt="example_00.img">
 
 $M$ 回の操作後、各 $i = 1, 2, 3, \dots, 2^M$ に対して、$i$ 枚の紙が重なっている部分の面積を求めよ。
 
