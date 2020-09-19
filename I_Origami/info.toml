@@ -34,5 +34,5 @@ name = "Luzhiled.cpp"
     M_MIN = 1
     M_MAX = 5
     xy_abs = 1000    
-    significant_digit = 6
-    param_EPS = 1e-6
+    significant_digit = 4
+    param_EPS = 1e-4
