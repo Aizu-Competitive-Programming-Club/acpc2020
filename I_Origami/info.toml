@@ -8,7 +8,7 @@ forum = ""
 
 [[tests]]
     name = "random.cpp"
-    number = 100
+    number = 20
 
 [[tests]]
     name = "random_small.cpp"
@@ -16,11 +16,9 @@ forum = ""
 
 [[solutions]]
 name = "c7c7c7c7.cpp"
-allow_tle = true
 
 [[solutions]]
 name = "Luzhiled.cpp"
-allow_tle = true
 
 [[solutions]]
     name = "wa.cpp"
@@ -28,10 +26,10 @@ allow_tle = true
 
 [params]
     N_MIN = 3
-    N_MAX = 1000
+    N_MAX = 30
     M_MIN = 1
-    M_MAX = 8
-    xy_MIN = -1e4
-    xy_MAX = 1e4
+    M_MAX = 5
+    xy_MIN = -1e3
+    xy_MAX = 1e3
     significant_digit = 6
     param_EPS = 1e-6
