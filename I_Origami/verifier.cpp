@@ -476,6 +476,10 @@ int main() {
     inf.readChar('\n');
     Polygon P;
     string s;
+
+    int xy_MIN = -xy_abs;
+    int xy_MAX = xy_abs;
+    
     for ( int i = 0; i < N; i++ ) {
       int x = inf.readInt(xy_MIN, xy_MAX);            
       inf.readChar(' ');
@@ -485,6 +489,7 @@ int main() {
       P.push_back(Point(x, y));      
     }
 
+    // 同じ座標が２つ以上含まれていないか
     {
       set<pair<int, int> > S;
       for ( auto p: P ) {
@@ -492,6 +497,15 @@ int main() {
 	S.insert(pair<int, int>(p.x, p.y));	
       }
     }
+
+    // 半時計回りに与えられているか
+    {
+      int sz = P.size();
+      for ( int i = 0; i < sz; i++ ) {
+	ensure(ccw(P[i], P[(i+1)%sz], P[(i+2)%sz]) == CCW_COUNTER_CLOCKWISE);	
+      }
+    }
+    ensure(P.size() == andrewScan(P).size());    
     ensure(isConvex(P));    
 
     vector<Polygon> Ps{P};    
