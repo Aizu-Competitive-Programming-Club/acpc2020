@@ -1,11 +1,14 @@
 ## @{keyword.statement}
 
 @{lang.ja}
-$X_i, H_i, R_i \(1 \leq i \leq N\)$ が与えられ、実数 $x$ $\(-\infty \lt x \lt \infty\)$ を受け取る関数 $f(x)$ を次のように定義します。
 
-$f(x) = \displaystyle \sum_{i=1}^{N} \max \left( 0, H_i \left(1 - \displaystyle \frac{2|x - X_i|}{R_i}\right) \right)$
 
-$f(x)$ の最大値を計算してください。
+整数 $N$ と整数 $X_i, H_i, R_i\ \(1 \leq i \leq N\)$ が与えられます。
+実数上の関数 $f$ を以下のように定義します。
+
+$$f(x)= \sum_{i=1}^{N} \max \left( 0, H_i \left(1 - \frac{2|x - X_i|}{R_i}\right) \right)$$
+
+実数上で関数 $f$ がとる最大値 $\displaystyle \max_{x\in\mathbb{R}} f(x)$ を求めてください。
 
 @{lang.end}
 
