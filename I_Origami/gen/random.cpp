@@ -447,7 +447,11 @@ Polygon linearly_symmetric_movement(Polygon p, Line l) {
 
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
-    auto gen = Random(seed);    
+    auto gen = Random(seed);
+
+    int xy_MIN = -xy_abs;
+    int xy_MAX = xy_abs;
+    
     // 凸多角形作成
     int N = N_MAX;
     Polygon P;    
