@@ -36,7 +36,7 @@ $f(x)$ の最大値を1行目に出力してください。
 ## @{keyword.sample}
 @{example.example_00}
 この入力例では $f(x)$ の値は次のようになります。  
-<img src="https://judgeapi.u-aizu.ac.jp/resources/images/73c530f1e9b3e44100f8ea9e502a0f0e.png" alg="example_00.img">
+<img src="https://judgeapi.u-aizu.ac.jp/resources/images/73c530f1e9b3e44100f8ea9e502a0f0e.png" alt="example_00.img">
 
 また、この入力に対する解答として $6$ や $6.0$ なども有効です。
 @{example.example_01}
