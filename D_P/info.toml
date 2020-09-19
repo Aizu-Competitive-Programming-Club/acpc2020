@@ -23,17 +23,20 @@ forum = ""
     number = 10
 
 [[tests]]
-    name = "random5.cpp"
+    name = "whandmade.in"
+    number = 1
+
+[[tests]]
+    name = "xrandom5.cpp"
     number = 5
 
 [[tests]]
-    name = "random6.cpp"
+    name = "xrandom6.cpp"
     number = 5
 
 [[tests]]
-    name = "random7.cpp"
+    name = "xrandom7.cpp"
     number = 10
-
 
 [[tests]]
     name = "handmade.in"
@@ -43,7 +46,7 @@ forum = ""
     name = "yhandmade.in"
     number = 8
     
-    [[tests]]
+[[tests]]
     name = "zhandmade.in"
     number = 11
 
@@ -53,16 +56,16 @@ forum = ""
 
 #[[solutions]]
 #    name = "correct.py"
-#	allow_tle = true
+#    allow_tle = true
 
 #[[solutions]]
 #    name = "correct2.cpp"
-#	allow_tle = true
-	
+#    allow_tle = true
+    
 #[[solutions]]
 #    name = "correct3.cpp"
 
-	
+    
 #[[solutions]]
 #    name = "Endered.cpp"
 
