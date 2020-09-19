@@ -7,9 +7,10 @@ xy平面上に $N$ 頂点からなる凸多角形で表される折り紙があ�
 
 $i\ (1 \leq i \leq M)$ 回目の操作は以下のように表される。
 
-- 以下の図のように、点 $p_i$ から 点 $q_i$ へ向かう向きを持つ直線を折り目とし、折り紙の右側部分を左側に折る
+- 以下の図のように、点 $p_i$ から 点 $q_i$ へ向かう向きを持つ直線を折り目とし、折り紙の左側部分を右側に折る
 
-<img src="https://judgeapi.u-aizu.ac.jp/resources/images/f798df78sf.png" alt="example_00.img">
+<img src="https://judgeapi.u-aizu.ac.jp/resources/images/f798df78sf.png" alt="example_00.img"></p>
+<p>
 
 $M$ 回の操作後、各 $i = 1, 2, 3, \dots, 2^M$ に対して、$i$ 枚の紙が重なっている部分の面積を求めよ。
 
@@ -23,6 +24,7 @@ $M$ 回の操作後、各 $i = 1, 2, 3, \dots, 2^M$ に対して、$i$ 枚の紙
 - $|x_i|, |y_i| \leq @{param.xy_abs}$
 - $|a_i|, |b_i|, |c_i|, |d_i| \leq @{param.xy_abs}$
 - 凸多角形の点の座標はすべて異なる
+- 凸多角形上の3点が1直線上に並ぶことはない
 - 点 $p_i$ と点 $q_i$ は異なる
 - 与えられる直線は必ず折り紙に交差する
 
