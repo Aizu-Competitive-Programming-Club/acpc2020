@@ -4,6 +4,7 @@ BASE_DIR=$(cd $(dirname $0)/..; pwd)
 judgedata_path="./judgedata/"
 
 input(){
+    rename 's/example/00_example/' ./in/*
     find . -wholename "./in" | while read inpath; do
         inputfiles=`ls $inpath | grep ".in$"`
         cnt=1
@@ -20,6 +21,7 @@ input(){
 }
 
 output(){
+    rename 's/example/00_example/' ./out/*
     find . -wholename "./out" | while read outpath; do
 	outputfiles=`ls $outpath | grep ".out$"`
 	cnt=1

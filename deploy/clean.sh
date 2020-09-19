@@ -6,6 +6,5 @@ find $BASE_DIR -name "info.toml" | sort | while read inpath; do
     PROB_DIR=$(dirname $inpath);
     cd $PROB_DIR
     echo $PWD
-    ../common/htmlgen.sh
-    ../deploy/special.sh
+    rm -r in out checker verifier
 done
