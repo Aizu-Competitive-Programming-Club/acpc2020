@@ -1,5 +1,5 @@
 title = 'J - DEG MUL SUM'
-timelimit = 2.0
+timelimit = 8.0
 forum = ""
 
 [[tests]]
@@ -39,7 +39,6 @@ forum = ""
 
 [[solutions]]
     name = "tubuann.cpp"
-    allow_tle = true
 
 [params]
     N_MIN = 2
