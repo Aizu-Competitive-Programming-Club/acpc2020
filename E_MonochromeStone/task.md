@@ -18,9 +18,9 @@
 
 ## @{keyword.constraints}
 - 入力は全て整数で与えられる
-- $@{param.N_W_B_MIN} \leq N \leq @{param.N_W_B_MAX}$
-- $@{param.N_W_B_MIN} \leq P,K \leq @{param.N_W_B_MAX}$
-- $@{param.N_W_B_MIN} \leq w_i,b_i \leq @{param.N_W_B_MAX}$
+- $@{param.N_P_K_MIN} \leq N \leq @{param.N_P_K_MAX}$
+- $@{param.N_P_K_MIN} \leq P,K \leq @{param.N_P_K_MAX}$
+- $@{param.W_B_MIN} \leq w_i,b_i \leq @{param.W_B_MAX}$
 
 
 ## @{keyword.input}

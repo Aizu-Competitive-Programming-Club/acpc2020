@@ -1,0 +1,39 @@
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [["$","$"], ["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","code"], processEscapes: true }});
+</script>
+<script language="JavaScript" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<style type="text/css">
+  .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width:56;
+      z-index: 100;
+      padding: 80px 0 0; /* height */
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+
+  .sidebar-sticky {
+      background-color:#f8f8f8;
+      position: relative;
+      top: 0;
+      height: calc(100vh - 48px);
+      padding-top: .5rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+  }
+
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+      .sidebar-sticky {
+	  position: -webkit-sticky;
+	  position: sticky;
+      }
+  }
+
+  .sidebar-heading {
+      font-size: .75rem;
+      text-transform: uppercase;
+  }
+</style>
