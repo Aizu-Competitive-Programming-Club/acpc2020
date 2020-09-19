@@ -9,7 +9,8 @@ int main() {
 	int n, q;
 	cin >> n >> q;
 	vector<ll> degree(n, 0);
-	
+	vector<unordered_set<int>> adjs(n, unordered_set<int>{});
+
 	var calc = [&](int vertex) {
 		int deg_sum = 0;
 		for (var&& adj : adjs[vertex]) deg_sum += degree[adj];
@@ -17,7 +18,7 @@ int main() {
 	};
 
 	ll cur_res = 0;
-	for (var&& uv : query) {
+	for (int i = 0; i < q; i++) {
 		int u, v;
 		cin >> u >> v;
 
