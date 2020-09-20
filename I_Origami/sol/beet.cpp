@@ -751,7 +751,8 @@ signed main(){
     if(vs.empty()) continue;
     sx.emplace(vs[0].first);
 
-    for(auto&[a,b]:vs){
+    for(auto &p:vs){
+      auto &a=p.first;
       if(abs(a-nearest(a))>EPS) sx.emplace(a);
       a=nearest(a);
     }
