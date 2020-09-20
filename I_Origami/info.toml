@@ -25,6 +25,9 @@ name = "c7c7c7c7.cpp"
 name = "Luzhiled.cpp"
 
 [[solutions]]
+name = "beet.cpp"
+
+[[solutions]]
     name = "wa.cpp"
     wrong = true
 
@@ -33,6 +36,6 @@ name = "Luzhiled.cpp"
     N_MAX = 30
     M_MIN = 1
     M_MAX = 5
-    xy_abs = 1000    
+    xy_abs = 1000
     significant_digit = 4
     param_EPS = 1e-4
