@@ -14,7 +14,6 @@ vector<T> read(size_t n){
   return ts;
 }
 
-
 #define EPS (1e-10)
 #define equals(a,b) (fabs((a)-(b)) < EPS)
 const double PI = asinl(1) * 2;
@@ -687,8 +686,6 @@ signed main(){
     swap(vp,vq);
   }
 
-  // cout<<vp.size()<<endl;
-
   vector<double> xs;
   for(auto ps:vp)
     for(auto p:ps)
@@ -716,31 +713,14 @@ signed main(){
 
     int res=0;
     for(auto qs:vp){
-      if(contains(qs,g)==1){
-        Point gg;
-        for(auto p:ps) gg=gg+p;
-        cerr<<gg<<endl;
-        cerr<<gg/ps.size()<<endl;
-        cerr<<endl;
-
-        for(auto p:ps) cerr<<p<<endl;
-        cerr<<endl;
-        cerr<<g<<endl;
-        cerr<<endl;
-        for(auto q:qs) cerr<<q<<endl;
-        cerr<<endl;
-      }
       assert(contains(qs,g)!=1);
       if(contains(qs,g)==2) res++;
     }
     return res;
   };
 
-  // cout<<"UKU"<<endl;
-
   vector<double> ans((1<<m)+1,0);
   for(int t=0;t+1<(int)xs.size();t++){
-    // cout<<"::"<<xs[t+0]<<' '<<xs[t+1]<<endl;
     Line t0(Point(xs[t+0],0),Point(xs[t+0],1));
     Line t1(Point(xs[t+1],0),Point(xs[t+1],1));
 
@@ -755,12 +735,8 @@ signed main(){
         vs.emplace_back();
         vs.back().first =getCrossPointLL(t0,u).y;
         vs.back().second=getCrossPointLL(t1,u).y;
-
-        // cout<<"L:"<<u.p1<<' '<<u.p2<<endl;
-        // cout<<vs.back().first<<' '<<vs.back().second<<newl;
       }
     }
-    // cout<<endl;
 
     set<double> sx;
     auto nearest=[&](double x)->double{
@@ -777,12 +753,10 @@ signed main(){
 
     for(auto&[a,b]:vs){
       if(abs(a-nearest(a))>EPS) sx.emplace(a);
-      // cout<<a<<' '<<nearest(a)<<newl;
       a=nearest(a);
     }
 
     sort(vs.begin(),vs.end());
-    // for(auto[a,b]:vs) cout<<a<<' '<<b<<endl;
 
     for(int i=0;i+1<(int)vs.size();i++){
       Polygon ps;
@@ -797,14 +771,7 @@ signed main(){
          abs(vs[i+0].second-vs[i+1].second)<EPS) continue;
 
       ps=andrewScan(ps);
-      int res=calc(ps);
-      ans[res]+=area(ps);
-
-      //continue;
-      //cout<<"kasanari:"<<calc(ps)<<endl;
-      //cout<<"area:"<<area(ps)<<endl;
-      //for(auto p:ps) cout<<p<<newl;
-      //cout<<endl;
+      ans[calc(ps)]+=area(ps);
     }
   }
 
