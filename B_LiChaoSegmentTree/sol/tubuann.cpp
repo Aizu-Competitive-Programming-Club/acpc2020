@@ -29,8 +29,8 @@ int main(){
   while(Q--){
     ll L,R,X;
     cin>>L>>R>>X;
-    ll ans=1e18;
     L--;
+    ll ans=A[L].F*X+A[L].S;
     for(ll i=L;i<R;i++){
       chmin(ans,A[i].F*X+A[i].S);
     }
