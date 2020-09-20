@@ -5,6 +5,8 @@
 using namespace std;
 #define lp(i,n) for(int i=0;i<n;i++)
 
+const long long XY_MIN = XY_ABS * -1;
+const long long XY_MAX = XY_ABS;
 int main(int, char* argv[]) {
 
     long long seed = atoll(argv[1]);
@@ -24,6 +26,8 @@ int main(int, char* argv[]) {
 	if(xl.find(x)!=xl.end()||yl.find(y)!=yl.end()){
 	  continue;
 	}
+	xl.insert(x);
+	yl.insert(y);
 	break;
       }
       x_sel.push_back(x);

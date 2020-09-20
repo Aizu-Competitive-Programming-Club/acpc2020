@@ -26,14 +26,13 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
+[[solutions]]
+    name = "beet.cpp"
+
 [params]
     N_MIN = 1
     N_MAX = 5000
     Q_MIN = 1
     Q_MAX = 5000
-    A_MIN = -1_000_000_000
-    A_MAX = 1_000_000_000
-    B_MIN = -1_000_000_000
-    B_MAX = 1_000_000_000
-    X_MIN = -1_000_000_000
-    X_MAX = 1_000_000_000
+    AB_ABS = 1_000_000_000
+    P_ABS = 1_000_000_000

@@ -46,6 +46,8 @@ template <typename T> vector<T> make_vector(size_t a, T b) { return vector<T>(a,
 template <typename... Ts> auto make_vector(size_t a, Ts... ts) { return vector<decltype(make_vector(ts...))>(a, make_vector(ts...)); }
 
 int main() {
+    constexpr int mod = 1 << 10;
+
     int h, w, q;
     cin >> h >> w >> q;
 
@@ -58,14 +60,6 @@ int main() {
             cin >> bs[i][j];
         }
     }
-
-//    for (int i = 0; i < h; ++i) {
-//        for (int j = 0; j < w; ++j) {
-//            cerr << bs[i][j];
-//        }
-//        cerr << endl;
-//    }
-
 
     int m = 0, t = 0, n = (h + 1) * (w + 1), f = 0;
     vector< bool > used(2 * h * w + h + w);
@@ -115,24 +109,20 @@ int main() {
         }
     }
 
-//    cerr << m << " " << t << " " << n << " " << f << endl;
-
     int s = 0;
     while (q--) {
         int u, v;
         cin >> u >> v;
 
-        int r = (1 + (s ^ u)) % (1 << 11);
-        int c = 1 + ((s ^ v)) % (1 << 11);
-
- //       cerr << "(" << r << ", " << c << ")" << endl;
+        int r = (1 + (s ^ u)) % mod;
+        int c = 1 + ((s ^ v)) % mod;
 
         add_sea(r, c);
 
         int ans = m + t - n - f;
         cout << ans << endl;
 
-        s = 427 * s + 1821 * ans;
-        s %= (1 << 11);
+        s = 427 * s + 821 * ans;
+        s %= mod;
     }
 }
