@@ -22,9 +22,6 @@ forum = ""
     name = "random4.cpp"
     number = 10
 
-[[solutions]]
-    name = "tubuann.cpp"
-
 [[tests]]
     name = "whandmade.in"
     number = 1
