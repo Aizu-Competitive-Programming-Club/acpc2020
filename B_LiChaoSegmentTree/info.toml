@@ -15,6 +15,9 @@ forum = ""
     wrong = true
 
 [[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
     name = "Endered.cpp"
 
 [[solutions]]
