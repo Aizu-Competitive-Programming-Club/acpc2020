@@ -19,6 +19,9 @@ forum = ""
     number = 10
 
 [[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
 name = "c7c7c7c7.cpp"
 
 [[solutions]]
