@@ -69,7 +69,7 @@ git commit -m '[run ci] add SpecialChat'
 |[keymoon.cpp](A_RTA//sol/keymoon.cpp)|AC|
 |[Endered.cpp](A_RTA//sol/Endered.cpp)|AC|
 |[ok.cpp](A_RTA//sol/ok.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end A - RTA -->
 
 <!-- start B - LiChaoSegmentTree -->
@@ -83,7 +83,7 @@ git commit -m '[run ci] add SpecialChat'
 |[shot.cpp](B_LiChaoSegmentTree//sol/shot.cpp)|AC|
 |[keymoon.cpp](B_LiChaoSegmentTree//sol/keymoon.cpp)|AC|
 |[beet.cpp](B_LiChaoSegmentTree//sol/beet.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end B - LiChaoSegmentTree -->
 
 <!-- start C - Broken Machine -->
@@ -97,7 +97,7 @@ git commit -m '[run ci] add SpecialChat'
 |[Endered.cpp](C_BrokenMachine//sol/Endered.cpp)|AC|
 |[toyama_wa.cpp](C_BrokenMachine//sol/toyama_wa.cpp)|WA|
 |[toyama.cpp](C_BrokenMachine//sol/toyama.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end C - Broken Machine -->
 
 <!-- start D - P -->
@@ -108,7 +108,7 @@ git commit -m '[run ci] add SpecialChat'
 |[wa.cpp](D_P//sol/wa.cpp)|WA|
 |[tubuann.cpp](D_P//sol/tubuann.cpp)|AC|
 |[beet.cpp](D_P//sol/beet.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end D - P -->
 
 <!-- start E - Monochrome Stone -->
@@ -128,7 +128,7 @@ git commit -m '[run ci] add SpecialChat'
 |[tubuann_TLE_fast.cpp](E_MonochromeStone//sol/tubuann_TLE_fast.cpp)|TLE|
 |[beet.cpp](E_MonochromeStone//sol/beet.cpp)|AC|
 |[beet_wa.cpp](E_MonochromeStone//sol/beet_wa.cpp)|WA|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end E - Monochrome Stone -->
 
 <!-- start F - LotOfMountains -->
@@ -144,7 +144,7 @@ git commit -m '[run ci] add SpecialChat'
 |[tubuann.cpp](F-LotOfMountains//sol/tubuann.cpp)|AC|
 |[tubuann_float.cpp](F-LotOfMountains//sol/tubuann_float.cpp)|WA|
 |[beet.cpp](F-LotOfMountains//sol/beet.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end F - LotOfMountains -->
 
 <!-- start G - Connect the dots -->
@@ -157,7 +157,7 @@ git commit -m '[run ci] add SpecialChat'
 |[beet.cpp](G_Connect_the_dots//sol/beet.cpp)|AC|
 |[tubuann.cpp](G_Connect_the_dots//sol/tubuann.cpp)|AC|
 |[moritaoy_naive.cpp](G_Connect_the_dots//sol/moritaoy_naive.cpp)|TLE|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end G - Connect the dots -->
 
 <!-- start H - Islands -->
@@ -170,7 +170,7 @@ git commit -m '[run ci] add SpecialChat'
 |[Luzhiled.cpp](H_Islands//sol/Luzhiled.cpp)|AC|
 |[Endered.cpp](H_Islands//sol/Endered.cpp)|AC|
 |[beet_snuke.cpp](H_Islands//sol/beet_snuke.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end H - Islands -->
 
 <!-- start I - Origami -->
@@ -178,11 +178,12 @@ git commit -m '[run ci] add SpecialChat'
 ### Time Limit: 2.0
 | solution name | type |
 |----|----|
+|[tubuann.cpp](I_Origami//sol/tubuann.cpp)|AC|
 |[c7c7c7c7.cpp](I_Origami//sol/c7c7c7c7.cpp)|AC|
 |[Luzhiled.cpp](I_Origami//sol/Luzhiled.cpp)|AC|
 |[beet.cpp](I_Origami//sol/beet.cpp)|AC|
 |[wa.cpp](I_Origami//sol/wa.cpp)|WA|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end I - Origami -->
 
 <!-- start J - DEG MUL SUM -->
@@ -194,7 +195,7 @@ git commit -m '[run ci] add SpecialChat'
 |[beet_naive.cpp](J_DEG_MUL_SUM//sol/beet_naive.cpp)|TLE|
 |[beet_tle.cpp](J_DEG_MUL_SUM//sol/beet_tle.cpp)|TLE|
 |[tubuann.cpp](J_DEG_MUL_SUM//sol/tubuann.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end J - DEG MUL SUM -->
 
 <!-- start K - Zor -->
@@ -207,7 +208,7 @@ git commit -m '[run ci] add SpecialChat'
 |[tubuann4dbl.cpp](K_Zor//sol/tubuann4dbl.cpp)|TLE|
 |[beet.cpp](K_Zor//sol/beet.cpp)|AC|
 |[Endered.cpp](K_Zor//sol/Endered.cpp)|AC|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end K - Zor -->
 
 <!-- start SpecialChat -->
@@ -216,7 +217,7 @@ git commit -m '[run ci] add SpecialChat'
 | solution name | type |
 |----|----|
 |[wa.cpp](SpecialChat//sol/wa.cpp)|WA|
-###### updated 2020/09/20 14:08:34
+###### updated 2020/09/20 14:21:22
 <!-- end SpecialChat -->
 
 <!-- end * -->
