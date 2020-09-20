@@ -23,6 +23,9 @@ forum = ""
    wrong = true
 
 [[solutions]]
+    name = "tubuann.cpp"
+
+[[solutions]]
    name = "beet.cpp"
 
 [[solutions]]
