@@ -14,8 +14,6 @@ template<typename T,typename U>istream & operator >> (istream &i,pair<T,U> &A){i
 template<typename T>istream & operator >> (istream &i,vector<T> &A){for(auto &I:A){i>>I;} return i;}
 template<typename T,typename U>ostream & operator << (ostream &o,const pair<T,U> &A){o<<A.F<<" "<<A.S; return o;}
 template<typename T>ostream & operator << (ostream &o,const vector<T> &A){int i=A.size(); for(auto &I:A){o<<I<<(--i?" ":"");} return o;}
-template<typename T,typename U>T & chmax(T &a,const U &b){if(a<b){a=b;} return a;}
-template<typename T,typename U>T & chmin(T &a,const U &b){if(b<a){a=b;} return a;}
 
 ll ceil(ll a,ll b){return (a+b-1)/b;}
 
@@ -28,18 +26,20 @@ int main(){
   ll N,P;
   cin>>N>>P;
   vector<ll> A(N);
-  map<ll,ll> M;
   cin>>A;
+  vector<ll> cnt(P+1,0);
   ll T=0;
-  for(auto &I:A){T+=I; M[I]++;}
-  if(P<T || T+N<=P){cout<<-1<<endl; return 0;}
+  for(auto &I:A){cnt[I]++; T+=I;}
+  //assert(T<=P && P<T+N);
+  if(!(T<=P && P<T+N)){cout<<-1<<endl; return 0;}
   for(ll S=1;;S++){
     ll lf=0,rg=0,gd=1;
-    for(auto &I:M){
-      ll l=ceil(I.F*S,P),r=lt((I.F+1)*S,P);
+    for(ll j=0;j<=P && gd;j++){
+      if(cnt[j]==0){continue;}
+      ll l=ceil(j*S,P),r=lt((j+1)*S,P);
       if(l>r){gd=0; break;}
-      lf+=l*I.S;
-      rg+=r*I.S;
+      lf+=l*cnt[j];
+      rg+=r*cnt[j];
     }
     if(gd==0 || S<lf || rg<S){continue;}
     ll rem=S-lf;
@@ -52,7 +52,8 @@ int main(){
     cout<<ans<<endl;
     return 0;
   }
-  abort();
+  assert(false);
+  
 
   return 0;
 }

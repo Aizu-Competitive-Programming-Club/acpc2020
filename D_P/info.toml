@@ -22,6 +22,9 @@ forum = ""
     name = "random4.cpp"
     number = 10
 
+[[solutions]]
+    name = "tubuann.cpp"
+
 [[tests]]
     name = "random5.cpp"
     number = 5
@@ -75,8 +78,8 @@ forum = ""
 #    name = "mo3tthi.cpp"
 
 	
-#[[solutions]]
-#    name = "tubuann.cpp"
+[[solutions]]
+    name = "tubuann.cpp"
 
 	
 [[solutions]]
