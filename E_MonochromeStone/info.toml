@@ -56,6 +56,13 @@ forum = ""
     name = "tubuann_TLE_fast.cpp"
     allow_tle = true
 
+[[solutions]]
+    name = "beet.cpp"
+
+[[solutions]]
+    name = "beet_wa.cpp"
+    wrong = true
+
 [params]
     N_P_K_MIN = 1
     N_P_K_MAX = 5000
