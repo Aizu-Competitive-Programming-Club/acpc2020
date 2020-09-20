@@ -7,12 +7,22 @@ forum = ""
     number = 4
 
 [[tests]]
-    name = "random.cpp"
-    number = 10
-
-[[tests]]
     name = "random_small.cpp"
     number = 5
+
+[[tests]]
+    name = "random.cpp"
+    number = 20
+
+[[tests]]
+    name = "random_max.cpp"
+    number = 10
+
+[[solutions]]
+name = "c7c7c7c7.cpp"
+
+[[solutions]]
+name = "Luzhiled.cpp"
 
 [[solutions]]
     name = "wa.cpp"
@@ -20,10 +30,9 @@ forum = ""
 
 [params]
     N_MIN = 3
-    N_MAX = 1000
+    N_MAX = 30
     M_MIN = 1
-    M_MAX = 10
-    xy_MIN = -1e4
-    xy_MAX = 1e4
-    significant_digit = 6
-    param_EPS = 1e-6
+    M_MAX = 5
+    xy_abs = 1000    
+    significant_digit = 4
+    param_EPS = 1e-4

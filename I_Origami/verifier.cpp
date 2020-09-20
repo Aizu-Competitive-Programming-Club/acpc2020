@@ -397,7 +397,7 @@ bool isConvex(Polygon p){
   int n=p.size();
   for(int i=0;i<n;i++){
     int t=ccw(p[(i+n-1)%n],p[i],p[(i+1)%n]);
-    f&=t!=CCW_CLOCKWISE;
+    f&=t==CCW_COUNTER_CLOCKWISE;
   }
   return f;
 }
@@ -476,50 +476,65 @@ int main() {
     inf.readChar('\n');
     Polygon P;
     string s;
+
+    int xy_MIN = -xy_abs;
+    int xy_MAX = xy_abs;
+    
     for ( int i = 0; i < N; i++ ) {
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));	     
-      double x = stod(s);
-      ensure(xy_MIN <= x && x <= xy_MAX);
-      
+      int x = inf.readInt(xy_MIN, xy_MAX);            
       inf.readChar(' ');
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));      
-      double y = stod(s);
-      ensure(xy_MIN <= y && y <= xy_MAX);      
+      int y = inf.readInt(xy_MIN, xy_MAX);            
       inf.readChar('\n');
       
       P.push_back(Point(x, y));      
     }
 
+    // 同じ座標が２つ以上含まれていないか
+    {
+      set<pair<int, int> > S;
+      for ( auto p: P ) {
+	ensure(S.count(pair<int, int>(p.x, p.y)) == 0);
+	S.insert(pair<int, int>(p.x, p.y));	
+      }
+    }
+
+    // 半時計回りに与えられているか
+    {
+      int sz = P.size();
+      for ( int i = 0; i < sz; i++ ) {
+	ensure(ccw(P[i], P[(i+1)%sz], P[(i+2)%sz]) == CCW_COUNTER_CLOCKWISE);	
+      }
+    }
+    ensure(P.size() == andrewScan(P).size());    
     ensure(isConvex(P));    
 
-    for ( int i = 0; i < M; i++ ) {      
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));
-      double px = stod(s);
-      ensure(xy_MIN <= px && px <= xy_MAX);
+    vector<Polygon> Ps{P};    
+    for ( int i = 0; i < M; i++ ) {
+      Segment s;      
+      s.p1.x = inf.readInt(xy_MIN, xy_MAX);      
       inf.readChar(' ');
       
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));
-      double py = stod(s);
-      ensure(xy_MIN <= py && py <= xy_MAX);
+      s.p1.y = inf.readInt(xy_MIN, xy_MAX);      
       inf.readChar(' ');
       
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));
-      double qx = stod(s);
-      ensure(xy_MIN <= qx && qx <= xy_MAX);
+      s.p2.x = inf.readInt(xy_MIN, xy_MAX);      
       inf.readChar(' ');
       
-      s = inf.readToken();
-      ensure(is_less_than_6_decimal_points(s));
-      double qy = stod(s);
-      ensure(xy_MIN <= qy && qy <= xy_MAX);
-
-      ensure(px != qx || py != qy);      
+      s.p2.y = inf.readInt(xy_MIN, xy_MAX);      
+      ensure(s.p1.x != s.p2.x || s.p1.y != s.p2.y);      
       inf.readChar('\n');
+
+      bool flag = false; // 何かしらの多角形を切断していたらtrue      
+      vector<Polygon> n_Ps;
+      for ( Polygon &P: Ps ) {
+	Polygon tmp = convexCut(P, s);
+	if ( area(tmp) != 0 && (area(tmp) != area(P)) ) flag = true;	
+	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(linearly_symmetric_movement(tmp, s)));
+	tmp = convexCut(P, Line(s.p2, s.p1));
+	if ( tmp.size() > 2 ) n_Ps.push_back(andrewScan(tmp));      
+      }
+      ensure(flag);      
+      Ps = n_Ps;    
     }
     inf.readEof();
     return 0;

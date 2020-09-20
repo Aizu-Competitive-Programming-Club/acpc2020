@@ -1,5 +1,5 @@
 title = 'J - DEG MUL SUM'
-timelimit = 2.0
+timelimit = 8.0
 forum = ""
 
 [[tests]]
@@ -25,6 +25,10 @@ forum = ""
 [[solutions]]
     name = "keymoon.cpp"
 
+#[[solutions]]
+#    name = "keymoon_tle.cpp"
+#    allow_tle = true
+
 [[solutions]]
     name = "beet_naive.cpp"
     allow_tle = true
@@ -35,7 +39,6 @@ forum = ""
 
 [[solutions]]
     name = "tubuann.cpp"
-    allow_tle = true
 
 [params]
     N_MIN = 2

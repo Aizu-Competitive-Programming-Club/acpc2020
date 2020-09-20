@@ -24,7 +24,7 @@ int main() {
 			cin >> u >> v;
 			u--; v--;
 			query.emplace_back(u, v);
-			if (!adjs[u].insert(v).second || !adjs[v].insert(u).second) {
+			if (!(adjs[u].insert(v).second && adjs[v].insert(u).second)) {
 				adjs[u].erase(v);
 				adjs[v].erase(u);
 			}
